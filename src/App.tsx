@@ -1,5 +1,4 @@
 import logo from "./assets/logo.png";
-import React from "react";
 
 const primary = "#2d2764";
 const accent = "#bfa371";
