@@ -1,19 +1,17 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Teachers from "./components/Teachers";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import CareersPage from "./pages/Careers";
 
 export default function FluentMindLanding() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <Header />
-      <Hero />
-      <About />
-      <Teachers />
-      <Contact />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="careers" element={<CareersPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
