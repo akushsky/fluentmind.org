@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Небольшие глобальные настройки */
+/* CSS Variables for brand colors */
+:root {
+  --color-primary: #2d2764;
+  --color-accent: #bfa371;
+  --color-border: #e5e7eb;
+  --color-bg-light: #f3f4f6;
+}
+
+/* Глобальные настройки */
 body {
-  @apply bg-white text-slate-900 antialiased;
+  @apply bg-white text-slate-900 antialiased font-sans;
 }
 
 button {
   @apply cursor-pointer;
 }
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
