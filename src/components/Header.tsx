@@ -51,6 +51,9 @@ export default function Header() {
               <a href="#teachers" className="hover:underline">
                 {CONTENT.navigation.teachers}
               </a>
+              <a href="#courses" className="hover:underline">
+                {CONTENT.navigation.courses}
+              </a>
               <a href="#contact" className="hover:underline">
                 {CONTENT.navigation.contact}
               </a>

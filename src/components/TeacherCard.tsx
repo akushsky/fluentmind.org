@@ -55,3 +55,5 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
   );
 }
 
+
+

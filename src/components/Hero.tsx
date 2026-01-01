@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href="#contact"
+              href="#courses"
               className="rounded-full px-6 py-3 text-sm font-semibold text-white shadow-md transition-opacity hover:opacity-90"
               style={{ backgroundColor: COLORS.primary }}
             >
@@ -84,24 +84,16 @@ export default function Hero() {
                   className="w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                   style={{ borderColor: COLORS.border }}
                 />
-                <label htmlFor="trial-language" className="sr-only">
-                  {CONTENT.hero.form.fields.language}
+                <label htmlFor="trial-request" className="sr-only">
+                  {CONTENT.hero.form.fields.request}
                 </label>
-                <select
-                  id="trial-language"
-                  className="w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1 bg-white"
+                <textarea
+                  id="trial-request"
+                  placeholder={CONTENT.hero.form.fields.request}
+                  rows={3}
+                  className="w-full resize-none rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                   style={{ borderColor: COLORS.border }}
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    {CONTENT.hero.form.fields.language}
-                  </option>
-                  {CONTENT.hero.form.languageOptions.map((lang) => (
-                    <option key={lang} value={lang}>
-                      {lang}
-                    </option>
-                  ))}
-                </select>
+                />
                 <button
                   type="button"
                   className="w-full rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
@@ -120,4 +112,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
 

@@ -1,5 +1,6 @@
 import { COLORS } from "../constants/colors";
 import { CONTENT } from "../constants/content";
+import logo from "../assets/logo_round_blue.jpg";
 
 export default function About() {
   return (
@@ -9,12 +10,14 @@ export default function About() {
       aria-labelledby="about-title"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 md:flex-row md:py-16">
-        <div className="relative flex-1" aria-hidden="true">
-          <div
-            className="h-full w-[85%] rounded-3xl"
-            style={{ backgroundColor: COLORS.accent }}
-          />
-          <div className="absolute inset-6 rounded-3xl border bg-slate-100/80" />
+        <div className="flex flex-1 items-center justify-center">
+          <div className="w-full max-w-md rounded-3xl overflow-hidden">
+            <img
+              src={logo}
+              alt={CONTENT.brand.name}
+              className="w-full h-auto object-cover rounded-3xl"
+            />
+          </div>
         </div>
 
         <div className="flex-1 space-y-6">
@@ -25,9 +28,6 @@ export default function About() {
           >
             {CONTENT.about.title}
           </h2>
-          <p className="text-sm uppercase tracking-[0.18em] text-slate-400">
-            {CONTENT.about.subtitle}
-          </p>
           <div className="space-y-4 text-sm leading-relaxed text-slate-600 md:text-base">
             {CONTENT.about.paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -50,4 +50,6 @@ export default function About() {
     </section>
   );
 }
+
+
 
