@@ -1,7 +1,7 @@
 export const CONTENT = {
   brand: {
     name: "Fluent Mind",
-    tagline: "Online Language School",
+    tagline: "Школа дополнительного образования",
   },
   navigation: {
     home: "Главная",
