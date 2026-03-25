@@ -34,6 +34,7 @@ export default function Teachers() {
               key={teacher.id}
               direction={index % 2 === 0 ? "left" : "right"}
               delay={index * 0.2}
+              className="h-full"
             >
               <TeacherCard teacher={teacher} />
             </AnimatedSection>
