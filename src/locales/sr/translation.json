@@ -39,7 +39,33 @@
   "teachers": {
     "title": "Na\u0161i specijalisti",
     "description": "",
-    "signUp": "Prijavite se kod {{name}}"
+    "signUp": "Prijavite se kod {{name}}",
+    "items": [
+      {
+        "id": "anastasia-dulich",
+        "name": "Anastasija Dulič",
+        "initials": "AD",
+        "languages": ["Engleski", "Ruski", "Srpski", "Hrvatski"],
+        "description": "Individualni pristup, fokus na živom govornom jeziku i samopouzdanju u komunikaciji. Priprema za ispite i intervjue.",
+        "specialties": ["Individualni i časovi u paru", "Priprema za ispite i intervjue", "Konverzacijska praksa za odrasle"]
+      },
+      {
+        "id": "olga-basova",
+        "name": "Olga Basova",
+        "initials": "OB",
+        "languages": ["Hebrejski", "Engleski"],
+        "description": "Predavač hebrejskog i engleskog jezika. Iskustvo rada sa decom, tinejdžerima i odraslima. Individualni pristup svakom studentu.",
+        "specialties": ["Predavanje hebrejskog", "Predavanje engleskog", "Individualni časovi"]
+      },
+      {
+        "id": "olga-biryukova",
+        "name": "Olga Birjukova",
+        "initials": "OB",
+        "languages": ["Psihoterapija"],
+        "description": "Psihoterapeut i defektolog. Rad sa razvojnim posebnostima, podrška u učenju, neuro-prijateljski pristup.",
+        "specialties": ["Psihoterapija", "Defektologija", "Neuro-prijateljski pristup"]
+      }
+    ]
   },
   "courses": {
     "title": "Na\u0161i kursevi",

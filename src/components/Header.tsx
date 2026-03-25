@@ -8,7 +8,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 export default function Header() {
   const { t } = useTranslation();
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === "/" || /^\/[a-z]{2}\/?$/.test(location.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 

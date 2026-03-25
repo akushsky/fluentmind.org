@@ -3,51 +3,9 @@ import TeacherCard from "./TeacherCard";
 import AnimatedSection from "./AnimatedSection";
 import type { Teacher } from "../types";
 
-// Mock data - in the future this could come from an API or CMS
-const teachers: Teacher[] = [
-  {
-    id: "anastasia-dulich",
-    name: "Анастасия Дулич",
-    initials: "AD",
-    languages: ["Английский", "Русский", "Сербский", "Хорватский"],
-    description:
-      "Индивидуальный подход, внимание к живой разговорной речи и уверенности в общении. Подготовка к экзаменам и собеседованиям.",
-    specialties: [
-      "Индивидуальные и парные занятия",
-      "Подготовка к экзаменам и собеседованиям",
-      "Разговорная практика для взрослых",
-    ],
-  },
-  {
-    id: "olga-basova",
-    name: "Ольга Басова",
-    initials: "ОБ",
-    languages: ["Иврит", "Английский"],
-    description:
-      "Преподаватель иврита и английского языка. Опыт работы с детьми, подростками и взрослыми. Индивидуальный подход к каждому студенту.",
-    specialties: [
-      "Преподавание иврита",
-      "Преподавание английского",
-      "Индивидуальные занятия",
-    ],
-  },
-  {
-    id: "olga-biryukova",
-    name: "Ольга Бирюкова",
-    initials: "ОБ",
-    languages: ["Психотерапия"],
-    description:
-      "Психотерапевт-дефектолог. Работа с особенностями развития, поддержка в обучении, нейродружелюбный подход.",
-    specialties: [
-      "Психотерапия",
-      "Дефектология",
-      "Нейродружелюбный подход",
-    ],
-  },
-];
-
 export default function Teachers() {
   const { t } = useTranslation();
+  const teachers = t("teachers.items", { returnObjects: true }) as Teacher[];
 
   return (
     <section

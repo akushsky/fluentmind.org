@@ -39,7 +39,33 @@
   "teachers": {
     "title": "Our specialists",
     "description": "",
-    "signUp": "Sign up with {{name}}"
+    "signUp": "Sign up with {{name}}",
+    "items": [
+      {
+        "id": "anastasia-dulich",
+        "name": "Anastasia Dulich",
+        "initials": "AD",
+        "languages": ["English", "Russian", "Serbian", "Croatian"],
+        "description": "Individual approach, focus on real conversational speech and confidence in communication. Exam and interview preparation.",
+        "specialties": ["Individual and pair lessons", "Exam and interview preparation", "Conversational practice for adults"]
+      },
+      {
+        "id": "olga-basova",
+        "name": "Olga Basova",
+        "initials": "OB",
+        "languages": ["Hebrew", "English"],
+        "description": "Hebrew and English teacher. Experience working with children, teenagers, and adults. Individual approach to each student.",
+        "specialties": ["Hebrew teaching", "English teaching", "Individual lessons"]
+      },
+      {
+        "id": "olga-biryukova",
+        "name": "Olga Biryukova",
+        "initials": "OB",
+        "languages": ["Psychotherapy"],
+        "description": "Psychotherapist and speech-language pathologist. Working with developmental differences, learning support, neuro-friendly approach.",
+        "specialties": ["Psychotherapy", "Speech-language pathology", "Neuro-friendly approach"]
+      }
+    ]
   },
   "courses": {
     "title": "Our courses",
