@@ -26,7 +26,7 @@ Restructure homepage sections to follow a lead-generation funnel:
 |-------|---------|---------|--------|
 | 1 | Hero | Hook & single CTA | Simplified — one CTA ("Записаться на пробный урок"), no inline form, features as visual icons |
 | 2 | How It Works | Reduce anxiety | NEW — 3-step visual (Запишитесь → Пройдите диагностику → Начните заниматься) |
-| 3 | Courses | Show what you get | Moved UP from position 4. Each card gets its own CTA |
+| 3 | Courses | Show what you get | Moved UP from position 4. Each card gets its own CTA scrolling to Contact form |
 | 4 | Teachers | Build trust | Moved DOWN from position 3. Only 3 real teachers, no placeholders |
 | 5 | About / Mission | Emotional connection | Moved DOWN from position 2. Condensed to key message |
 | 6 | Contact / Sign Up | Convert | Single clean form + social links. The final ask |
@@ -41,7 +41,7 @@ Restructure homepage sections to follow a lead-generation funnel:
 
 - **Hamburger menu:** Full-screen overlay with large touch targets. Slide-down animation with fade.
 - **Menu contents:** Section links (Курсы, Специалисты, О нас, Контакты, Карьера) + language switcher (RU/EN/HE/SR pills) + primary CTA button.
-- **Sticky bottom CTA bar:** Always visible on mobile — "Пробный урок — бесплатно" with "Записаться" button. Hides when user scrolls to the contact form section to avoid redundancy.
+- **Sticky bottom CTA bar:** Always visible on mobile — "Пробный урок — бесплатно" with "Записаться" button. Hides via Intersection Observer when the contact form section enters the viewport.
 - **Header language badge:** Compact current-language indicator (e.g., "RU") that opens the language selector.
 - **Hero on mobile:** Single CTA button, badge + headline + one paragraph. No inline form.
 
@@ -58,7 +58,7 @@ Using `framer-motion` for all animations. Guiding principles:
 | Section | Animation | Details |
 |---------|-----------|---------|
 | Hero | Staggered fade-up | Badge → Headline → Description → CTA, 100ms apart. Features icons fade in as group after CTA |
-| How It Works | Step-by-step reveal | Steps appear one at a time. Connecting line draws between them |
+| How It Works | Step-by-step reveal | Steps appear one at a time. Simple CSS border/line animates between steps (not elaborate SVG path drawing) |
 | Courses | Cards fan in | Slide up + fade, 150ms stagger. Hover: lift (translateY -4px) + shadow deepen |
 | Teachers | Cards slide from sides | Alternate left/right entry. Hover: border transitions to gold |
 | About | Gentle fade-in | Simple fade-up. Quote left-border draws down |
@@ -110,7 +110,7 @@ Using `react-i18next` + `i18next`.
 - Message field explicitly marked optional — reduces friction
 
 **Simulated submission flow:**
-1. **Validation:** Client-side — name required, phone/WhatsApp format check. Invalid fields highlight red with shake animation.
+1. **Validation:** Client-side — name required, loose phone validation (not empty + digits/spaces/dashes/plus, no strict country format since audience spans RU/IL/RS/EN). Invalid fields highlight red with shake animation.
 2. **Loading state:** Button shows spinner + "Отправляем..." for 1.5 seconds. Button disabled during this time.
 3. **Success screen:** Form replaced by checkmark animation + "Спасибо! Мы свяжемся с вами в ближайшее время."
 
