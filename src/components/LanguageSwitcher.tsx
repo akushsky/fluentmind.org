@@ -18,6 +18,7 @@ export default function LanguageSwitcher({ variant }: LanguageSwitcherProps) {
   const location = useLocation();
 
   const switchLanguage = (code: string) => {
+    localStorage.setItem("langChosen", "true");
     void i18n.changeLanguage(code);
     const pathParts = location.pathname.split("/").filter(Boolean);
     const currentLang = LANGUAGES.find((l) => l.code === pathParts[0]);

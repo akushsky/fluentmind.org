@@ -7,19 +7,19 @@ import CareersPage from "./pages/Careers";
 
 const SUPPORTED_LANGS = ["en", "he", "sr"];
 
-function detectBrowserLang(): string {
-  const stored = localStorage.getItem("i18nextLng");
-  if (stored && [...SUPPORTED_LANGS, "ru"].includes(stored)) return stored;
-
-  const browserLang = navigator.language.split("-")[0];
-  if (SUPPORTED_LANGS.includes(browserLang)) return browserLang;
-  return "ru";
-}
-
 function BrowserLanguageRedirect() {
-  const lang = detectBrowserLang();
-  if (lang === "ru") return <LanguageWrapper />;
-  return <Navigate to={`/${lang}/`} replace />;
+  // If user explicitly picked a language before, respect it — don't auto-redirect
+  const userChose = localStorage.getItem("langChosen");
+  if (userChose) return <LanguageWrapper />;
+
+  // First-time visitor: detect browser/OS language
+  const browserLang = navigator.language.split("-")[0];
+  if (SUPPORTED_LANGS.includes(browserLang)) {
+    return <Navigate to={`/${browserLang}/`} replace />;
+  }
+
+  // Default to Russian
+  return <LanguageWrapper />;
 }
 
 function LanguageWrapper() {
