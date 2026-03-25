@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import TeacherCard from "./TeacherCard";
+import AnimatedSection from "./AnimatedSection";
 import type { Teacher } from "../types";
 
 // Mock data - in the future this could come from an API or CMS
@@ -70,8 +71,14 @@ export default function Teachers() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {teachers.map((teacher) => (
-            <TeacherCard key={teacher.id} teacher={teacher} />
+          {teachers.map((teacher, index) => (
+            <AnimatedSection
+              key={teacher.id}
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={index * 0.2}
+            >
+              <TeacherCard teacher={teacher} />
+            </AnimatedSection>
           ))}
         </div>
       </div>

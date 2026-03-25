@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import AnimatedSection from "./AnimatedSection";
 
 interface CourseItem {
   title: string;
@@ -40,50 +41,49 @@ export default function Courses() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {items.map((course, index) => (
-            <article
-              key={index}
-              className="flex flex-col rounded-3xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="mb-4">
-                <h3 className="text-lg font-bold text-primary">
-                  {course.title}
-                </h3>
-                {course.subtitle && (
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                    {course.subtitle}
+            <AnimatedSection key={index} delay={index * 0.15}>
+              <article className="flex h-full flex-col rounded-3xl border bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-primary">
+                    {course.title}
+                  </h3>
+                  {course.subtitle && (
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                      {course.subtitle}
+                    </p>
+                  )}
+                </div>
+
+                {course.description && (
+                  <p className="mb-4 flex-1 text-sm text-slate-600">
+                    {course.description}
                   </p>
                 )}
-              </div>
 
-              {course.description && (
-                <p className="mb-4 flex-1 text-sm text-slate-600">
-                  {course.description}
-                </p>
-              )}
+                {course.features && course.features.length > 0 && (
+                  <ul className="mb-4 space-y-2 text-xs text-slate-500">
+                    {course.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-2">
+                        <span
+                          className="mt-0.5 text-xs leading-none text-accent"
+                          aria-hidden="true"
+                        >
+                          •
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-              {course.features && course.features.length > 0 && (
-                <ul className="mb-4 space-y-2 text-xs text-slate-500">
-                  {course.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-2">
-                      <span
-                        className="mt-0.5 text-xs leading-none text-accent"
-                        aria-hidden="true"
-                      >
-                        •
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <a
-                href="#contact"
-                className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-              >
-                {course.cta || "Узнать больше"}
-              </a>
-            </article>
+                <a
+                  href="#contact"
+                  className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+                >
+                  {course.cta || "Узнать больше"}
+                </a>
+              </article>
+            </AnimatedSection>
           ))}
         </div>
       </div>

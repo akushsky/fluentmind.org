@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import AnimatedSection from "./AnimatedSection";
 
 interface Step {
   number: string;
@@ -25,8 +26,9 @@ export default function HowItWorks() {
           <div className="absolute top-10 hidden h-0.5 w-full bg-gradient-to-r from-primary/20 via-accent/40 to-primary/20 md:block" />
 
           {steps.map((step, index) => (
-            <div
+            <AnimatedSection
               key={index}
+              delay={index * 0.2}
               className="relative z-10 flex flex-1 flex-col items-center text-center"
             >
               <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-2xl font-bold text-white shadow-lg">
@@ -38,7 +40,7 @@ export default function HowItWorks() {
               <p className="max-w-xs text-sm text-slate-600">
                 {step.description}
               </p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

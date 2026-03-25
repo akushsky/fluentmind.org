@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import FloatingInput from "./FloatingInput";
 import FloatingTextarea from "./FloatingTextarea";
 import { useFormSubmit } from "../hooks/useFormSubmit";
+import AnimatedSection from "./AnimatedSection";
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -39,7 +40,7 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.2fr,1fr]">
-          <div>
+          <AnimatedSection direction="left">
             <h2
               id="contact-title"
               className="text-2xl font-bold text-primary md:text-3xl"
@@ -165,79 +166,89 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          {state.status === "success" ? (
-            <div className="flex flex-col items-center justify-center rounded-3xl border bg-slate-50 p-8 text-center">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                <svg
-                  className="h-8 w-8 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </div>
-              <p className="text-lg font-semibold text-primary">
-                {t("form.success")}
-              </p>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="rounded-3xl border bg-slate-50 p-5 md:p-6"
-            >
-              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                {t("contact.form.title")}
-              </div>
-              <p className="mb-4 text-sm text-slate-600">
-                {t("contact.form.description")}
-              </p>
-              <div className="space-y-3">
-                <FloatingInput
-                  id="contact-name"
-                  label={t("contact.form.fields.name")}
-                  required
-                  value={name}
-                  onChange={setName}
-                  error={state.errors.name}
-                />
-                <FloatingInput
-                  id="contact-phone"
-                  label={t("contact.form.fields.contact")}
-                  type="tel"
-                  required
-                  value={phone}
-                  onChange={setPhone}
-                  error={state.errors.phone}
-                />
-                <FloatingTextarea
-                  id="contact-message"
-                  label={t("contact.form.fields.request")}
-                  value={message}
-                  onChange={setMessage}
-                />
-                <button
-                  type="submit"
-                  disabled={state.status === "submitting"}
-                  className="w-full rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
-                >
-                  {state.status === "submitting"
-                    ? t("form.sending")
-                    : t("contact.form.submit")}
-                </button>
-                <p className="text-center text-[11px] leading-snug text-slate-400">
-                  {t("contact.form.trustSignals")}
+          <AnimatedSection direction="right" delay={0.1}>
+            {state.status === "success" ? (
+              <div className="flex flex-col items-center justify-center rounded-3xl border bg-slate-50 p-8 text-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <p className="text-lg font-semibold text-primary">
+                  {t("form.success")}
                 </p>
               </div>
-            </form>
-          )}
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="rounded-3xl border bg-slate-50 p-5 md:p-6"
+              >
+                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  {t("contact.form.title")}
+                </div>
+                <p className="mb-4 text-sm text-slate-600">
+                  {t("contact.form.description")}
+                </p>
+                <div className="space-y-3">
+                  <AnimatedSection delay={0.2}>
+                    <FloatingInput
+                      id="contact-name"
+                      label={t("contact.form.fields.name")}
+                      required
+                      value={name}
+                      onChange={setName}
+                      error={state.errors.name}
+                    />
+                  </AnimatedSection>
+                  <AnimatedSection delay={0.3}>
+                    <FloatingInput
+                      id="contact-phone"
+                      label={t("contact.form.fields.contact")}
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={setPhone}
+                      error={state.errors.phone}
+                    />
+                  </AnimatedSection>
+                  <AnimatedSection delay={0.4}>
+                    <FloatingTextarea
+                      id="contact-message"
+                      label={t("contact.form.fields.request")}
+                      value={message}
+                      onChange={setMessage}
+                    />
+                  </AnimatedSection>
+                  <AnimatedSection delay={0.5}>
+                    <button
+                      type="submit"
+                      disabled={state.status === "submitting"}
+                      className="w-full rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                    >
+                      {state.status === "submitting"
+                        ? t("form.sending")
+                        : t("contact.form.submit")}
+                    </button>
+                    <p className="mt-2 text-center text-[11px] leading-snug text-slate-400">
+                      {t("contact.form.trustSignals")}
+                    </p>
+                  </AnimatedSection>
+                </div>
+              </form>
+            )}
+          </AnimatedSection>
         </div>
       </div>
     </section>

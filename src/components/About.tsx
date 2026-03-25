@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo_round_blue.jpg";
+import AnimatedSection from "./AnimatedSection";
 
 export default function About() {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ export default function About() {
       aria-labelledby="about-title"
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-12 md:flex-row md:py-16">
-        <div className="flex flex-1 items-center justify-center">
+        <AnimatedSection direction="left" className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-md rounded-3xl overflow-hidden">
             <img
               src={logo}
@@ -20,9 +21,9 @@ export default function About() {
               className="w-full h-auto object-cover rounded-3xl"
             />
           </div>
-        </div>
+        </AnimatedSection>
 
-        <div className="flex-1 space-y-6">
+        <AnimatedSection direction="right" delay={0.1} className="flex-1 space-y-6">
           <h2
             id="about-title"
             className="text-2xl font-bold text-primary md:text-3xl"
@@ -43,7 +44,7 @@ export default function About() {
               — {t("about.quoteAuthor")}
             </footer>
           </blockquote>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
