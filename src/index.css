@@ -32,3 +32,18 @@ button {
 .btn-accent:hover::after {
   @apply translate-x-full;
 }
+
+/* RTL adjustments for utilities that don't auto-flip */
+[dir="rtl"] .space-x-6 > * + * {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+[dir="rtl"] .space-x-4 > * + * {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .gap-1\.5 {
+  direction: rtl;
+}
