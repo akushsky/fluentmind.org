@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import StickyMobileCTA from "./StickyMobileCTA";
 
 export default function Layout() {
   const location = useLocation();
@@ -23,6 +24,7 @@ export default function Layout() {
       </AnimatePresence>
       <Footer />
       <ScrollToTop />
+      <StickyMobileCTA />
     </div>
   );
 }
