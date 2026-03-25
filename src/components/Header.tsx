@@ -1,13 +1,18 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
+import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const { t } = useTranslation();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <>
     <header
       className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur"
       role="banner"
@@ -29,6 +34,16 @@ export default function Header() {
             </div>
           </div>
         </Link>
+
+        <button
+          className="flex flex-col gap-1 md:hidden"
+          onClick={() => setMenuOpen(true)}
+          aria-label="Открыть меню"
+        >
+          <span className="block h-0.5 w-5 rounded-sm bg-primary" />
+          <span className="block h-0.5 w-5 rounded-sm bg-primary" />
+          <span className="block h-0.5 w-5 rounded-sm bg-primary" />
+        </button>
 
         <nav
           className="hidden items-center gap-6 text-sm font-medium md:flex"
@@ -61,6 +76,7 @@ export default function Header() {
           >
             {t("nav.careers")}
           </Link>
+          <LanguageSwitcher variant="desktop" />
           {isHomePage && (
             <a
               href="#contact"
@@ -72,5 +88,7 @@ export default function Header() {
         </nav>
       </div>
     </header>
+    <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 }
