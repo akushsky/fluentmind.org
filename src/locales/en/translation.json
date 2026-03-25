@@ -1,0 +1,196 @@
+{
+  "brand": {
+    "name": "Fluent Mind",
+    "tagline": "Supplementary education school"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "teachers": "Our specialists",
+    "courses": "Our courses",
+    "contact": "Contact",
+    "careers": "Careers",
+    "trialLesson": "Sign up"
+  },
+  "hero": {
+    "badge": "Neuro-specialists online",
+    "title": "Online school\nwith neuro-approach",
+    "description": "Individual lessons and mini-groups for children, teenagers, and adults. We consider the specifics of memory, attention, and perception to make learning truly effective.",
+    "cta": {
+      "primary": "View courses",
+      "secondary": "View specialists"
+    },
+    "features": [
+      "Individual lessons",
+      "Flexible online schedule",
+      "Original materials"
+    ],
+    "form": {
+      "title": "Book a free consultation",
+      "description": "Leave your contact details and we'll find the right format and specialist for you.",
+      "fields": {
+        "name": "Your name",
+        "contact": "Phone",
+        "request": "Brief request"
+      },
+      "submit": "Submit request",
+      "disclaimer": ""
+    }
+  },
+  "about": {
+    "title": "Our mission",
+    "subtitle": "Mission Statement",
+    "paragraphs": [
+      "Fluent Mind is a school where a team of professionals helps people unlock their learning potential with care, attention, and an understanding of how the human brain works.",
+      "We create a safe learning environment that takes into account each student's individual characteristics. Our neuro-friendly approach allows us to effectively work with different types of information perception, memory, and attention.",
+      "We believe that everyone can succeed in learning when education is adapted to their unique needs and thinking patterns."
+    ],
+    "quote": "Learning should be caring, attentive, and based on an understanding of how each person's brain works.",
+    "quoteAuthor": "Fluent Mind"
+  },
+  "teachers": {
+    "title": "Our specialists",
+    "description": "",
+    "signUp": "Sign up with {{name}}"
+  },
+  "courses": {
+    "title": "Our courses",
+    "subtitle": "Choose the right learning format",
+    "description": "We offer various learning formats adapted to your needs and perception characteristics.",
+    "items": [
+      {
+        "title": "Individual lessons",
+        "subtitle": "Personal approach",
+        "description": "One-on-one lessons with a teacher. A fully customized program tailored to your goals and needs.",
+        "features": [
+          "Flexible schedule",
+          "Personalized program",
+          "Maximum attention",
+          "Rapid progress"
+        ],
+        "cta": "Sign up"
+      },
+      {
+        "title": "Mini-groups",
+        "subtitle": "Small group learning",
+        "description": "Classes in small groups of up to 4 people. A balance between individual approach and group dynamics.",
+        "features": [
+          "Groups of up to 4",
+          "Interactive learning",
+          "Group support",
+          "Affordable price"
+        ],
+        "cta": "Sign up"
+      },
+      {
+        "title": "Specialized programs",
+        "subtitle": "For special needs",
+        "description": "Programs for people with developmental differences and neurodivergence. A neuro-friendly approach to learning.",
+        "features": [
+          "Neuro-friendly approach",
+          "Adapted materials",
+          "Specialist support",
+          "Comfortable environment"
+        ],
+        "cta": "Learn more"
+      }
+    ]
+  },
+  "careers": {
+    "title": "Careers at Fluent Mind",
+    "subtitle": "Join our team",
+    "description": "We are looking for talented teachers who share our approach to neuro-friendly education. If you are passionate about languages and want to help people achieve their goals, we would love to meet you.",
+    "benefits": {
+      "title": "What we offer",
+      "items": [
+        "Flexible work schedule",
+        "Remote teaching format",
+        "Support and training",
+        "Competitive pay",
+        "Work with interesting students",
+        "Opportunities for professional growth"
+      ]
+    },
+    "openPositions": {
+      "title": "Open positions",
+      "noPositions": "We currently have no open positions, but we are always happy to review your resume."
+    },
+    "application": {
+      "title": "Submit your resume",
+      "description": "Send us your resume and tell us about yourself. We will contact you if a suitable position becomes available.",
+      "form": {
+        "name": "Your name",
+        "email": "Email",
+        "phone": "Phone (optional)",
+        "experience": "Teaching experience",
+        "languages": "What languages do you teach?",
+        "message": "Tell us about yourself and why you want to work at Fluent Mind",
+        "submit": "Submit resume"
+      },
+      "disclaimer": ""
+    }
+  },
+  "contact": {
+    "title": "Get in touch",
+    "email": "annydulich@gmail.com",
+    "phone": "+972587971733",
+    "social": {
+      "telegram": "https://t.me/Anaesty",
+      "whatsapp": "https://wa.me/972587971733",
+      "facebook": "https://www.facebook.com/anastasia.dulich.2025",
+      "instagramOwner": "https://www.instagram.com/anastasiadulich",
+      "instagramSchool": "https://www.instagram.com/fluent_mind_school"
+    },
+    "form": {
+      "title": "Book a free consultation",
+      "description": "Leave your contact details and we'll find the right format and specialist for you.",
+      "fields": {
+        "name": "Your name",
+        "contact": "Phone",
+        "request": "Brief request"
+      },
+      "submit": "Book a trial lesson \u2192",
+      "disclaimer": "",
+      "trustSignals": "Free \u2022 No commitment \u2022 We'll respond within an hour"
+    }
+  },
+  "footer": {
+    "copyright": "\u00a9 {{year}} Fluent Mind. All rights reserved.",
+    "tagline": "Online school for English and Russian languages."
+  },
+  "stickyCta": {
+    "label": "Trial lesson \u2014 free",
+    "button": "Sign up"
+  },
+  "form": {
+    "sending": "Sending...",
+    "success": "Thank you! We'll contact you soon.",
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "phoneRequired": "Please enter your phone number",
+      "phoneInvalid": "Please enter a valid phone number",
+      "emailRequired": "Please enter your email",
+      "emailInvalid": "Please enter a valid email address"
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Sign up",
+        "description": "Submit a request and we'll get back to you within an hour"
+      },
+      {
+        "number": "2",
+        "title": "Take a diagnostic",
+        "description": "Free level assessment and program selection tailored to your goals"
+      },
+      {
+        "number": "3",
+        "title": "Start learning",
+        "description": "Individual or group lessons at a time that works for you"
+      }
+    ]
+  }
+}
