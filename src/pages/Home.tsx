@@ -1,20 +1,19 @@
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Teachers from "../components/Teachers";
+import HowItWorks from "../components/HowItWorks";
 import Courses from "../components/Courses";
+import Teachers from "../components/Teachers";
+import About from "../components/About";
 import Contact from "../components/Contact";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <About />
-      <Teachers />
+      <HowItWorks />
       <Courses />
+      <Teachers />
+      <About />
       <Contact />
     </>
   );
 }
-
-
-
