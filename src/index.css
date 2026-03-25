@@ -19,7 +19,16 @@ button {
   @apply cursor-pointer;
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
+.btn-accent {
+  @apply relative overflow-hidden bg-accent text-primary font-semibold;
+}
+
+.btn-accent::after {
+  content: '';
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  transition: transform 0.5s ease;
+}
+
+.btn-accent:hover::after {
+  @apply translate-x-full;
 }

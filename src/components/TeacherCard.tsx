@@ -9,7 +9,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
   const { t } = useTranslation();
   return (
     <article
-      className="flex flex-col rounded-3xl border bg-white p-5 shadow-sm"
+      className="flex flex-col rounded-3xl border bg-white p-5 shadow-sm transition-all hover:border-accent hover:shadow-md"
       aria-labelledby={`teacher-${teacher.id}-name`}
     >
       <div className="mb-4 flex items-center gap-4">
