@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
@@ -10,6 +10,45 @@ export default function Header() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const sections = ["about", "teachers", "courses", "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0.3, rootMargin: "-80px 0px -50% 0px" },
+      );
+
+      observer.observe(element);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [isHomePage]);
+
+  const handleAnchorClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const id = href.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [],
+  );
 
   return (
     <>
@@ -56,16 +95,32 @@ export default function Header() {
           )}
           {isHomePage && (
             <>
-              <a href="#about" className="hover:underline">
+              <a
+                href="#about"
+                onClick={(e) => handleAnchorClick(e, "#about")}
+                className={`transition-colors hover:underline ${activeSection === "about" ? "font-semibold text-primary" : ""}`}
+              >
                 {t("nav.about")}
               </a>
-              <a href="#teachers" className="hover:underline">
+              <a
+                href="#teachers"
+                onClick={(e) => handleAnchorClick(e, "#teachers")}
+                className={`transition-colors hover:underline ${activeSection === "teachers" ? "font-semibold text-primary" : ""}`}
+              >
                 {t("nav.teachers")}
               </a>
-              <a href="#courses" className="hover:underline">
+              <a
+                href="#courses"
+                onClick={(e) => handleAnchorClick(e, "#courses")}
+                className={`transition-colors hover:underline ${activeSection === "courses" ? "font-semibold text-primary" : ""}`}
+              >
                 {t("nav.courses")}
               </a>
-              <a href="#contact" className="hover:underline">
+              <a
+                href="#contact"
+                onClick={(e) => handleAnchorClick(e, "#contact")}
+                className={`transition-colors hover:underline ${activeSection === "contact" ? "font-semibold text-primary" : ""}`}
+              >
                 {t("nav.contact")}
               </a>
             </>
@@ -80,6 +135,7 @@ export default function Header() {
           {isHomePage && (
             <a
               href="#contact"
+              onClick={(e) => handleAnchorClick(e, "#contact")}
               className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
               {t("nav.trialLesson")}
