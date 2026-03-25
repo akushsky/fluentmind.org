@@ -11,7 +11,7 @@ const teachers: Teacher[] = [
     initials: "AD",
     languages: ["Английский", "Русский", "Сербский", "Хорватский"],
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Более N лет преподавания, индивидуальный подход, внимание к живой разговорной речи и уверенности в общении.",
+      "Индивидуальный подход, внимание к живой разговорной речи и уверенности в общении. Подготовка к экзаменам и собеседованиям.",
     specialties: [
       "Индивидуальные и парные занятия",
       "Подготовка к экзаменам и собеседованиям",
@@ -72,15 +72,6 @@ export default function Teachers() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {teachers.map((teacher) => (
             <TeacherCard key={teacher.id} teacher={teacher} />
-          ))}
-          {CONTENT.teachers.placeholderCards.map((placeholder, index) => (
-            <article
-              key={`placeholder-${index}`}
-              className="flex flex-col items-start justify-center rounded-3xl border border-dashed bg-white/60 p-5 text-sm text-slate-400"
-              aria-label="Место для будущей карточки преподавателя"
-            >
-              {placeholder}
-            </article>
           ))}
         </div>
       </div>
