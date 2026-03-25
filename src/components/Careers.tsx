@@ -1,14 +1,44 @@
+import { useState, useMemo, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
+import FloatingInput from "./FloatingInput";
+import FloatingTextarea from "./FloatingTextarea";
+import { useFormSubmit } from "../hooks/useFormSubmit";
 
 export default function CareersSection() {
   const { t } = useTranslation();
-  const benefitItems = t("careers.benefits.items", { returnObjects: true }) as string[];
+  const benefitItems = t("careers.benefits.items", {
+    returnObjects: true,
+  }) as string[];
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [experience, setExperience] = useState("");
+  const [languages, setLanguages] = useState("");
+  const [message, setMessage] = useState("");
+
+  const validationRules = useMemo(
+    () => ({
+      name: (v: string) => (v.trim() ? null : t("form.errors.nameRequired")),
+      email: (v: string) => {
+        if (!v.trim()) return t("form.errors.emailRequired");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()))
+          return t("form.errors.emailInvalid");
+        return null;
+      },
+    }),
+    [t],
+  );
+
+  const { state, submit } = useFormSubmit(validationRules);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    submit({ name, email, phone, experience, languages, message });
+  };
 
   return (
-    <section
-      className="border-b bg-white"
-      aria-labelledby="careers-title"
-    >
+    <section className="border-b bg-white" aria-labelledby="careers-title">
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -34,7 +64,10 @@ export default function CareersSection() {
             </h3>
             <ul className="space-y-3">
               {benefitItems.map((benefit, index) => (
-                <li key={index} className="flex items-start gap-3 text-sm text-slate-600">
+                <li
+                  key={index}
+                  className="flex items-start gap-3 text-sm text-slate-600"
+                >
                   <span
                     className="mt-1 text-lg leading-none text-accent"
                     aria-hidden="true"
@@ -70,111 +103,89 @@ export default function CareersSection() {
               {t("careers.application.description")}
             </p>
 
-            <div className="rounded-3xl border bg-slate-50 p-6 md:p-8">
-              <form
-                className="space-y-4"
-                aria-label="Форма отправки резюме"
-              >
-                <div>
-                  <label
-                    htmlFor="career-name"
-                    className="mb-1 block text-xs font-medium text-slate-700"
+            {state.status === "success" ? (
+              <div className="flex flex-col items-center justify-center rounded-3xl border bg-slate-50 p-8 text-center">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    {t("careers.application.form.name")}
-                  </label>
-                  <input
-                    id="career-name"
-                    type="text"
-                    required
-                    className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
-                  />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="career-email"
-                    className="mb-1 block text-xs font-medium text-slate-700"
-                  >
-                    {t("careers.application.form.email")}
-                  </label>
-                  <input
+                <p className="text-lg font-semibold text-primary">
+                  {t("form.success")}
+                </p>
+              </div>
+            ) : (
+              <div className="rounded-3xl border bg-slate-50 p-6 md:p-8">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                  aria-label="Форма отправки резюме"
+                >
+                  <FloatingInput
+                    id="career-name"
+                    label={t("careers.application.form.name")}
+                    required
+                    value={name}
+                    onChange={setName}
+                    error={state.errors.name}
+                  />
+                  <FloatingInput
                     id="career-email"
+                    label={t("careers.application.form.email")}
                     type="email"
                     required
-                    className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
+                    value={email}
+                    onChange={setEmail}
+                    error={state.errors.email}
                   />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="career-phone"
-                    className="mb-1 block text-xs font-medium text-slate-700"
-                  >
-                    {t("careers.application.form.phone")}
-                  </label>
-                  <input
+                  <FloatingInput
                     id="career-phone"
+                    label={t("careers.application.form.phone")}
                     type="tel"
-                    className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
+                    value={phone}
+                    onChange={setPhone}
                   />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="career-experience"
-                    className="mb-1 block text-xs font-medium text-slate-700"
-                  >
-                    {t("careers.application.form.experience")}
-                  </label>
-                  <input
+                  <FloatingInput
                     id="career-experience"
-                    type="text"
-                    placeholder="Например: 3 года преподавания английского"
-                    className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
+                    label={t("careers.application.form.experience")}
+                    value={experience}
+                    onChange={setExperience}
                   />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="career-languages"
-                    className="mb-1 block text-xs font-medium text-slate-700"
-                  >
-                    {t("careers.application.form.languages")}
-                  </label>
-                  <input
+                  <FloatingInput
                     id="career-languages"
-                    type="text"
-                    placeholder="Например: Английский, Русский"
-                    className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
+                    label={t("careers.application.form.languages")}
+                    value={languages}
+                    onChange={setLanguages}
                   />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="career-message"
-                    className="mb-1 block text-xs font-medium text-slate-700"
-                  >
-                    {t("careers.application.form.message")}
-                  </label>
-                  <textarea
+                  <FloatingTextarea
                     id="career-message"
+                    label={t("careers.application.form.message")}
+                    value={message}
+                    onChange={setMessage}
                     rows={4}
-                    className="w-full resize-none rounded-xl border border-slate-200 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                   />
-                </div>
-
-                <button
-                  type="button"
-                  className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-                >
-                  {t("careers.application.form.submit")}
-                </button>
-
-                <p className="text-[11px] leading-snug text-slate-400">
-                  {t("careers.application.disclaimer")}
-                </p>
-              </form>
-            </div>
+                  <button
+                    type="submit"
+                    disabled={state.status === "submitting"}
+                    className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                  >
+                    {state.status === "submitting"
+                      ? t("form.sending")
+                      : t("careers.application.form.submit")}
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         </div>
       </div>

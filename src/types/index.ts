@@ -20,5 +20,9 @@ export interface TrialLessonFormData {
   language: string;
 }
 
+export type FormStatus = "idle" | "submitting" | "success" | "error";
 
-
+export interface FormState {
+  status: FormStatus;
+  errors: Record<string, string>;
+}
