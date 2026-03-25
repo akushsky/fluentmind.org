@@ -1,7 +1,17 @@
-import { COLORS } from "../constants/colors";
-import { CONTENT } from "../constants/content";
+import { useTranslation } from "react-i18next";
+
+interface CourseItem {
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  cta: string;
+}
 
 export default function Courses() {
+  const { t } = useTranslation();
+  const items = t("courses.items", { returnObjects: true }) as CourseItem[];
+
   return (
     <section
       id="courses"
@@ -12,44 +22,34 @@ export default function Courses() {
         <div className="mb-12 text-center">
           <h2
             id="courses-title"
-            className="text-2xl font-bold md:text-3xl lg:text-4xl"
-            style={{ color: COLORS.primary }}
+            className="text-2xl font-bold text-primary md:text-3xl lg:text-4xl"
           >
-            {CONTENT.courses.title}
+            {t("courses.title")}
           </h2>
-          {CONTENT.courses.subtitle && (
-            <p
-              className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-400"
-              style={{ color: COLORS.text.muted }}
-            >
-              {CONTENT.courses.subtitle}
+          {t("courses.subtitle") && (
+            <p className="mt-2 text-sm uppercase tracking-[0.18em] text-slate-400">
+              {t("courses.subtitle")}
             </p>
           )}
-          {CONTENT.courses.description && (
+          {t("courses.description") && (
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-              {CONTENT.courses.description}
+              {t("courses.description")}
             </p>
           )}
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CONTENT.courses.items.map((course, index) => (
+          {items.map((course, index) => (
             <article
               key={index}
               className="flex flex-col rounded-3xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="mb-4">
-                <h3
-                  className="text-lg font-bold"
-                  style={{ color: COLORS.primary }}
-                >
+                <h3 className="text-lg font-bold text-primary">
                   {course.title}
                 </h3>
                 {course.subtitle && (
-                  <p
-                    className="mt-1 text-xs font-semibold uppercase tracking-[0.16em]"
-                    style={{ color: COLORS.accent }}
-                  >
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                     {course.subtitle}
                   </p>
                 )}
@@ -66,8 +66,7 @@ export default function Courses() {
                   {course.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-2">
                       <span
-                        className="mt-0.5 text-xs leading-none"
-                        style={{ color: COLORS.accent }}
+                        className="mt-0.5 text-xs leading-none text-accent"
                         aria-hidden="true"
                       >
                         •
@@ -80,8 +79,7 @@ export default function Courses() {
 
               <a
                 href="#contact"
-                className="mt-auto inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-                style={{ backgroundColor: COLORS.primary }}
+                className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 {course.cta || "Узнать больше"}
               </a>
@@ -92,4 +90,3 @@ export default function Courses() {
     </section>
   );
 }
-

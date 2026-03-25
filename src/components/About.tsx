@@ -1,8 +1,10 @@
-import { COLORS } from "../constants/colors";
-import { CONTENT } from "../constants/content";
+import { useTranslation } from "react-i18next";
 import logo from "../assets/logo_round_blue.jpg";
 
 export default function About() {
+  const { t } = useTranslation();
+  const paragraphs = t("about.paragraphs", { returnObjects: true }) as string[];
+
   return (
     <section
       id="about"
@@ -14,7 +16,7 @@ export default function About() {
           <div className="w-full max-w-md rounded-3xl overflow-hidden">
             <img
               src={logo}
-              alt={CONTENT.brand.name}
+              alt={t("brand.name")}
               className="w-full h-auto object-cover rounded-3xl"
             />
           </div>
@@ -23,26 +25,22 @@ export default function About() {
         <div className="flex-1 space-y-6">
           <h2
             id="about-title"
-            className="text-2xl font-bold md:text-3xl"
-            style={{ color: COLORS.primary }}
+            className="text-2xl font-bold text-primary md:text-3xl"
           >
-            {CONTENT.about.title}
+            {t("about.title")}
           </h2>
           <div className="space-y-4 text-sm leading-relaxed text-slate-600 md:text-base">
-            {CONTENT.about.paragraphs.map((paragraph, index) => (
+            {paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
-          <blockquote
-            className="mt-4 border-l-4 pl-4"
-            style={{ borderColor: COLORS.accent }}
-          >
+          <blockquote className="mt-4 border-l-4 border-accent pl-4">
             <p className="text-sm italic text-slate-700">
-              "{CONTENT.about.quote}"
+              "{t("about.quote")}"
             </p>
             <footer className="mt-2 text-xs font-medium text-slate-500">
-              — {CONTENT.about.quoteAuthor}
+              — {t("about.quoteAuthor")}
             </footer>
           </blockquote>
         </div>
@@ -50,6 +48,3 @@ export default function About() {
     </section>
   );
 }
-
-
-

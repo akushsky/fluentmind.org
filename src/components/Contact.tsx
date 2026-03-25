@@ -1,7 +1,8 @@
-import { COLORS } from "../constants/colors";
-import { CONTENT } from "../constants/content";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="contact"
@@ -13,16 +14,15 @@ export default function Contact() {
           <div>
             <h2
               id="contact-title"
-              className="text-2xl font-bold md:text-3xl"
-              style={{ color: COLORS.primary }}
+              className="text-2xl font-bold text-primary md:text-3xl"
             >
-              {CONTENT.contact.title}
+              {t("contact.title")}
             </h2>
 
             <div className="mt-6 space-y-3 text-sm text-slate-700">
               <div>
                 <a
-                  href={`mailto:${CONTENT.contact.email}`}
+                  href={`mailto:${t("contact.email")}`}
                   className="flex items-center gap-1.5 text-blue-600 hover:underline"
                 >
                   <svg
@@ -39,12 +39,12 @@ export default function Contact() {
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  {CONTENT.contact.email}
+                  {t("contact.email")}
                 </a>
               </div>
               <div className="space-y-2">
                   <a
-                    href={CONTENT.contact.social.telegram}
+                    href={t("contact.social.telegram")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-blue-500 hover:underline"
@@ -60,7 +60,7 @@ export default function Contact() {
                     Telegram (@Anaesty)
                   </a>
                   <a
-                    href={CONTENT.contact.social.whatsapp}
+                    href={t("contact.social.whatsapp")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-green-600 hover:underline"
@@ -76,7 +76,7 @@ export default function Contact() {
                     WhatsApp
                   </a>
                   <a
-                    href={CONTENT.contact.social.facebook}
+                    href={t("contact.social.facebook")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-blue-600 hover:underline"
@@ -96,7 +96,7 @@ export default function Contact() {
                     Facebook (Anastasia Dulich)
                   </a>
                   <a
-                    href={CONTENT.contact.social.instagramOwner}
+                    href={t("contact.social.instagramOwner")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-pink-600 hover:underline"
@@ -116,7 +116,7 @@ export default function Contact() {
                     Instagram (Anastasia Dulich)
                   </a>
                   <a
-                    href={CONTENT.contact.social.instagramSchool}
+                    href={t("contact.social.instagramSchool")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-pink-600 hover:underline"
@@ -140,58 +140,51 @@ export default function Contact() {
           </div>
 
           <div className="rounded-3xl border bg-slate-50 p-5 md:p-6">
-            <div
-              className="mb-3 text-xs font-semibold uppercase tracking-[0.18em]"
-              style={{ color: COLORS.accent }}
-            >
-              {CONTENT.contact.form.title}
+            <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              {t("contact.form.title")}
             </div>
             <div className="space-y-3 text-sm text-slate-600">
-              <p>{CONTENT.contact.form.description}</p>
+              <p>{t("contact.form.description")}</p>
               <form
                 className="space-y-3"
                 aria-label="Форма записи на бесплатную консультацию"
               >
                 <label htmlFor="contact-name" className="sr-only">
-                  {CONTENT.contact.form.fields.name}
+                  {t("contact.form.fields.name")}
                 </label>
                 <input
                   id="contact-name"
                   type="text"
-                  placeholder={CONTENT.contact.form.fields.name}
-                  className="w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
-                  style={{ borderColor: COLORS.border }}
+                  placeholder={t("contact.form.fields.name")}
+                  className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                 />
                 <label htmlFor="contact-phone" className="sr-only">
-                  {CONTENT.contact.form.fields.contact}
+                  {t("contact.form.fields.contact")}
                 </label>
                 <input
                   id="contact-phone"
                   type="text"
-                  placeholder={CONTENT.contact.form.fields.contact}
-                  className="w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
-                  style={{ borderColor: COLORS.border }}
+                  placeholder={t("contact.form.fields.contact")}
+                  className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                 />
                 <label htmlFor="contact-request" className="sr-only">
-                  {CONTENT.contact.form.fields.request}
+                  {t("contact.form.fields.request")}
                 </label>
                 <textarea
                   id="contact-request"
-                  placeholder={CONTENT.contact.form.fields.request}
+                  placeholder={t("contact.form.fields.request")}
                   rows={3}
-                  className="w-full resize-none rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
-                  style={{ borderColor: COLORS.border }}
+                  className="w-full resize-none rounded-xl border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-offset-1"
                 />
                 <button
                   type="button"
-                  className="w-full rounded-full px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: COLORS.accent }}
+                  className="w-full rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
                 >
-                  {CONTENT.contact.form.submit}
+                  {t("contact.form.submit")}
                 </button>
               </form>
               <p className="text-[11px] leading-snug text-slate-400">
-                {CONTENT.contact.form.disclaimer}
+                {t("contact.form.disclaimer")}
               </p>
             </div>
           </div>
@@ -200,6 +193,3 @@ export default function Contact() {
     </section>
   );
 }
-
-
-

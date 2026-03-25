@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { COLORS } from "../constants/colors";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,8 +31,7 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl"
-          style={{ backgroundColor: COLORS.primary }}
+          className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl"
           aria-label="Прокрутить наверх"
         >
           <svg
@@ -55,4 +53,3 @@ export default function ScrollToTop() {
     </>
   );
 }
-

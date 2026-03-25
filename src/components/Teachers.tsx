@@ -1,5 +1,4 @@
-import { COLORS } from "../constants/colors";
-import { CONTENT } from "../constants/content";
+import { useTranslation } from "react-i18next";
 import TeacherCard from "./TeacherCard";
 import type { Teacher } from "../types";
 
@@ -47,6 +46,8 @@ const teachers: Teacher[] = [
 ];
 
 export default function Teachers() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="teachers"
@@ -58,13 +59,12 @@ export default function Teachers() {
           <div>
             <h2
               id="teachers-title"
-              className="text-2xl font-bold md:text-3xl"
-              style={{ color: COLORS.primary }}
+              className="text-2xl font-bold text-primary md:text-3xl"
             >
-              {CONTENT.teachers.title}
+              {t("teachers.title")}
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              {CONTENT.teachers.description}
+              {t("teachers.description")}
             </p>
           </div>
         </div>
@@ -78,6 +78,3 @@ export default function Teachers() {
     </section>
   );
 }
-
-
-

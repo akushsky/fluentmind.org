@@ -50,7 +50,8 @@
   },
   "teachers": {
     "title": "Наши специалисты",
-    "description": ""
+    "description": "",
+    "signUp": "Записаться к {{name}}"
   },
   "courses": {
     "title": "Наши курсы",
