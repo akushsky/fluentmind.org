@@ -78,7 +78,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               onClick={onClose}
               className="mt-6 block rounded-lg bg-accent py-3.5 text-center text-[15px] font-semibold text-primary"
             >
-              {t("hero.cta")}
+              {t("hero.cta.primary")}
             </a>
           </nav>
         </motion.div>

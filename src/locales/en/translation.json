@@ -17,25 +17,13 @@
     "title": "Online school\nwith neuro-approach",
     "description": "Individual lessons and mini-groups for children, teenagers, and adults. We consider the specifics of memory, attention, and perception to make learning truly effective.",
     "cta": {
-      "primary": "View courses",
-      "secondary": "View specialists"
+      "primary": "View courses"
     },
     "features": [
       "Individual lessons",
       "Flexible online schedule",
       "Original materials"
-    ],
-    "form": {
-      "title": "Book a free consultation",
-      "description": "Leave your contact details and we'll find the right format and specialist for you.",
-      "fields": {
-        "name": "Your name",
-        "contact": "Phone",
-        "request": "Brief request"
-      },
-      "submit": "Submit request",
-      "disclaimer": ""
-    }
+    ]
   },
   "about": {
     "title": "Our mission",
@@ -146,7 +134,7 @@
       "description": "Leave your contact details and we'll find the right format and specialist for you.",
       "fields": {
         "name": "Your name",
-        "contact": "Phone",
+        "contact": "Phone or WhatsApp",
         "request": "Brief request"
       },
       "submit": "Book a trial lesson \u2192",

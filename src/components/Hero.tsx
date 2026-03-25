@@ -45,7 +45,7 @@ export default function Hero() {
         <motion.a
           {...fadeUp(0.3)}
           href="#contact"
-          className="mt-6 inline-block rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-primary shadow-md transition-all hover:shadow-lg"
+          className="btn-accent mt-6 inline-block rounded-full px-8 py-3.5 text-sm shadow-md transition-all hover:shadow-lg"
         >
           {t("hero.cta.primary")}
         </motion.a>

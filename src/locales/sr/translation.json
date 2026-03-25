@@ -17,25 +17,13 @@
     "title": "Onlajn \u0161kola\nsa neuro pristupom",
     "description": "Individualni \u010dasovi i mini-grupe za decu, tinejd\u017eere i odrasle. Uzimamo u obzir posebnosti pam\u0107enja, pa\u017enje i percepcije kako bi u\u010denje bilo zaista efikasno.",
     "cta": {
-      "primary": "Pogledajte kurseve",
-      "secondary": "Pogledajte specijaliste"
+      "primary": "Pogledajte kurseve"
     },
     "features": [
       "Individualni \u010dasovi",
       "Fleksibilan onlajn raspored",
       "Autorski materijali"
-    ],
-    "form": {
-      "title": "Zaka\u017eite besplatnu konsultaciju",
-      "description": "Ostavite kontakt podatke i prona\u0107i \u0107emo pravi format i specijalistu za vas.",
-      "fields": {
-        "name": "Va\u0161e ime",
-        "contact": "Telefon",
-        "request": "Kratak zahtev"
-      },
-      "submit": "Po\u0161aljite zahtev",
-      "disclaimer": ""
-    }
+    ]
   },
   "about": {
     "title": "Na\u0161a misija",
@@ -146,7 +134,7 @@
       "description": "Ostavite kontakt podatke i prona\u0107i \u0107emo pravi format i specijalistu za vas.",
       "fields": {
         "name": "Va\u0161e ime",
-        "contact": "Telefon",
+        "contact": "Telefon ili WhatsApp",
         "request": "Kratak zahtev"
       },
       "submit": "Zaka\u017eite probni \u010das \u2192",

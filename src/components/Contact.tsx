@@ -235,7 +235,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={state.status === "submitting"}
-                      className="w-full rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                      className="btn-accent w-full rounded-full px-4 py-2 text-sm shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
                     >
                       {state.status === "submitting"
                         ? t("form.sending")
