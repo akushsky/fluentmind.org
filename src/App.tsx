@@ -7,6 +7,21 @@ import CareersPage from "./pages/Careers";
 
 const SUPPORTED_LANGS = ["en", "he", "sr"];
 
+function detectBrowserLang(): string {
+  const stored = localStorage.getItem("i18nextLng");
+  if (stored && [...SUPPORTED_LANGS, "ru"].includes(stored)) return stored;
+
+  const browserLang = navigator.language.split("-")[0];
+  if (SUPPORTED_LANGS.includes(browserLang)) return browserLang;
+  return "ru";
+}
+
+function BrowserLanguageRedirect() {
+  const lang = detectBrowserLang();
+  if (lang === "ru") return <LanguageWrapper />;
+  return <Navigate to={`/${lang}/`} replace />;
+}
+
 function LanguageWrapper() {
   const { lang } = useParams();
   const { i18n } = useTranslation();
@@ -30,7 +45,7 @@ export default function FluentMindLanding() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LanguageWrapper />}>
+        <Route path="/" element={<BrowserLanguageRedirect />}>
           <Route index element={<Home />} />
           <Route path="careers" element={<CareersPage />} />
         </Route>
