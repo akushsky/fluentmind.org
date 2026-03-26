@@ -1,151 +1,173 @@
 {
   "brand": {
     "name": "Fluent Mind",
-    "tagline": "\u05d1\u05d9\u05ea \u05e1\u05e4\u05e8 \u05dc\u05d7\u05d9\u05e0\u05d5\u05da \u05de\u05e9\u05dc\u05d9\u05dd"
+    "tagline": "בית ספר לחינוך משלים"
   },
   "nav": {
-    "home": "\u05e8\u05d0\u05e9\u05d9",
-    "about": "\u05e2\u05dc \u05d4\u05e1\u05e4\u05e8",
-    "teachers": "\u05d4\u05de\u05d5\u05de\u05d7\u05d9\u05dd \u05e9\u05dc\u05e0\u05d5",
-    "courses": "\u05d4\u05e7\u05d5\u05e8\u05e1\u05d9\u05dd \u05e9\u05dc\u05e0\u05d5",
-    "contact": "\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8",
-    "careers": "\u05e7\u05e8\u05d9\u05d9\u05e8\u05d4",
-    "trialLesson": "\u05d4\u05e8\u05e9\u05de\u05d5"
+    "home": "ראשי",
+    "about": "על הספר",
+    "teachers": "המומחים שלנו",
+    "courses": "הקורסים שלנו",
+    "contact": "צור קשר",
+    "careers": "קריירה",
+    "trialLesson": "הרשמו"
   },
   "hero": {
-    "badge": "\u05de\u05d5\u05de\u05d7\u05d9 \u05e0\u05d5\u05d9\u05e8\u05d5 \u05d0\u05d5\u05e0\u05dc\u05d9\u05d9\u05df",
-    "title": "\u05d1\u05d9\u05ea \u05e1\u05e4\u05e8 \u05d0\u05d5\u05e0\u05dc\u05d9\u05d9\u05df\n\u05e2\u05dd \u05d2\u05d9\u05e9\u05d4 \u05e0\u05d5\u05d9\u05e8\u05d5-\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9\u05ea",
-    "description": "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05e4\u05e8\u05d8\u05e0\u05d9\u05d9\u05dd \u05d5\u05de\u05d9\u05e0\u05d9-\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05dc\u05d9\u05dc\u05d3\u05d9\u05dd, \u05e0\u05d5\u05e2\u05e8 \u05d5\u05de\u05d1\u05d5\u05d2\u05e8\u05d9\u05dd. \u05d0\u05e0\u05d5 \u05de\u05ea\u05d7\u05e9\u05d1\u05d9\u05dd \u05d1\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9 \u05d4\u05d6\u05d9\u05db\u05e8\u05d5\u05df, \u05d4\u05e7\u05e9\u05d1 \u05d5\u05d4\u05ea\u05e4\u05d9\u05e1\u05d4 \u05db\u05d3\u05d9 \u05e9\u05d4\u05dc\u05de\u05d9\u05d3\u05d4 \u05ea\u05d4\u05d9\u05d4 \u05d0\u05e4\u05e7\u05d8\u05d9\u05d1\u05d9\u05ea \u05d1\u05d0\u05de\u05ea.",
+    "badge": "מומחי נוירו אונליין",
+    "title": "בית ספר אונליין\nעם גישה נוירו-ידידותית",
+    "description": "שיעורים פרטניים ומיני-קבוצות לילדים, נוער ומבוגרים. אנו מתחשבים במאפייני הזיכרון, הקשב והתפיסה כדי שהלמידה תהיה אפקטיבית באמת.",
     "cta": {
-      "primary": "\u05e6\u05e4\u05d5 \u05d1\u05e7\u05d5\u05e8\u05e1\u05d9\u05dd"
+      "primary": "צפו בקורסים"
     },
     "features": [
-      "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05e4\u05e8\u05d8\u05e0\u05d9\u05d9\u05dd",
-      "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd \u05d2\u05de\u05d9\u05e9 \u05d0\u05d5\u05e0\u05dc\u05d9\u05d9\u05df",
-      "\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05de\u05e7\u05d5\u05e8\u05d9\u05d9\u05dd"
+      "שיעורים פרטניים",
+      "לוח זמנים גמיש אונליין",
+      "חומרים מקוריים"
     ]
   },
   "about": {
-    "title": "\u05d4\u05de\u05e9\u05d9\u05de\u05d4 \u05e9\u05dc\u05e0\u05d5",
+    "title": "המשימה שלנו",
     "subtitle": "Mission Statement",
     "paragraphs": [
-      "Fluent Mind \u05d4\u05d5\u05d0 \u05d1\u05d9\u05ea \u05e1\u05e4\u05e8 \u05e9\u05d1\u05d5 \u05e6\u05d5\u05d5\u05ea \u05e9\u05dc \u05d0\u05e0\u05e9\u05d9 \u05de\u05e7\u05e6\u05d5\u05e2 \u05e2\u05d5\u05d6\u05e8\u05ea \u05dc\u05d0\u05e0\u05e9\u05d9\u05dd \u05dc\u05de\u05de\u05e9 \u05d0\u05ea \u05d4\u05e4\u05d5\u05d8\u05e0\u05e6\u05d9\u05d0\u05dc \u05d4\u05dc\u05d9\u05de\u05d5\u05d3\u05d9 \u05e9\u05dc\u05d4\u05dd \u05d1\u05d0\u05db\u05e4\u05ea\u05d9\u05d5\u05ea, \u05d1\u05ea\u05e9\u05d5\u05de\u05ea \u05dc\u05d1 \u05d5\u05d1\u05d4\u05d1\u05e0\u05d4 \u05db\u05d9\u05e6\u05d3 \u05d4\u05de\u05d5\u05d7 \u05d4\u05d0\u05e0\u05d5\u05e9\u05d9 \u05e4\u05d5\u05e2\u05dc.",
-      "\u05d0\u05e0\u05d5 \u05d9\u05d5\u05e6\u05e8\u05d9\u05dd \u05de\u05e8\u05d7\u05d1 \u05d1\u05d8\u05d5\u05d7 \u05dc\u05dc\u05de\u05d9\u05d3\u05d4, \u05ea\u05d5\u05da \u05d4\u05ea\u05d7\u05e9\u05d1\u05d5\u05ea \u05d1\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9\u05dd \u05d4\u05d0\u05d9\u05e9\u05d9\u05d9\u05dd \u05e9\u05dc \u05db\u05dc \u05ea\u05dc\u05de\u05d9\u05d3. \u05d4\u05d2\u05d9\u05e9\u05d4 \u05d4\u05e0\u05d5\u05d9\u05e8\u05d5-\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9\u05ea \u05e9\u05dc\u05e0\u05d5 \u05de\u05d0\u05e4\u05e9\u05e8\u05ea \u05dc\u05e2\u05d1\u05d5\u05d3 \u05d1\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05e2\u05dd \u05e1\u05d5\u05d2\u05d9\u05dd \u05e9\u05d5\u05e0\u05d9\u05dd \u05e9\u05dc \u05ea\u05e4\u05d9\u05e1\u05ea \u05de\u05d9\u05d3\u05e2, \u05d6\u05d9\u05db\u05e8\u05d5\u05df \u05d5\u05e7\u05e9\u05d1.",
-      "\u05d0\u05e0\u05d5 \u05de\u05d0\u05de\u05d9\u05e0\u05d9\u05dd \u05e9\u05db\u05dc \u05d0\u05d3\u05dd \u05de\u05e1\u05d5\u05d2\u05dc \u05dc\u05d4\u05e6\u05dc\u05d9\u05d7 \u05d1\u05dc\u05d9\u05de\u05d5\u05d3\u05d9\u05dd \u05db\u05d0\u05e9\u05e8 \u05d4\u05d4\u05d5\u05e8\u05d0\u05d4 \u05de\u05d5\u05ea\u05d0\u05de\u05ea \u05dc\u05e6\u05e8\u05db\u05d9\u05dd \u05d4\u05d9\u05d9\u05d7\u05d5\u05d3\u05d9\u05d9\u05dd \u05d5\u05dc\u05d3\u05e4\u05d5\u05e1\u05d9 \u05d4\u05d7\u05e9\u05d9\u05d1\u05d4 \u05e9\u05dc\u05d5."
+      "Fluent Mind הוא בית ספר שבו צוות של אנשי מקצוע עוזרת לאנשים לממש את הפוטנציאל הלימודי שלהם באכפתיות, בתשומת לב ובהבנה כיצד המוח האנושי פועל.",
+      "אנו יוצרים מרחב בטוח ללמידה, תוך התחשבות במאפיינים האישיים של כל תלמיד. הגישה הנוירו-ידידותית שלנו מאפשרת לעבוד ביעילות עם סוגים שונים של תפיסת מידע, זיכרון וקשב.",
+      "אנו מאמינים שכל אדם מסוגל להצליח בלימודים כאשר ההוראה מותאמת לצרכים הייחודיים ולדפוסי החשיבה שלו."
     ],
-    "quote": "\u05dc\u05de\u05d9\u05d3\u05d4 \u05e6\u05e8\u05d9\u05db\u05d4 \u05dc\u05d4\u05d9\u05d5\u05ea \u05d0\u05db\u05e4\u05ea\u05d9\u05ea, \u05e7\u05e9\u05d5\u05d1\u05d4 \u05d5\u05de\u05d1\u05d5\u05e1\u05e1\u05ea \u05e2\u05dc \u05d4\u05d1\u05e0\u05d4 \u05db\u05d9\u05e6\u05d3 \u05d4\u05de\u05d5\u05d7 \u05e9\u05dc \u05db\u05dc \u05d0\u05d3\u05dd \u05e4\u05d5\u05e2\u05dc.",
+    "quote": "למידה צריכה להיות אכפתית, קשובה ומבוססת על הבנה כיצד המוח של כל אדם פועל.",
     "quoteAuthor": "Fluent Mind"
   },
   "teachers": {
-    "title": "\u05d4\u05de\u05d5\u05de\u05d7\u05d9\u05dd \u05e9\u05dc\u05e0\u05d5",
+    "title": "המומחים שלנו",
     "description": "",
-    "signUp": "\u05d4\u05e8\u05e9\u05de\u05d5 \u05d0\u05e6\u05dc {{name}}",
+    "signUp": "הרשמו אצל {{name}}",
     "items": [
       {
         "id": "anastasia-dulich",
         "name": "אנסטסיה דוליץ'",
         "initials": "AD",
-        "languages": ["אנגלית", "רוסית", "סרבית", "קרואטית"],
+        "languages": [
+          "אנגלית",
+          "רוסית",
+          "סרבית",
+          "קרואטית"
+        ],
         "description": "גישה אישית, דגש על שיחה חיה וביטחון בתקשורת. הכנה למבחנים וראיונות.",
-        "specialties": ["שיעורים פרטיים וזוגיים", "הכנה למבחנים וראיונות", "תרגול שיחה למבוגרים"]
+        "specialties": [
+          "שיעורים פרטיים וזוגיים",
+          "הכנה למבחנים וראיונות",
+          "תרגול שיחה למבוגרים"
+        ]
       },
       {
         "id": "olga-basova",
         "name": "אולגה בסובה",
         "initials": "OB",
-        "languages": ["עברית", "אנגלית"],
+        "languages": [
+          "עברית",
+          "אנגלית"
+        ],
         "description": "מורה לעברית ואנגלית. ניסיון בעבודה עם ילדים, מתבגרים ומבוגרים. גישה אישית לכל תלמיד.",
-        "specialties": ["הוראת עברית", "הוראת אנגלית", "שיעורים פרטיים"]
+        "specialties": [
+          "הוראת עברית",
+          "הוראת אנגלית",
+          "שיעורים פרטיים"
+        ]
       },
       {
         "id": "olga-biryukova",
         "name": "אולגה בירוקובה",
         "initials": "OB",
-        "languages": ["פסיכותרפיה"],
+        "languages": [
+          "פסיכותרפיה"
+        ],
         "description": "פסיכותרפיסטית וקלינאית תקשורת. עבודה עם מאפייני התפתחות, תמיכה בלמידה, גישה נוירו-ידידותית.",
-        "specialties": ["פסיכותרפיה", "קלינאות תקשורת", "גישה נוירו-ידידותית"]
+        "specialties": [
+          "פסיכותרפיה",
+          "קלינאות תקשורת",
+          "גישה נוירו-ידידותית"
+        ]
       }
     ]
   },
   "courses": {
-    "title": "\u05d4\u05e7\u05d5\u05e8\u05e1\u05d9\u05dd \u05e9\u05dc\u05e0\u05d5",
-    "subtitle": "\u05d1\u05d7\u05e8\u05d5 \u05d0\u05ea \u05e4\u05d5\u05e8\u05de\u05d8 \u05d4\u05dc\u05de\u05d9\u05d3\u05d4 \u05d4\u05de\u05ea\u05d0\u05d9\u05dd",
-    "description": "\u05d0\u05e0\u05d5 \u05de\u05e6\u05d9\u05e2\u05d9\u05dd \u05e4\u05d5\u05e8\u05de\u05d8\u05d9\u05dd \u05e9\u05d5\u05e0\u05d9\u05dd \u05e9\u05dc \u05dc\u05de\u05d9\u05d3\u05d4, \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd \u05dc\u05e6\u05e8\u05db\u05d9\u05dd \u05d5\u05dc\u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9 \u05d4\u05ea\u05e4\u05d9\u05e1\u05d4 \u05e9\u05dc\u05db\u05dd.",
+    "title": "הקורסים שלנו",
+    "subtitle": "בחרו את פורמט הלמידה המתאים",
+    "description": "אנו מציעים פורמטים שונים של למידה, מותאמים לצרכים ולמאפייני התפיסה שלכם.",
     "items": [
       {
-        "title": "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05e4\u05e8\u05d8\u05e0\u05d9\u05d9\u05dd",
-        "subtitle": "\u05d2\u05d9\u05e9\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea",
-        "description": "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05d0\u05d9\u05e9\u05d9\u05d9\u05dd \u05d0\u05d7\u05d3 \u05e2\u05dc \u05d0\u05d7\u05d3 \u05e2\u05dd \u05de\u05d5\u05e8\u05d4. \u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05de\u05d5\u05ea\u05d0\u05de\u05ea \u05d1\u05de\u05dc\u05d5\u05d0\u05d4 \u05dc\u05de\u05d8\u05e8\u05d5\u05ea \u05d5\u05dc\u05e6\u05e8\u05db\u05d9\u05dd \u05e9\u05dc\u05db\u05dd.",
+        "title": "שיעורים פרטניים",
+        "subtitle": "גישה אישית",
+        "description": "שיעורים אישיים אחד על אחד עם מורה. תוכנית מותאמת במלואה למטרות ולצרכים שלכם.",
         "features": [
-          "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd \u05d2\u05de\u05d9\u05e9",
-          "\u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05d0\u05d9\u05e9\u05d9\u05ea",
-          "\u05de\u05e7\u05e1\u05d9\u05de\u05d5\u05dd \u05ea\u05e9\u05d5\u05de\u05ea \u05dc\u05d1",
-          "\u05d4\u05ea\u05e7\u05d3\u05de\u05d5\u05ea \u05de\u05d4\u05d9\u05e8\u05d4"
+          "לוח זמנים גמיש",
+          "תוכנית אישית",
+          "מקסימום תשומת לב",
+          "התקדמות מהירה"
         ],
-        "cta": "\u05d4\u05e8\u05e9\u05de\u05d5"
+        "cta": "הרשמו"
       },
       {
-        "title": "\u05de\u05d9\u05e0\u05d9-\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea",
-        "subtitle": "\u05dc\u05de\u05d9\u05d3\u05d4 \u05d1\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e7\u05d8\u05e0\u05d5\u05ea",
-        "description": "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05d1\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e7\u05d8\u05e0\u05d5\u05ea \u05e9\u05dc \u05e2\u05d3 4 \u05d0\u05e0\u05e9\u05d9\u05dd. \u05d0\u05d9\u05d6\u05d5\u05df \u05d1\u05d9\u05df \u05d2\u05d9\u05e9\u05d4 \u05d0\u05d9\u05e9\u05d9\u05ea \u05dc\u05d3\u05d9\u05e0\u05de\u05d9\u05e7\u05d4 \u05e7\u05d1\u05d5\u05e6\u05ea\u05d9\u05ea.",
+        "title": "מיני-קבוצות",
+        "subtitle": "למידה בקבוצות קטנות",
+        "description": "שיעורים בקבוצות קטנות של עד 4 אנשים. איזון בין גישה אישית לדינמיקה קבוצתית.",
         "features": [
-          "\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea \u05e9\u05dc \u05e2\u05d3 4 \u05d0\u05e0\u05e9\u05d9\u05dd",
-          "\u05dc\u05de\u05d9\u05d3\u05d4 \u05d0\u05d9\u05e0\u05d8\u05e8\u05d0\u05e7\u05d8\u05d9\u05d1\u05d9\u05ea",
-          "\u05ea\u05de\u05d9\u05db\u05ea \u05e7\u05d1\u05d5\u05e6\u05d4",
-          "\u05de\u05d7\u05d9\u05e8 \u05e0\u05d2\u05d9\u05e9"
+          "קבוצות של עד 4 אנשים",
+          "למידה אינטראקטיבית",
+          "תמיכת קבוצה",
+          "מחיר נגיש"
         ],
-        "cta": "\u05d4\u05e8\u05e9\u05de\u05d5"
+        "cta": "הרשמו"
       },
       {
-        "title": "\u05ea\u05d5\u05db\u05e0\u05d9\u05d5\u05ea \u05de\u05ea\u05de\u05d7\u05d5\u05ea",
-        "subtitle": "\u05dc\u05e6\u05e8\u05db\u05d9\u05dd \u05de\u05d9\u05d5\u05d7\u05d3\u05d9\u05dd",
-        "description": "\u05ea\u05d5\u05db\u05e0\u05d9\u05d5\u05ea \u05dc\u05d0\u05e0\u05e9\u05d9\u05dd \u05e2\u05dd \u05de\u05d0\u05e4\u05d9\u05d9\u05e0\u05d9 \u05d4\u05ea\u05e4\u05ea\u05d7\u05d5\u05ea \u05d5\u05e0\u05d5\u05d9\u05e8\u05d5-\u05e9\u05d5\u05e0\u05d5\u05ea. \u05d2\u05d9\u05e9\u05d4 \u05e0\u05d5\u05d9\u05e8\u05d5-\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9\u05ea \u05dc\u05dc\u05de\u05d9\u05d3\u05d4.",
+        "title": "תוכניות מתמחות",
+        "subtitle": "לצרכים מיוחדים",
+        "description": "תוכניות לאנשים עם מאפייני התפתחות ונוירו-שונות. גישה נוירו-ידידותית ללמידה.",
         "features": [
-          "\u05d2\u05d9\u05e9\u05d4 \u05e0\u05d5\u05d9\u05e8\u05d5-\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9\u05ea",
-          "\u05d7\u05d5\u05de\u05e8\u05d9\u05dd \u05de\u05d5\u05ea\u05d0\u05de\u05d9\u05dd",
-          "\u05ea\u05de\u05d9\u05db\u05ea \u05de\u05d5\u05de\u05d7\u05d9\u05dd",
-          "\u05e1\u05d1\u05d9\u05d1\u05d4 \u05e0\u05d5\u05d7\u05d4"
+          "גישה נוירו-ידידותית",
+          "חומרים מותאמים",
+          "תמיכת מומחים",
+          "סביבה נוחה"
         ],
-        "cta": "\u05dc\u05de\u05d3 \u05e2\u05d5\u05d3"
+        "cta": "למד עוד"
       }
     ]
   },
   "careers": {
-    "title": "\u05e7\u05e8\u05d9\u05d9\u05e8\u05d4 \u05d1-Fluent Mind",
-    "subtitle": "\u05d4\u05e6\u05d8\u05e8\u05e4\u05d5 \u05dc\u05e6\u05d5\u05d5\u05ea \u05e9\u05dc\u05e0\u05d5",
-    "description": "\u05d0\u05e0\u05d5 \u05de\u05d7\u05e4\u05e9\u05d9\u05dd \u05de\u05d5\u05e8\u05d9\u05dd \u05de\u05d5\u05db\u05e9\u05e8\u05d9\u05dd \u05e9\u05d7\u05d5\u05dc\u05e7\u05d9\u05dd \u05d0\u05ea \u05d4\u05d2\u05d9\u05e9\u05d4 \u05e9\u05dc\u05e0\u05d5 \u05dc\u05d7\u05d9\u05e0\u05d5\u05da \u05e0\u05d5\u05d9\u05e8\u05d5-\u05d9\u05d3\u05d9\u05d3\u05d5\u05ea\u05d9. \u05d0\u05dd \u05d0\u05ea\u05dd \u05e0\u05dc\u05d4\u05d1\u05d9\u05dd \u05de\u05e9\u05e4\u05d5\u05ea \u05d5\u05e8\u05d5\u05e6\u05d9\u05dd \u05dc\u05e2\u05d6\u05d5\u05e8 \u05dc\u05d0\u05e0\u05e9\u05d9\u05dd \u05dc\u05d4\u05e9\u05d9\u05d2 \u05d0\u05ea \u05de\u05d8\u05e8\u05d5\u05ea\u05d9\u05d4\u05dd, \u05e0\u05e9\u05de\u05d7 \u05dc\u05d4\u05db\u05d9\u05e8 \u05d0\u05ea\u05db\u05dd.",
+    "title": "קריירה ב-Fluent Mind",
+    "subtitle": "הצטרפו לצוות שלנו",
+    "description": "אנו מחפשים מורים מוכשרים שחולקים את הגישה שלנו לחינוך נוירו-ידידותי. אם אתם נלהבים משפות ורוצים לעזור לאנשים להשיג את מטרותיהם, נשמח להכיר אתכם.",
     "benefits": {
-      "title": "\u05de\u05d4 \u05d0\u05e0\u05d7\u05e0\u05d5 \u05de\u05e6\u05d9\u05e2\u05d9\u05dd",
+      "title": "מה אנחנו מציעים",
       "items": [
-        "\u05dc\u05d5\u05d7 \u05d6\u05de\u05e0\u05d9\u05dd \u05d2\u05de\u05d9\u05e9",
-        "\u05e2\u05d1\u05d5\u05d3\u05d4 \u05de\u05e8\u05d7\u05d5\u05e7",
-        "\u05ea\u05de\u05d9\u05db\u05d4 \u05d5\u05d4\u05db\u05e9\u05e8\u05d4",
-        "\u05e9\u05db\u05e8 \u05ea\u05d7\u05e8\u05d5\u05ea\u05d9",
-        "\u05e2\u05d1\u05d5\u05d3\u05d4 \u05e2\u05dd \u05ea\u05dc\u05de\u05d9\u05d3\u05d9\u05dd \u05de\u05e2\u05e0\u05d9\u05d9\u05e0\u05d9\u05dd",
-        "\u05d0\u05e4\u05e9\u05e8\u05d5\u05ea \u05dc\u05e6\u05de\u05d9\u05d7\u05d4 \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05ea"
+        "לוח זמנים גמיש",
+        "עבודה מרחוק",
+        "תמיכה והכשרה",
+        "שכר תחרותי",
+        "עבודה עם תלמידים מעניינים",
+        "אפשרות לצמיחה מקצועית"
       ]
     },
     "openPositions": {
-      "title": "\u05de\u05e9\u05e8\u05d5\u05ea \u05e4\u05ea\u05d5\u05d7\u05d5\u05ea",
-      "noPositions": "\u05db\u05e8\u05d2\u05e2 \u05d0\u05d9\u05df \u05dc\u05e0\u05d5 \u05de\u05e9\u05e8\u05d5\u05ea \u05e4\u05ea\u05d5\u05d7\u05d5\u05ea, \u05d0\u05da \u05e0\u05e9\u05de\u05d7 \u05ea\u05de\u05d9\u05d3 \u05dc\u05e2\u05d9\u05d9\u05df \u05d1\u05e7\u05d5\u05e8\u05d5\u05ea \u05d4\u05d7\u05d9\u05d9\u05dd \u05e9\u05dc\u05db\u05dd."
+      "title": "משרות פתוחות",
+      "noPositions": "כרגע אין לנו משרות פתוחות, אך נשמח תמיד לעיין בקורות החיים שלכם."
     },
     "application": {
-      "title": "\u05e9\u05dc\u05d7\u05d5 \u05e7\u05d5\u05e8\u05d5\u05ea \u05d7\u05d9\u05d9\u05dd",
-      "description": "\u05e9\u05dc\u05d7\u05d5 \u05dc\u05e0\u05d5 \u05d0\u05ea \u05e7\u05d5\u05e8\u05d5\u05ea \u05d4\u05d7\u05d9\u05d9\u05dd \u05e9\u05dc\u05db\u05dd \u05d5\u05e1\u05e4\u05e8\u05d5 \u05e2\u05dc \u05e2\u05e6\u05de\u05db\u05dd. \u05e0\u05d9\u05e6\u05d5\u05e8 \u05d0\u05ea\u05db\u05dd \u05d0\u05dd \u05ea\u05d9\u05e4\u05ea\u05d7 \u05de\u05e9\u05e8\u05d4 \u05de\u05ea\u05d0\u05d9\u05de\u05d4.",
+      "title": "שלחו קורות חיים",
+      "description": "שלחו לנו את קורות החיים שלכם וספרו על עצמכם. ניצור אתכם אם תיפתח משרה מתאימה.",
       "form": {
-        "name": "\u05d4\u05e9\u05dd \u05e9\u05dc\u05db\u05dd",
-        "email": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc",
-        "phone": "\u05d8\u05dc\u05e4\u05d5\u05df (\u05d0\u05d5\u05e4\u05e6\u05d9\u05d5\u05e0\u05dc\u05d9)",
-        "experience": "\u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05d1\u05d4\u05d5\u05e8\u05d0\u05d4",
-        "languages": "\u05d0\u05d9\u05dc\u05d5 \u05e9\u05e4\u05d5\u05ea \u05d0\u05ea\u05dd \u05de\u05dc\u05de\u05d3\u05d9\u05dd?",
-        "message": "\u05e1\u05e4\u05e8\u05d5 \u05e2\u05dc \u05e2\u05e6\u05de\u05db\u05dd \u05d5\u05dc\u05de\u05d4 \u05d0\u05ea\u05dd \u05e8\u05d5\u05e6\u05d9\u05dd \u05dc\u05e2\u05d1\u05d5\u05d3 \u05d1-Fluent Mind",
-        "submit": "\u05e9\u05dc\u05d7\u05d5 \u05e7\u05d5\u05e8\u05d5\u05ea \u05d7\u05d9\u05d9\u05dd"
+        "name": "השם שלכם",
+        "email": "אימייל",
+        "phone": "טלפון (אופציונלי)",
+        "experience": "ניסיון בהוראה",
+        "languages": "אילו שפות אתם מלמדים?",
+        "message": "ספרו על עצמכם ולמה אתם רוצים לעבוד ב-Fluent Mind",
+        "submit": "שלחו קורות חיים"
       },
       "disclaimer": ""
     }
   },
   "contact": {
-    "title": "\u05e6\u05d5\u05e8 \u05e7\u05e9\u05e8",
+    "title": "צור קשר",
     "email": "annydulich@gmail.com",
     "phone": "+972587971733",
     "social": {
@@ -156,54 +178,54 @@
       "instagramSchool": "https://www.instagram.com/fluent_mind_school"
     },
     "form": {
-      "title": "\u05d4\u05e8\u05e9\u05de\u05d5 \u05dc\u05d9\u05d9\u05e2\u05d5\u05e5 \u05d7\u05d9\u05e0\u05dd",
-      "description": "\u05d4\u05e9\u05d0\u05d9\u05e8\u05d5 \u05e4\u05e8\u05d8\u05d9 \u05e7\u05e9\u05e8 \u05d5\u05d0\u05e0\u05d7\u05e0\u05d5 \u05e0\u05de\u05e6\u05d0 \u05d0\u05ea \u05d4\u05e4\u05d5\u05e8\u05de\u05d8 \u05d5\u05d4\u05de\u05d5\u05de\u05d7\u05d4 \u05d4\u05de\u05ea\u05d0\u05d9\u05de\u05d9\u05dd \u05e2\u05d1\u05d5\u05e8\u05db\u05dd.",
+      "title": "הרשמו לייעוץ חינם",
+      "description": "השאירו פרטי קשר ואנחנו נמצא את הפורמט והמומחה המתאימים עבורכם.",
       "fields": {
-        "name": "\u05d4\u05e9\u05dd \u05e9\u05dc\u05db\u05dd",
-        "contact": "\u05d8\u05dc\u05e4\u05d5\u05df \u05d0\u05d5 WhatsApp",
-        "request": "\u05d1\u05e7\u05e9\u05d4 \u05d1\u05e7\u05e6\u05e8\u05d4"
+        "name": "השם שלכם",
+        "contact": "טלפון או WhatsApp",
+        "request": "בקשה בקצרה"
       },
-      "submit": "\u05d4\u05e8\u05e9\u05de\u05d5 \u05dc\u05e9\u05d9\u05e2\u05d5\u05e8 \u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u2192",
+      "submit": "הרשמו לשיעור ניסיון →",
       "disclaimer": "",
-      "trustSignals": "\u05d7\u05d9\u05e0\u05dd \u2022 \u05dc\u05dc\u05d0 \u05d4\u05ea\u05d7\u05d9\u05d9\u05d1\u05d5\u05ea \u2022 \u05e0\u05e9\u05d9\u05d1 \u05ea\u05d5\u05da \u05e9\u05e2\u05d4"
+      "trustSignals": "חינם • ללא התחייבות • נשיב תוך שעה"
     }
   },
   "footer": {
-    "copyright": "\u00a9 {{year}} Fluent Mind. \u05db\u05dc \u05d4\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e9\u05de\u05d5\u05e8\u05d5\u05ea.",
-    "tagline": "\u05d1\u05d9\u05ea \u05e1\u05e4\u05e8 \u05d0\u05d5\u05e0\u05dc\u05d9\u05d9\u05df \u05dc\u05d0\u05e0\u05d2\u05dc\u05d9\u05ea \u05d5\u05e8\u05d5\u05e1\u05d9\u05ea."
+    "copyright": "© {{year}} Fluent Mind. כל הזכויות שמורות.",
+    "tagline": "בית ספר אונליין עם גישה נוירו-ידידותית."
   },
   "stickyCta": {
-    "label": "\u05e9\u05d9\u05e2\u05d5\u05e8 \u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u2014 \u05d7\u05d9\u05e0\u05dd",
-    "button": "\u05d4\u05e8\u05e9\u05de\u05d5"
+    "label": "שיעור ניסיון — חינם",
+    "button": "הרשמו"
   },
   "form": {
-    "sending": "\u05e9\u05d5\u05dc\u05d7...",
-    "success": "\u05ea\u05d5\u05d3\u05d4! \u05e0\u05d9\u05e6\u05d5\u05e8 \u05d0\u05ea\u05db\u05dd \u05d1\u05d4\u05e7\u05d3\u05dd.",
+    "sending": "שולח...",
+    "success": "תודה! ניצור אתכם בהקדם.",
     "errors": {
-      "nameRequired": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05d9\u05e0\u05d5 \u05d0\u05ea \u05e9\u05de\u05db\u05dd",
-      "phoneRequired": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05d9\u05e0\u05d5 \u05de\u05e1\u05e4\u05e8 \u05d8\u05dc\u05e4\u05d5\u05df",
-      "phoneInvalid": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05d9\u05e0\u05d5 \u05de\u05e1\u05e4\u05e8 \u05d8\u05dc\u05e4\u05d5\u05df \u05ea\u05e7\u05d9\u05df",
-      "emailRequired": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05d9\u05e0\u05d5 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc",
-      "emailInvalid": "\u05d0\u05e0\u05d0 \u05d4\u05d6\u05d9\u05e0\u05d5 \u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05ea\u05e7\u05d9\u05df"
+      "nameRequired": "אנא הזינו את שמכם",
+      "phoneRequired": "אנא הזינו מספר טלפון",
+      "phoneInvalid": "אנא הזינו מספר טלפון תקין",
+      "emailRequired": "אנא הזינו אימייל",
+      "emailInvalid": "אנא הזינו אימייל תקין"
     }
   },
   "howItWorks": {
-    "title": "\u05d0\u05d9\u05da \u05d6\u05d4 \u05e2\u05d5\u05d1\u05d3",
+    "title": "איך זה עובד",
     "steps": [
       {
         "number": "1",
-        "title": "\u05d4\u05e8\u05e9\u05de\u05d5",
-        "description": "\u05e9\u05dc\u05d7\u05d5 \u05d1\u05e7\u05e9\u05d4 \u05d5\u05e0\u05d7\u05d6\u05d5\u05e8 \u05d0\u05dc\u05d9\u05db\u05dd \u05ea\u05d5\u05da \u05e9\u05e2\u05d4"
+        "title": "הרשמו",
+        "description": "שלחו בקשה ונחזור אליכם תוך שעה"
       },
       {
         "number": "2",
-        "title": "\u05e2\u05d1\u05e8\u05d5 \u05d0\u05d1\u05d7\u05d5\u05df",
-        "description": "\u05d4\u05e2\u05e8\u05db\u05ea \u05e8\u05de\u05d4 \u05d7\u05d9\u05e0\u05de\u05d9\u05ea \u05d5\u05d4\u05ea\u05d0\u05de\u05ea \u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05dc\u05de\u05d8\u05e8\u05d5\u05ea \u05e9\u05dc\u05db\u05dd"
+        "title": "עברו אבחון",
+        "description": "הערכת רמה חינמית והתאמת תוכנית למטרות שלכם"
       },
       {
         "number": "3",
-        "title": "\u05d4\u05ea\u05d7\u05d9\u05dc\u05d5 \u05dc\u05dc\u05de\u05d5\u05d3",
-        "description": "\u05e9\u05d9\u05e2\u05d5\u05e8\u05d9\u05dd \u05e4\u05e8\u05d8\u05e0\u05d9\u05d9\u05dd \u05d0\u05d5 \u05e7\u05d1\u05d5\u05e6\u05ea\u05d9\u05d9\u05dd \u05d1\u05d6\u05de\u05df \u05e9\u05e0\u05d5\u05d7 \u05dc\u05db\u05dd"
+        "title": "התחילו ללמוד",
+        "description": "שיעורים פרטניים או קבוצתיים בזמן שנוח לכם"
       }
     ]
   }

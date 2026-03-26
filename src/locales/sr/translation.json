@@ -1,43 +1,43 @@
 {
   "brand": {
     "name": "Fluent Mind",
-    "tagline": "\u0160kola dodatnog obrazovanja"
+    "tagline": "Škola dodatnog obrazovanja"
   },
   "nav": {
-    "home": "Po\u010detna",
-    "about": "O \u0161koli",
-    "teachers": "Na\u0161i specijalisti",
-    "courses": "Na\u0161i kursevi",
+    "home": "Početna",
+    "about": "O školi",
+    "teachers": "Naši specijalisti",
+    "courses": "Naši kursevi",
     "contact": "Kontakt",
     "careers": "Karijera",
     "trialLesson": "Prijavite se"
   },
   "hero": {
     "badge": "Neuro-specijalisti onlajn",
-    "title": "Onlajn \u0161kola\nsa neuro pristupom",
-    "description": "Individualni \u010dasovi i mini-grupe za decu, tinejd\u017eere i odrasle. Uzimamo u obzir posebnosti pam\u0107enja, pa\u017enje i percepcije kako bi u\u010denje bilo zaista efikasno.",
+    "title": "Onlajn škola\nsa neuro pristupom",
+    "description": "Individualni časovi i mini-grupe za decu, tinejdžere i odrasle. Uzimamo u obzir posebnosti pamćenja, pažnje i percepcije kako bi učenje bilo zaista efikasno.",
     "cta": {
       "primary": "Pogledajte kurseve"
     },
     "features": [
-      "Individualni \u010dasovi",
+      "Individualni časovi",
       "Fleksibilan onlajn raspored",
       "Autorski materijali"
     ]
   },
   "about": {
-    "title": "Na\u0161a misija",
+    "title": "Naša misija",
     "subtitle": "Mission Statement",
     "paragraphs": [
-      "Fluent Mind je \u0161kola u kojoj tim profesionalaca poma\u017ee ljudima da ostvare svoj obrazovni potencijal pa\u017eljivo, sa razumevanjem kako ljudski mozak funkcioni\u0161e.",
-      "Stvaramo bezbedno okru\u017eenje za u\u010denje, uzimaju\u0107i u obzir individualne karakteristike svakog studenta. Na\u0161 neuro-prijateljski pristup omogu\u0107ava efikasan rad sa razli\u010ditim tipovima percepcije informacija, pam\u0107enja i pa\u017enje.",
-      "Verujemo da svako mo\u017ee da uspe u u\u010denju kada je obrazovanje prilago\u0111eno njegovim jedinstvenim potrebama i obrascima razmi\u0161ljanja."
+      "Fluent Mind je škola u kojoj tim profesionalaca pomaže ljudima da ostvare svoj obrazovni potencijal pažljivo, sa razumevanjem kako ljudski mozak funkcioniše.",
+      "Stvaramo bezbedno okruženje za učenje, uzimajući u obzir individualne karakteristike svakog studenta. Naš neuro-prijateljski pristup omogućava efikasan rad sa različitim tipovima percepcije informacija, pamćenja i pažnje.",
+      "Verujemo da svako može da uspe u učenju kada je obrazovanje prilagođeno njegovim jedinstvenim potrebama i obrascima razmišljanja."
     ],
-    "quote": "U\u010denje treba da bude pa\u017eljivo, bri\u017eno i zasnovano na razumevanju kako mozak svakog \u010doveka funkcioni\u0161e.",
+    "quote": "Učenje treba da bude pažljivo, brižno i zasnovano na razumevanju kako mozak svakog čoveka funkcioniše.",
     "quoteAuthor": "Fluent Mind"
   },
   "teachers": {
-    "title": "Na\u0161i specijalisti",
+    "title": "Naši specijalisti",
     "description": "",
     "signUp": "Prijavite se kod {{name}}",
     "items": [
@@ -45,101 +45,123 @@
         "id": "anastasia-dulich",
         "name": "Anastasija Dulič",
         "initials": "AD",
-        "languages": ["Engleski", "Ruski", "Srpski", "Hrvatski"],
+        "languages": [
+          "Engleski",
+          "Ruski",
+          "Srpski",
+          "Hrvatski"
+        ],
         "description": "Individualni pristup, fokus na živom govornom jeziku i samopouzdanju u komunikaciji. Priprema za ispite i intervjue.",
-        "specialties": ["Individualni i časovi u paru", "Priprema za ispite i intervjue", "Konverzacijska praksa za odrasle"]
+        "specialties": [
+          "Individualni i časovi u paru",
+          "Priprema za ispite i intervjue",
+          "Konverzacijska praksa za odrasle"
+        ]
       },
       {
         "id": "olga-basova",
         "name": "Olga Basova",
         "initials": "OB",
-        "languages": ["Hebrejski", "Engleski"],
+        "languages": [
+          "Hebrejski",
+          "Engleski"
+        ],
         "description": "Predavač hebrejskog i engleskog jezika. Iskustvo rada sa decom, tinejdžerima i odraslima. Individualni pristup svakom studentu.",
-        "specialties": ["Predavanje hebrejskog", "Predavanje engleskog", "Individualni časovi"]
+        "specialties": [
+          "Predavanje hebrejskog",
+          "Predavanje engleskog",
+          "Individualni časovi"
+        ]
       },
       {
         "id": "olga-biryukova",
         "name": "Olga Birjukova",
         "initials": "OB",
-        "languages": ["Psihoterapija"],
+        "languages": [
+          "Psihoterapija"
+        ],
         "description": "Psihoterapeut i defektolog. Rad sa razvojnim posebnostima, podrška u učenju, neuro-prijateljski pristup.",
-        "specialties": ["Psihoterapija", "Defektologija", "Neuro-prijateljski pristup"]
+        "specialties": [
+          "Psihoterapija",
+          "Defektologija",
+          "Neuro-prijateljski pristup"
+        ]
       }
     ]
   },
   "courses": {
-    "title": "Na\u0161i kursevi",
-    "subtitle": "Izaberite odgovaraju\u0107i format u\u010denja",
-    "description": "Nudimo razli\u010dite formate u\u010denja prilago\u0111ene va\u0161im potrebama i karakteristikama percepcije.",
+    "title": "Naši kursevi",
+    "subtitle": "Izaberite odgovarajući format učenja",
+    "description": "Nudimo različite formate učenja prilagođene vašim potrebama i karakteristikama percepcije.",
     "items": [
       {
-        "title": "Individualni \u010dasovi",
+        "title": "Individualni časovi",
         "subtitle": "Personalni pristup",
-        "description": "Individualni \u010dasovi jedan na jedan sa nastavnikom. Potpuno prilago\u0111en program va\u0161im ciljevima i potrebama.",
+        "description": "Individualni časovi jedan na jedan sa nastavnikom. Potpuno prilagođen program vašim ciljevima i potrebama.",
         "features": [
           "Fleksibilan raspored",
           "Personalizovan program",
-          "Maksimalna pa\u017enja",
+          "Maksimalna pažnja",
           "Brz napredak"
         ],
         "cta": "Prijavite se"
       },
       {
         "title": "Mini-grupe",
-        "subtitle": "U\u010denje u malim grupama",
-        "description": "\u010casovi u malim grupama do 4 osobe. Balans izme\u0111u individualnog pristupa i grupne dinamike.",
+        "subtitle": "Učenje u malim grupama",
+        "description": "Časovi u malim grupama do 4 osobe. Balans između individualnog pristupa i grupne dinamike.",
         "features": [
           "Grupe do 4 osobe",
-          "Interaktivno u\u010denje",
-          "Podr\u0161ka grupe",
-          "Pristupa\u010dna cena"
+          "Interaktivno učenje",
+          "Podrška grupe",
+          "Pristupačna cena"
         ],
         "cta": "Prijavite se"
       },
       {
         "title": "Specijalizovani programi",
         "subtitle": "Za posebne potrebe",
-        "description": "Programi za osobe sa razvojnim razlikama i neurorazli\u010ditostima. Neuro-prijateljski pristup u\u010denju.",
+        "description": "Programi za osobe sa razvojnim razlikama i neurorazličitostima. Neuro-prijateljski pristup učenju.",
         "features": [
           "Neuro-prijateljski pristup",
-          "Prilago\u0111eni materijali",
-          "Podr\u0161ka specijalista",
-          "Udobno okru\u017eenje"
+          "Prilagođeni materijali",
+          "Podrška specijalista",
+          "Udobno okruženje"
         ],
-        "cta": "Saznajte vi\u0161e"
+        "cta": "Saznajte više"
       }
     ]
   },
   "careers": {
     "title": "Karijera u Fluent Mind",
-    "subtitle": "Pridru\u017eite se na\u0161em timu",
-    "description": "Tra\u017eimo talentovane nastavnike koji dele na\u0161 pristup neuro-prijateljskom obrazovanju. Ako ste strastveni prema jezicima i \u017eelite da poma\u017eete ljudima da ostvare svoje ciljeve, bi\u0107e nam drago da vas upoznamo.",
+    "subtitle": "Pridružite se našem timu",
+    "description": "Tražimo talentovane nastavnike koji dele naš pristup neuro-prijateljskom obrazovanju. Ako ste strastveni prema jezicima i želite da pomažete ljudima da ostvare svoje ciljeve, biće nam drago da vas upoznamo.",
     "benefits": {
-      "title": "\u0160ta nudimo",
+      "title": "Šta nudimo",
       "items": [
         "Fleksibilan raspored rada",
         "Rad na daljinu",
-        "Podr\u0161ka i obuka",
+        "Podrška i obuka",
         "Konkurentna plata",
         "Rad sa zanimljivim studentima",
-        "Mogu\u0107nost profesionalnog razvoja"
+        "Mogućnost profesionalnog razvoja"
       ]
     },
     "openPositions": {
       "title": "Otvorene pozicije",
-      "noPositions": "Trenutno nemamo otvorenih pozicija, ali uvek rado razmatramo va\u0161u biografiju."
+      "noPositions": "Trenutno nemamo otvorenih pozicija, ali uvek rado razmatramo vašu biografiju."
     },
     "application": {
-      "title": "Po\u0161aljite biografiju",
-      "description": "Po\u0161aljite nam svoju biografiju i ispri\u010dajte nam o sebi. Kontaktira\u0107emo vas ako se pojavi odgovaraju\u0107a pozicija.",
+      "title": "Pošaljite biografiju",
+      "description": "Pošaljite nam svoju biografiju i ispričajte nam o sebi. Kontaktiraćemo vas ako se pojavi odgovarajuća pozicija.",
       "form": {
-        "name": "Va\u0161e ime",
+        "name": "Vaše ime",
         "email": "Email",
         "phone": "Telefon (opciono)",
         "experience": "Iskustvo u nastavi",
         "languages": "Koje jezike predajete?",
-        "message": "Ispri\u010dajte nam o sebi i za\u0161to \u017eelite da radite u Fluent Mind",
-        "submit": "Po\u0161aljite biografiju"
+        "message": "Ispričajte nam o sebi i zašto želite da radite u Fluent Mind",
+        "submit": "Pošaljite biografiju"
       },
       "disclaimer": ""
     }
@@ -156,34 +178,34 @@
       "instagramSchool": "https://www.instagram.com/fluent_mind_school"
     },
     "form": {
-      "title": "Zaka\u017eite besplatnu konsultaciju",
-      "description": "Ostavite kontakt podatke i prona\u0107i \u0107emo pravi format i specijalistu za vas.",
+      "title": "Zakažite besplatnu konsultaciju",
+      "description": "Ostavite kontakt podatke i pronaći ćemo pravi format i specijalistu za vas.",
       "fields": {
-        "name": "Va\u0161e ime",
+        "name": "Vaše ime",
         "contact": "Telefon ili WhatsApp",
         "request": "Kratak zahtev"
       },
-      "submit": "Zaka\u017eite probni \u010das \u2192",
+      "submit": "Zakažite probni čas →",
       "disclaimer": "",
-      "trustSignals": "Besplatno \u2022 Bez obaveza \u2022 Odgovori\u0107emo u roku od sat vremena"
+      "trustSignals": "Besplatno • Bez obaveza • Odgovorićemo u roku od sat vremena"
     }
   },
   "footer": {
-    "copyright": "\u00a9 {{year}} Fluent Mind. Sva prava zadr\u017eana.",
-    "tagline": "Onlajn \u0161kola engleskog i ruskog jezika."
+    "copyright": "© {{year}} Fluent Mind. Sva prava zadržana.",
+    "tagline": "Onlajn škola sa neuro-pristupom."
   },
   "stickyCta": {
-    "label": "Probni \u010das \u2014 besplatno",
+    "label": "Probni čas — besplatno",
     "button": "Prijavite se"
   },
   "form": {
     "sending": "Slanje...",
-    "success": "Hvala! Kontaktira\u0107emo vas uskoro.",
+    "success": "Hvala! Kontaktiraćemo vas uskoro.",
     "errors": {
-      "nameRequired": "Molimo unesite va\u0161e ime",
+      "nameRequired": "Molimo unesite vaše ime",
       "phoneRequired": "Molimo unesite broj telefona",
       "phoneInvalid": "Molimo unesite ispravan broj telefona",
-      "emailRequired": "Molimo unesite va\u0161 email",
+      "emailRequired": "Molimo unesite vaš email",
       "emailInvalid": "Molimo unesite ispravnu email adresu"
     }
   },
@@ -193,17 +215,17 @@
       {
         "number": "1",
         "title": "Prijavite se",
-        "description": "Po\u0161aljite zahtev i javi\u0107emo vam se u roku od sat vremena"
+        "description": "Pošaljite zahtev i javićemo vam se u roku od sat vremena"
       },
       {
         "number": "2",
         "title": "Uradite dijagnostiku",
-        "description": "Besplatna procena nivoa i izbor programa prilago\u0111enog va\u0161im ciljevima"
+        "description": "Besplatna procena nivoa i izbor programa prilagođenog vašim ciljevima"
       },
       {
         "number": "3",
-        "title": "Po\u010dnite da u\u010dite",
-        "description": "Individualni ili grupni \u010dasovi u vreme koje vam odgovara"
+        "title": "Počnite da učite",
+        "description": "Individualni ili grupni časovi u vreme koje vam odgovara"
       }
     ]
   }
