@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluent Mind — Редактирование текстов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .intro { color: #6e6e73; margin-bottom: 32px; font-size: 14px; line-height: 1.5; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #86868b;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d2d2d7;
+  }
+  .block { margin-bottom: 20px; }
+  .block-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+  }
+  .block-context {
+    font-size: 12px;
+    color: #86868b;
+    margin-bottom: 6px;
+  }
+  .original {
+    font-size: 13px;
+    color: #6e6e73;
+    background: #e8e8ed;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 2px solid #d2d2d7;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color 0.2s;
+    background: #fff;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: #2d2764;
+  }
+  textarea.modified {
+    border-color: #bfa371;
+    background: #fffdf7;
+  }
+  .actions {
+    position: sticky;
+    bottom: 0;
+    background: #f5f5f7;
+    padding: 16px 0;
+    border-top: 1px solid #d2d2d7;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  button:hover { opacity: 0.85; }
+  .btn-primary { background: #2d2764; color: #fff; }
+  .btn-secondary { background: #e8e8ed; color: #1d1d1f; }
+  .status {
+    font-size: 13px;
+    color: #6e6e73;
+    margin-left: auto;
+  }
+  .saved-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34c759;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<h1>Редактирование текстов сайта</h1>
+<p class="intro">
+  Ниже — тексты, которые нужно переписать. Серый блок — текущий текст на сайте.
+  Впишите новый вариант в поле ниже. Изменения автоматически сохраняются в браузере.
+  Когда всё готово — нажмите «Скопировать результат».
+</p>
+
+<div id="editor"></div>
+
+<div class="actions">
+  <button class="btn-primary" onclick="copyResult()">Скопировать результат</button>
+  <button class="btn-secondary" onclick="resetAll()">Сбросить всё</button>
+  <span class="status" id="status"></span>
+</div>
+
+<script>
+const blocks = [
+  {
+    section: "Главная — Hero",
+    id: "hero.description",
+    label: "Описание под заголовком",
+    context: "Текст сразу под главным заголовком «Онлайн школа с нейроподходом»",
+    original: "Индивидуальные занятия и мини-группы для детей, подростков и взрослых. Мы учитываем особенности памяти, внимания и восприятия, чтобы обучение было по-настоящему эффективным."
+  },
+  {
+    section: "О школе",
+    id: "about.paragraphs[0]",
+    label: "Первый параграф",
+    context: "Секция «Наша миссия» — первый абзац",
+    original: "Fluent Mind — это школа, где команда профессионалов помогает людям раскрыть свой учебный потенциал бережно, с вниманием и пониманием того, как работает человеческий мозг."
+  },
+  {
+    section: "О школе",
+    id: "about.paragraphs[1]",
+    label: "Второй параграф",
+    context: "Секция «Наша миссия» — второй абзац",
+    original: "Мы создаём безопасное пространство для обучения, учитывая индивидуальные особенности каждого студента. Наш нейродружелюбный подход позволяет эффективно работать с разными типами восприятия информации, памяти и внимания."
+  },
+  {
+    section: "О школе",
+    id: "about.paragraphs[2]",
+    label: "Третий параграф",
+    context: "Секция «Наша миссия» — третий абзац",
+    original: "Мы верим, что каждый человек способен достичь успеха в учебе, когда обучение адаптировано под его уникальные потребности и особенности мышления."
+  },
+  {
+    section: "О школе",
+    id: "about.quote",
+    label: "Цитата",
+    context: "Выделенная цитата внизу секции «Наша миссия»",
+    original: "Обучение должно быть бережным, внимательным и основанным на понимании того, как работает мозг каждого человека."
+  },
+  {
+    section: "Курсы — общее",
+    id: "courses.description",
+    label: "Описание секции курсов",
+    context: "Текст под заголовком «Наши курсы»",
+    original: "Мы предлагаем различные форматы обучения, адаптированные под ваши потребности и особенности восприятия."
+  },
+  {
+    section: "Курсы — Индивидуальные занятия",
+    id: "courses.items[0].description",
+    label: "Описание индивидуальных занятий",
+    context: "Карточка первого курса",
+    original: "Индивидуальные занятия один на один с преподавателем. Полностью адаптированная программа под ваши цели и особенности."
+  },
+  {
+    section: "Курсы — Мини-группы",
+    id: "courses.items[1].description",
+    label: "Описание мини-групп",
+    context: "Карточка второго курса",
+    original: "Занятия в небольших группах до 4 человек. Баланс между индивидуальным подходом и групповой динамикой."
+  },
+  {
+    section: "Курсы — Специализированные программы",
+    id: "courses.items[2].title",
+    label: "Название курса",
+    context: "Заголовок третьей карточки",
+    original: "Специализированные программы"
+  },
+  {
+    section: "Курсы — Специализированные программы",
+    id: "courses.items[2].subtitle",
+    label: "Подзаголовок курса",
+    context: "Подзаголовок третьей карточки",
+    original: "Для особых потребностей"
+  },
+  {
+    section: "Курсы — Специализированные программы",
+    id: "courses.items[2].description",
+    label: "Описание курса",
+    context: "Описание третьей карточки",
+    original: "Программы для людей с особенностями развития, нейроотличиями. Нейродружелюбный подход к обучению."
+  },
+  {
+    section: "Карьера",
+    id: "careers.description",
+    label: "Описание секции карьеры",
+    context: "Текст под заголовком «Карьера в Fluent Mind»",
+    original: "Мы ищем талантливых преподавателей, которые разделяют наш подход к нейродружелюбному обучению. Если вы увлечены языками и хотите помогать людям достигать своих целей, мы будем рады с вами познакомиться."
+  }
+];
+
+const STORAGE_KEY = "fluentmind-text-edits";
+
+function loadSaved() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch { return {}; }
+}
+
+function saveAll() {
+  const data = {};
+  blocks.forEach(b => {
+    const el = document.getElementById("input-" + b.id);
+    if (el && el.value.trim()) {
+      data[b.id] = el.value.trim();
+    }
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  showStatus("Сохранено");
+}
+
+function showStatus(text) {
+  const el = document.getElementById("status");
+  el.innerHTML = '<span class="saved-indicator"></span>' + text;
+  setTimeout(() => { el.textContent = ""; }, 2000);
+}
+
+function render() {
+  const saved = loadSaved();
+  const container = document.getElementById("editor");
+  let currentSection = "";
+  let html = "";
+
+  blocks.forEach(b => {
+    if (b.section !== currentSection) {
+      if (currentSection) html += "</div>";
+      html += `<div class="section"><div class="section-title">${b.section}</div>`;
+      currentSection = b.section;
+    }
+    const val = saved[b.id] || "";
+    const modified = val ? "modified" : "";
+    html += `
+      <div class="block">
+        <div class="block-label">${b.label}</div>
+        <div class="block-context">${b.context} &middot; <code>${b.id}</code></div>
+        <div class="original">${b.original}</div>
+        <textarea id="input-${b.id}" class="${modified}" placeholder="Новый текст..." oninput="onEdit(this, '${b.id}')">${val}</textarea>
+      </div>`;
+  });
+  if (currentSection) html += "</div>";
+  container.innerHTML = html;
+}
+
+function onEdit(el, id) {
+  el.classList.toggle("modified", el.value.trim().length > 0);
+  saveAll();
+}
+
+function copyResult() {
+  const saved = loadSaved();
+  const lines = [];
+  blocks.forEach(b => {
+    const newText = saved[b.id];
+    if (newText) {
+      lines.push(`## ${b.section} — ${b.label}`);
+      lines.push(`Ключ: ${b.id}`);
+      lines.push(`Было: ${b.original}`);
+      lines.push(`Стало: ${newText}`);
+      lines.push("");
+    }
+  });
+  if (lines.length === 0) {
+    alert("Пока ничего не заполнено");
+    return;
+  }
+  const text = lines.join("\n");
+  navigator.clipboard.writeText(text).then(() => {
+    showStatus("Скопировано в буфер обмена");
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showStatus("Скопировано");
+  });
+}
+
+function resetAll() {
+  if (!confirm("Сбросить все изменения?")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  render();
+  showStatus("Сброшено");
+}
+
+render();
+</script>
+</body>
+</html>
