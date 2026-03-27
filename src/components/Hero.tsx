@@ -43,7 +43,13 @@ export default function Hero() {
           {t("hero.description")}
         </motion.p>
         <motion.a
-          {...fadeUp(0.3)}
+          {...(prefersReducedMotion
+            ? {}
+            : {
+                initial: { opacity: 0 },
+                animate: { opacity: 1 },
+                transition: { duration: 0.5, delay: 0.3 },
+              })}
           href="#courses"
           className="btn-accent mt-6 inline-block rounded-full px-8 py-3.5 text-sm shadow-md transition-all hover:shadow-lg"
         >
