@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Teacher } from "../types";
+import ReviewsModal from "./ReviewsModal";
 
 interface TeacherCardProps {
   teacher: Teacher;
@@ -7,6 +9,9 @@ interface TeacherCardProps {
 
 export default function TeacherCard({ teacher }: TeacherCardProps) {
   const { t } = useTranslation();
+  const [reviewsOpen, setReviewsOpen] = useState(false);
+  const hasReviews = teacher.reviews && teacher.reviews.length > 0;
+
   return (
     <article
       className="flex h-full flex-col rounded-3xl border bg-white p-5 shadow-sm transition-all hover:border-accent hover:shadow-md"
@@ -40,6 +45,17 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
         ))}
       </ul>
 
+      {hasReviews && (
+        <button
+          type="button"
+          onClick={() => setReviewsOpen(true)}
+          className="mb-2 inline-flex items-center gap-1.5 text-xs font-medium text-primary/70 transition-colors hover:text-primary"
+        >
+          <span>💬</span>
+          {t("teachers.reviewsButton", { count: teacher.reviews!.length })}
+        </button>
+      )}
+
       <button
         type="button"
         className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
@@ -47,6 +63,14 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
       >
         {t("teachers.signUp", { name: teacher.name.split(" ")[0] })}
       </button>
+
+      {hasReviews && (
+        <ReviewsModal
+          teacher={teacher}
+          isOpen={reviewsOpen}
+          onClose={() => setReviewsOpen(false)}
+        />
+      )}
     </article>
   );
 }
