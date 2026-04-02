@@ -1,3 +1,8 @@
+export interface Review {
+  author: string;
+  text: string;
+}
+
 export interface Teacher {
   id: string;
   name: string;
@@ -5,6 +10,7 @@ export interface Teacher {
   languages: string[];
   description: string;
   specialties: string[];
+  reviews?: Review[];
 }
 
 export interface ContactFormData {

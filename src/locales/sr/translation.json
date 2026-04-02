@@ -40,6 +40,8 @@
     "title": "Naši specijalisti",
     "description": "",
     "signUp": "Prijavite se kod {{name}}",
+    "reviewsButton": "Recenzije ({{count}})",
+    "reviewsTitle": "Recenzije — {{name}}",
     "items": [
       {
         "id": "anastasia-dulich",
@@ -56,6 +58,10 @@
           "Individualni i časovi u paru",
           "Priprema za ispite i intervjue",
           "Konverzacijska praksa za odrasle"
+        ],
+        "reviews": [
+          { "author": "Marija", "text": "Odličan profesor! Anastasija mi je pomogla da govorim engleski sa samopouzdanjem." },
+          { "author": "Dmitrij", "text": "Pripremio sam se za intervju za posao za 2 meseca. Veoma zahvalan na individualnom pristupu." }
         ]
       },
       {

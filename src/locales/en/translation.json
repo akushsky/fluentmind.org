@@ -40,6 +40,8 @@
     "title": "Our specialists",
     "description": "",
     "signUp": "Sign up with {{name}}",
+    "reviewsButton": "Reviews ({{count}})",
+    "reviewsTitle": "Reviews — {{name}}",
     "items": [
       {
         "id": "anastasia-dulich",
@@ -47,7 +49,11 @@
         "initials": "AD",
         "languages": ["English", "Russian", "Serbian", "Croatian"],
         "description": "Individual approach, focus on real conversational speech and confidence in communication. Exam and interview preparation.",
-        "specialties": ["Individual and pair lessons", "Exam and interview preparation", "Conversational practice for adults"]
+        "specialties": ["Individual and pair lessons", "Exam and interview preparation", "Conversational practice for adults"],
+        "reviews": [
+          { "author": "Maria", "text": "Excellent teacher! Anastasia helped me speak English with confidence." },
+          { "author": "Dmitry", "text": "Prepared for my job interview in 2 months. Very grateful for the individual approach." }
+        ]
       },
       {
         "id": "olga-basova",
