@@ -47,12 +47,28 @@
         "id": "anastasia-dulich",
         "name": "Anastasia Dulich",
         "initials": "AD",
-        "languages": ["English", "Russian", "Serbian", "Croatian"],
-        "description": "Individual approach, focus on real conversational speech and confidence in communication. Exam and interview preparation.",
-        "specialties": ["Individual and pair lessons", "Exam and interview preparation", "Conversational practice for adults"],
+        "languages": ["English", "Russian for bilinguals", "Serbian"],
+        "description": "Neuropedagogue and polyglot with over 20 years of experience.",
+        "specialties": [
+          "Children, teenagers, and adults",
+          "Exam and interview preparation",
+          "Conversational practice and confidence building"
+        ],
         "reviews": [
           { "author": "Maria", "text": "Excellent teacher! Anastasia helped me speak English with confidence." },
           { "author": "Dmitry", "text": "Prepared for my job interview in 2 months. Very grateful for the individual approach." }
+        ]
+      },
+      {
+        "id": "olga-biryukova",
+        "name": "Olga Biryukova",
+        "initials": "OB",
+        "languages": ["Neuropsychology"],
+        "description": "Neuropsychologist for children, teenagers, and adults.",
+        "specialties": [
+          "Diagnosis of learning difficulties",
+          "Parent consultations",
+          "Learning and development support"
         ]
       },
       {
@@ -60,16 +76,24 @@
         "name": "Olga Basova",
         "initials": "OB",
         "languages": ["Hebrew", "English"],
-        "description": "Hebrew and English teacher. Experience working with children, teenagers, and adults. Individual approach to each student.",
-        "specialties": ["Hebrew teaching", "English teaching", "Individual lessons"]
+        "description": "Language teacher with an individual approach.",
+        "specialties": [
+          "Children, teenagers, and adults",
+          "Conversational practice",
+          "Language adaptation and support"
+        ]
       },
       {
-        "id": "olga-biryukova",
-        "name": "Olga Biryukova",
-        "initials": "OB",
-        "languages": ["Psychotherapy"],
-        "description": "Psychotherapist and speech-language pathologist. Working with developmental differences, learning support, neuro-friendly approach.",
-        "specialties": ["Psychotherapy", "Speech-language pathology", "Neuro-friendly approach"]
+        "id": "olga-pindrik",
+        "name": "Olga Pindrik",
+        "initials": "OP",
+        "languages": ["Mathematics", "Geometry", "Psychometry"],
+        "description": "Mathematics teacher with over 30 years of experience.",
+        "specialties": [
+          "Teenagers and high school students",
+          "Bagrut preparation",
+          "Psychometry preparation"
+        ]
       }
     ]
   },

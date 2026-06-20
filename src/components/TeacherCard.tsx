@@ -59,9 +59,9 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
       <button
         type="button"
         className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-        aria-label={t("teachers.signUp", { name: teacher.name })}
+        aria-label={t("teachers.signUp", { name: teacher.nameDative ?? teacher.name.split(" ")[0] })}
       >
-        {t("teachers.signUp", { name: teacher.name.split(" ")[0] })}
+        {t("teachers.signUp", { name: teacher.nameDative ?? teacher.name.split(" ")[0] })}
       </button>
 
       {hasReviews && (

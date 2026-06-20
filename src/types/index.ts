@@ -6,6 +6,7 @@ export interface Review {
 export interface Teacher {
   id: string;
   name: string;
+  nameDative?: string;
   initials: string;
   languages: string[];
   description: string;

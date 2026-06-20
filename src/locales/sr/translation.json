@@ -49,19 +49,32 @@
         "initials": "AD",
         "languages": [
           "Engleski",
-          "Ruski",
-          "Srpski",
-          "Hrvatski"
+          "Ruski za bilingvale",
+          "Srpski"
         ],
-        "description": "Individualni pristup, fokus na živom govornom jeziku i samopouzdanju u komunikaciji. Priprema za ispite i intervjue.",
+        "description": "Neuropedagog i poliglot sa više od 20 godina iskustva.",
         "specialties": [
-          "Individualni i časovi u paru",
+          "Deca, tinejdžeri i odrasli",
           "Priprema za ispite i intervjue",
-          "Konverzacijska praksa za odrasle"
+          "Konverzacijska praksa i razvoj samopouzdanja"
         ],
         "reviews": [
           { "author": "Marija", "text": "Odličan profesor! Anastasija mi je pomogla da govorim engleski sa samopouzdanjem." },
           { "author": "Dmitrij", "text": "Pripremio sam se za intervju za posao za 2 meseca. Veoma zahvalan na individualnom pristupu." }
+        ]
+      },
+      {
+        "id": "olga-biryukova",
+        "name": "Olga Birjukova",
+        "initials": "OB",
+        "languages": [
+          "Neuropsihologija"
+        ],
+        "description": "Neuropsiholog za decu, tinejdžere i odrasle.",
+        "specialties": [
+          "Dijagnostika poteškoća u učenju",
+          "Konsultacije za roditelje",
+          "Podrška učenju i razvoju"
         ]
       },
       {
@@ -72,25 +85,27 @@
           "Hebrejski",
           "Engleski"
         ],
-        "description": "Predavač hebrejskog i engleskog jezika. Iskustvo rada sa decom, tinejdžerima i odraslima. Individualni pristup svakom studentu.",
+        "description": "Predavač jezika sa individualnim pristupom.",
         "specialties": [
-          "Predavanje hebrejskog",
-          "Predavanje engleskog",
-          "Individualni časovi"
+          "Deca, tinejdžeri i odrasli",
+          "Konverzacijska praksa",
+          "Jezička adaptacija i podrška"
         ]
       },
       {
-        "id": "olga-biryukova",
-        "name": "Olga Birjukova",
-        "initials": "OB",
+        "id": "olga-pindrik",
+        "name": "Olga Pindrik",
+        "initials": "OP",
         "languages": [
-          "Psihoterapija"
+          "Matematika",
+          "Geometrija",
+          "Psihometrija"
         ],
-        "description": "Psihoterapeut i defektolog. Rad sa razvojnim posebnostima, podrška u učenju, neuro-prijateljski pristup.",
+        "description": "Predavač matematike sa više od 30 godina iskustva.",
         "specialties": [
-          "Psihoterapija",
-          "Defektologija",
-          "Neuro-prijateljski pristup"
+          "Tinejdžeri i maturanti",
+          "Priprema za bagrut",
+          "Priprema za psihometriju"
         ]
       }
     ]
