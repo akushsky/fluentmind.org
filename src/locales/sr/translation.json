@@ -116,6 +116,7 @@
     "description": "Nudimo različite formate učenja prilagođene vašim potrebama i karakteristikama percepcije.",
     "items": [
       {
+        "id": "individual-lessons",
         "title": "Individualni časovi",
         "subtitle": "Personalni pristup",
         "description": "Individualni časovi jedan na jedan sa nastavnikom. Potpuno prilagođen program vašim ciljevima i potrebama.",
@@ -128,6 +129,7 @@
         "cta": "Prijavite se"
       },
       {
+        "id": "mini-groups",
         "title": "Mini-grupe",
         "subtitle": "Učenje u malim grupama",
         "description": "Časovi u malim grupama do 4 osobe. Balans između individualnog pristupa i grupne dinamike.",
@@ -140,6 +142,7 @@
         "cta": "Prijavite se"
       },
       {
+        "id": "specialized-programs",
         "title": "Specijalizovani programi",
         "subtitle": "Za posao, ispite ili intervjue",
         "description": "Naši specijalisti kreiraju individualne programe za pripremu za ispite, intervjue ili profesionalni vokabular",
@@ -249,5 +252,24 @@
         "description": "Individualni ili grupni časovi u vreme koje vam odgovara"
       }
     ]
+  },
+  "whatsapp": {
+    "messages": {
+      "trialLesson": "Zdravo! Želim da se prijavim na probni čas u Fluent Mind.",
+      "teacher": "Zdravo! Želim da se prijavim kod {{name}}.",
+      "courseIndividual": "Zdravo! Zainteresovan/a sam za individualne časove.",
+      "courseMiniGroup": "Zdravo! Zainteresovan/a sam za časove u mini-grupama.",
+      "courseSpecialized": "Zdravo! Zainteresovan/a sam za specijalizovane programe.",
+      "general": "Zdravo! Želim da saznam više o časovima u Fluent Mind.",
+      "contactForm": "Zdravo! Zovem se {{name}}. {{request}}Kontakt: {{phone}}.",
+      "contactFormRequest": "Upit: {{request}}. ",
+      "careersIntro": "Zdravo! Želim da pošaljem CV u Fluent Mind.",
+      "careersName": "Ime: {{value}}",
+      "careersEmail": "Email: {{value}}",
+      "careersPhone": "Telefon: {{value}}",
+      "careersExperience": "Iskustvo u podučavanju: {{value}}",
+      "careersLanguages": "Jezici: {{value}}",
+      "careersAbout": "O meni: {{value}}"
+    }
   }
 }

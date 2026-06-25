@@ -4,6 +4,7 @@ import FloatingInput from "./FloatingInput";
 import FloatingTextarea from "./FloatingTextarea";
 import { useFormSubmit } from "../hooks/useFormSubmit";
 import AnimatedSection from "./AnimatedSection";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -25,11 +26,21 @@ export default function Contact() {
     [t],
   );
 
-  const { state, submit } = useFormSubmit(validationRules);
+  const { state, validate } = useFormSubmit(validationRules);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    submit({ name, phone, message });
+    if (!validate({ name, phone })) return;
+
+    const requestPart = message.trim()
+      ? t("whatsapp.messages.contactFormRequest", { request: message.trim() })
+      : "";
+    const text = t("whatsapp.messages.contactForm", {
+      name: name.trim(),
+      phone: phone.trim(),
+      request: requestPart,
+    });
+    window.open(buildWhatsAppUrl(text), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -89,7 +100,7 @@ export default function Contact() {
                   Telegram (@Anaesty)
                 </a>
                 <a
-                  href={t("contact.social.whatsapp")}
+                  href={buildWhatsAppUrl(t("whatsapp.messages.general"))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-green-600 hover:underline"
@@ -169,32 +180,10 @@ export default function Contact() {
           </AnimatedSection>
 
           <AnimatedSection direction="right" delay={0.1}>
-            {state.status === "success" ? (
-              <div className="flex flex-col items-center justify-center rounded-3xl border bg-slate-50 p-8 text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <svg
-                    className="h-8 w-8 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <p className="text-lg font-semibold text-primary">
-                  {t("form.success")}
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="rounded-3xl border bg-slate-50 p-5 md:p-6"
-              >
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-3xl border bg-slate-50 p-5 md:p-6"
+            >
                 <div className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {t("contact.form.title")}
                 </div>
@@ -234,12 +223,9 @@ export default function Contact() {
                   <AnimatedSection delay={0.5}>
                     <button
                       type="submit"
-                      disabled={state.status === "submitting"}
-                      className="btn-accent w-full rounded-full px-4 py-2 text-sm shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                      className="btn-accent w-full rounded-full px-4 py-2 text-sm shadow-sm transition-opacity hover:opacity-90"
                     >
-                      {state.status === "submitting"
-                        ? t("form.sending")
-                        : t("contact.form.submit")}
+                      {t("contact.form.submit")}
                     </button>
                     <p className="mt-2 text-center text-[11px] leading-snug text-slate-400">
                       {t("contact.form.trustSignals")}
@@ -247,7 +233,6 @@ export default function Contact() {
                   </AnimatedSection>
                 </div>
               </form>
-            )}
           </AnimatedSection>
         </div>
       </div>

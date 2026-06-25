@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 
 export default function StickyMobileCTA() {
   const { t } = useTranslation();
@@ -57,7 +58,9 @@ export default function StickyMobileCTA() {
           <div className="flex items-center justify-between">
             <span className="text-xs text-white">{t("stickyCta.label")}</span>
             <a
-              href="#contact"
+              href={buildWhatsAppUrl(t("whatsapp.messages.trialLesson"))}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-md bg-accent px-4 py-2 text-xs font-semibold text-primary"
             >
               {t("stickyCta.button")}

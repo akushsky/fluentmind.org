@@ -116,6 +116,7 @@
     "description": "אנו מציעים פורמטים שונים של למידה, מותאמים לצרכים ולמאפייני התפיסה שלכם.",
     "items": [
       {
+        "id": "individual-lessons",
         "title": "שיעורים פרטניים",
         "subtitle": "גישה אישית",
         "description": "שיעורים אישיים אחד על אחד עם מורה. תוכנית מותאמת במלואה למטרות ולצרכים שלכם.",
@@ -128,6 +129,7 @@
         "cta": "הרשמו"
       },
       {
+        "id": "mini-groups",
         "title": "מיני-קבוצות",
         "subtitle": "למידה בקבוצות קטנות",
         "description": "שיעורים בקבוצות קטנות של עד 4 אנשים. איזון בין גישה אישית לדינמיקה קבוצתית.",
@@ -140,6 +142,7 @@
         "cta": "הרשמו"
       },
       {
+        "id": "specialized-programs",
         "title": "תוכניות מתמחות",
         "subtitle": "לעבודה, מבחנים או ראיונות",
         "description": "המומחים שלנו בונים תוכניות אישיות להכנה למבחנים, ראיונות עבודה או אוצר מילים מקצועי",
@@ -249,5 +252,24 @@
         "description": "שיעורים פרטניים או קבוצתיים בזמן שנוח לכם"
       }
     ]
+  },
+  "whatsapp": {
+    "messages": {
+      "trialLesson": "שלום! אני רוצה להירשם לשיעור ניסיון ב-Fluent Mind.",
+      "teacher": "שלום! אני רוצה להירשם ל-{{name}}.",
+      "courseIndividual": "שלום! אני מתעניין/ת בשיעורים פרטניים.",
+      "courseMiniGroup": "שלום! אני מתעניין/ת בשיעורים בקבוצות קטנות.",
+      "courseSpecialized": "שלום! אני מתעניין/ת בתוכניות מתמחות.",
+      "general": "שלום! אני רוצה לשמוע עוד על השיעורים ב-Fluent Mind.",
+      "contactForm": "שלום! קוראים לי {{name}}. {{request}}יצירת קשר: {{phone}}.",
+      "contactFormRequest": "בקשה: {{request}}. ",
+      "careersIntro": "שלום! אני רוצה לשלוח קורות חיים ל-Fluent Mind.",
+      "careersName": "שם: {{value}}",
+      "careersEmail": "אימייל: {{value}}",
+      "careersPhone": "טלפון: {{value}}",
+      "careersExperience": "ניסיון בהוראה: {{value}}",
+      "careersLanguages": "שפות: {{value}}",
+      "careersAbout": "עלי: {{value}}"
+    }
   }
 }

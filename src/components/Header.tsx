@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -134,8 +135,9 @@ export default function Header() {
           <LanguageSwitcher variant="desktop" />
           {isHomePage && (
             <a
-              href="#contact"
-              onClick={(e) => handleAnchorClick(e, "#contact")}
+              href={buildWhatsAppUrl(t("whatsapp.messages.trialLesson"))}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
               {t("nav.trialLesson")}

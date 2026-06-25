@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 interface MobileMenuProps {
@@ -74,11 +75,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </div>
 
             <a
-              href="#contact"
+              href={buildWhatsAppUrl(t("whatsapp.messages.trialLesson"))}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={onClose}
               className="mt-6 block rounded-lg bg-accent py-3.5 text-center text-[15px] font-semibold text-primary"
             >
-              {t("hero.cta.primary")}
+              {t("nav.trialLesson")}
             </a>
           </nav>
         </motion.div>

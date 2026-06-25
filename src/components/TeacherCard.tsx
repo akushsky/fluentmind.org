@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { teacherPhotos } from "../assets/teachers";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 import type { Teacher } from "../types";
 import ReviewsModal from "./ReviewsModal";
 
@@ -66,13 +67,17 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
         </button>
       )}
 
-      <button
-        type="button"
+      <a
+        href={buildWhatsAppUrl(
+          t("whatsapp.messages.teacher", { name: teacher.name }),
+        )}
+        target="_blank"
+        rel="noopener noreferrer"
         className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
         aria-label={t("teachers.signUp", { name: teacher.nameDative ?? teacher.name.split(" ")[0] })}
       >
         {t("teachers.signUp", { name: teacher.nameDative ?? teacher.name.split(" ")[0] })}
-      </button>
+      </a>
 
       {hasReviews && (
         <ReviewsModal

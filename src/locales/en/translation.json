@@ -103,6 +103,7 @@
     "description": "We offer various learning formats adapted to your needs and perception characteristics.",
     "items": [
       {
+        "id": "individual-lessons",
         "title": "Individual lessons",
         "subtitle": "Personal approach",
         "description": "One-on-one lessons with a teacher. A fully customized program tailored to your goals and needs.",
@@ -115,6 +116,7 @@
         "cta": "Sign up"
       },
       {
+        "id": "mini-groups",
         "title": "Mini-groups",
         "subtitle": "Small group learning",
         "description": "Classes in small groups of up to 4 people. A balance between individual approach and group dynamics.",
@@ -127,6 +129,7 @@
         "cta": "Sign up"
       },
       {
+        "id": "specialized-programs",
         "title": "Specialized programs",
         "subtitle": "For work, exams, or interviews",
         "description": "Our specialists create individual programs for exam preparation, job interviews, or professional vocabulary",
@@ -236,5 +239,24 @@
         "description": "Individual or group lessons at a time that works for you"
       }
     ]
+  },
+  "whatsapp": {
+    "messages": {
+      "trialLesson": "Hello! I'd like to book a trial lesson at Fluent Mind.",
+      "teacher": "Hello! I'd like to sign up with {{name}}.",
+      "courseIndividual": "Hello! I'm interested in individual lessons.",
+      "courseMiniGroup": "Hello! I'm interested in mini-group lessons.",
+      "courseSpecialized": "Hello! I'm interested in specialized programs.",
+      "general": "Hello! I'd like to learn more about lessons at Fluent Mind.",
+      "contactForm": "Hello! My name is {{name}}. {{request}}Contact: {{phone}}.",
+      "contactFormRequest": "Request: {{request}}. ",
+      "careersIntro": "Hello! I'd like to submit my resume to Fluent Mind.",
+      "careersName": "Name: {{value}}",
+      "careersEmail": "Email: {{value}}",
+      "careersPhone": "Phone: {{value}}",
+      "careersExperience": "Teaching experience: {{value}}",
+      "careersLanguages": "Languages: {{value}}",
+      "careersAbout": "About me: {{value}}"
+    }
   }
 }

@@ -3,6 +3,43 @@ import { useTranslation } from "react-i18next";
 import FloatingInput from "./FloatingInput";
 import FloatingTextarea from "./FloatingTextarea";
 import { useFormSubmit } from "../hooks/useFormSubmit";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
+import type { TFunction } from "i18next";
+
+function buildCareersWhatsAppMessage(
+  t: TFunction,
+  fields: {
+    name: string;
+    email: string;
+    phone: string;
+    experience: string;
+    languages: string;
+    message: string;
+  },
+): string {
+  const lines = [t("whatsapp.messages.careersIntro")];
+  lines.push(t("whatsapp.messages.careersName", { value: fields.name.trim() }));
+  lines.push(t("whatsapp.messages.careersEmail", { value: fields.email.trim() }));
+
+  if (fields.phone.trim()) {
+    lines.push(t("whatsapp.messages.careersPhone", { value: fields.phone.trim() }));
+  }
+  if (fields.experience.trim()) {
+    lines.push(
+      t("whatsapp.messages.careersExperience", { value: fields.experience.trim() }),
+    );
+  }
+  if (fields.languages.trim()) {
+    lines.push(
+      t("whatsapp.messages.careersLanguages", { value: fields.languages.trim() }),
+    );
+  }
+  if (fields.message.trim()) {
+    lines.push(t("whatsapp.messages.careersAbout", { value: fields.message.trim() }));
+  }
+
+  return lines.join("\n");
+}
 
 export default function CareersSection() {
   const { t } = useTranslation();
@@ -30,11 +67,21 @@ export default function CareersSection() {
     [t],
   );
 
-  const { state, submit } = useFormSubmit(validationRules);
+  const { state, validate } = useFormSubmit(validationRules);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    submit({ name, email, phone, experience, languages, message });
+    if (!validate({ name, email })) return;
+
+    const text = buildCareersWhatsAppMessage(t, {
+      name,
+      email,
+      phone,
+      experience,
+      languages,
+      message,
+    });
+    window.open(buildWhatsAppUrl(text), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -103,34 +150,12 @@ export default function CareersSection() {
               {t("careers.application.description")}
             </p>
 
-            {state.status === "success" ? (
-              <div className="flex flex-col items-center justify-center rounded-3xl border bg-slate-50 p-8 text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <svg
-                    className="h-8 w-8 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <p className="text-lg font-semibold text-primary">
-                  {t("form.success")}
-                </p>
-              </div>
-            ) : (
-              <div className="rounded-3xl border bg-slate-50 p-6 md:p-8">
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-4"
-                  aria-label="Форма отправки резюме"
-                >
+            <div className="rounded-3xl border bg-slate-50 p-6 md:p-8">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+                aria-label="Форма отправки резюме"
+              >
                   <FloatingInput
                     id="career-name"
                     label={t("careers.application.form.name")}
@@ -176,16 +201,12 @@ export default function CareersSection() {
                   />
                   <button
                     type="submit"
-                    disabled={state.status === "submitting"}
-                    className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-60"
+                    className="w-full rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
                   >
-                    {state.status === "submitting"
-                      ? t("form.sending")
-                      : t("careers.application.form.submit")}
+                    {t("careers.application.form.submit")}
                   </button>
                 </form>
               </div>
-            )}
           </div>
         </div>
       </div>

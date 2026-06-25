@@ -35,5 +35,5 @@ export function useFormSubmit(validationRules: ValidationRules) {
     setState({ status: "idle", errors: {} });
   }, []);
 
-  return { state, submit, reset };
+  return { state, submit, reset, validate };
 }

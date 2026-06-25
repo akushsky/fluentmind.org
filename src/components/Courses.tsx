@@ -1,7 +1,9 @@
 import { useTranslation } from "react-i18next";
 import AnimatedSection from "./AnimatedSection";
+import { buildWhatsAppUrl, getCourseMessageKey } from "../utils/whatsapp";
 
 interface CourseItem {
+  id: string;
   title: string;
   subtitle: string;
   description: string;
@@ -77,7 +79,11 @@ export default function Courses() {
                 )}
 
                 <a
-                  href="#contact"
+                  href={buildWhatsAppUrl(
+                    t(getCourseMessageKey(course.id)),
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
                 >
                   {course.cta || "Узнать больше"}
