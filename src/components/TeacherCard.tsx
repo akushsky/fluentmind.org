@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { teacherPhotos } from "../assets/teachers";
 import type { Teacher } from "../types";
 import ReviewsModal from "./ReviewsModal";
 
@@ -11,6 +12,7 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
   const { t } = useTranslation();
   const [reviewsOpen, setReviewsOpen] = useState(false);
   const hasReviews = teacher.reviews && teacher.reviews.length > 0;
+  const photo = teacherPhotos[teacher.id];
 
   return (
     <article
@@ -18,12 +20,20 @@ export default function TeacherCard({ teacher }: TeacherCardProps) {
       aria-labelledby={`teacher-${teacher.id}-name`}
     >
       <div className="mb-4 flex items-center gap-4">
-        <div
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-lg font-semibold text-white"
-          aria-hidden="true"
-        >
-          {teacher.initials}
-        </div>
+        {photo ? (
+          <img
+            src={photo}
+            alt={teacher.name}
+            className="h-14 w-14 shrink-0 rounded-full object-cover object-top"
+          />
+        ) : (
+          <div
+            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-semibold text-white"
+            aria-hidden="true"
+          >
+            {teacher.initials}
+          </div>
+        )}
         <div>
           <h3
             id={`teacher-${teacher.id}-name`}
