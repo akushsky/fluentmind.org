@@ -7,6 +7,7 @@ export interface Teacher {
   id: string;
   name: string;
   nameDative?: string;
+  nameDativeFull?: string;
   initials: string;
   languages: string[];
   description: string;
