@@ -194,9 +194,10 @@
       "instagramSchool": "https://www.instagram.com/fluent_mind_school"
     },
     "socialLabels": {
+      "email": "Email",
       "whatsapp": "WhatsApp",
-      "facebookSchool": "Facebook школы",
-      "instagramSchool": "Instagram школы"
+      "facebookSchool": "Facebook",
+      "instagramSchool": "Instagram"
     },
     "form": {
       "title": "Записаться на бесплатную консультацию",
