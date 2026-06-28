@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import logo from "../assets/logo.png";
 import { buildWhatsAppUrl } from "../utils/whatsapp";
 import MobileMenu from "./MobileMenu";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -132,7 +131,6 @@ export default function Header() {
           >
             {t("nav.careers")}
           </Link>
-          <LanguageSwitcher variant="desktop" />
           {isHomePage && (
             <a
               href={buildWhatsAppUrl(t("whatsapp.messages.trialLesson"))}

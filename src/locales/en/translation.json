@@ -139,7 +139,7 @@
           "Specialist support",
           "Comfortable environment"
         ],
-        "cta": "Learn more"
+        "cta": "Sign up"
       }
     ]
   },
@@ -179,14 +179,16 @@
   },
   "contact": {
     "title": "Get in touch",
-    "email": "annydulich@gmail.com",
+    "email": "fluentmind25@gmail.com",
     "phone": "+972587971733",
     "social": {
-      "telegram": "https://t.me/Anaesty",
-      "whatsapp": "https://wa.me/972587971733",
-      "facebook": "https://www.facebook.com/anastasia.dulich.2025",
-      "instagramOwner": "https://www.instagram.com/anastasiadulich",
+      "facebookSchool": "https://www.facebook.com/profile.php?id=61586905508351",
       "instagramSchool": "https://www.instagram.com/fluent_mind_school"
+    },
+    "socialLabels": {
+      "whatsapp": "WhatsApp",
+      "facebookSchool": "School Facebook",
+      "instagramSchool": "School Instagram"
     },
     "form": {
       "title": "Book a free consultation",

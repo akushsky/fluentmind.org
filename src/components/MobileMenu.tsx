@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { buildWhatsAppUrl } from "../utils/whatsapp";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -68,10 +67,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 {isHomePage ? t("nav.careers") : t("nav.home")}
               </Link>
-            </div>
-
-            <div className="mt-8">
-              <LanguageSwitcher variant="mobile" />
             </div>
 
             <a

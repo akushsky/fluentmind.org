@@ -147,7 +147,7 @@
           "Поддержка специалистов",
           "Комфортная среда"
         ],
-        "cta": "Узнать больше"
+        "cta": "Записаться"
       }
     ]
   },
@@ -187,14 +187,16 @@
   },
   "contact": {
     "title": "Как с нами связаться",
-    "email": "annydulich@gmail.com",
+    "email": "fluentmind25@gmail.com",
     "phone": "+972587971733",
     "social": {
-      "telegram": "https://t.me/Anaesty",
-      "whatsapp": "https://wa.me/972587971733",
-      "facebook": "https://www.facebook.com/anastasia.dulich.2025",
-      "instagramOwner": "https://www.instagram.com/anastasiadulich",
+      "facebookSchool": "https://www.facebook.com/profile.php?id=61586905508351",
       "instagramSchool": "https://www.instagram.com/fluent_mind_school"
+    },
+    "socialLabels": {
+      "whatsapp": "WhatsApp",
+      "facebookSchool": "Facebook школы",
+      "instagramSchool": "Instagram школы"
     },
     "form": {
       "title": "Записаться на бесплатную консультацию",
