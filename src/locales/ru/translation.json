@@ -187,6 +187,10 @@
   },
   "contact": {
     "title": "Как с нами связаться",
+    "channels": {
+      "eyebrow": "Мы на связи",
+      "description": "Напишите удобным способом — ответим в течение часа."
+    },
     "email": "fluentmind25@gmail.com",
     "phone": "+972587971733",
     "social": {
