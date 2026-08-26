@@ -61,12 +61,32 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </a>
               ))}
               <Link
-                to={isHomePage ? "/careers" : "/"}
+                to="/prices"
                 onClick={onClose}
-                className="block border-b border-white/10 py-4 text-lg font-medium text-white/60"
+                className={`block border-b border-white/10 py-4 text-lg font-medium ${
+                  location.pathname === "/prices" ? "text-accent" : "text-white"
+                }`}
               >
-                {isHomePage ? t("nav.careers") : t("nav.home")}
+                {t("nav.prices")}
               </Link>
+              <Link
+                to="/careers"
+                onClick={onClose}
+                className={`block border-b border-white/10 py-4 text-lg font-medium ${
+                  location.pathname === "/careers" ? "text-accent" : "text-white/60"
+                }`}
+              >
+                {t("nav.careers")}
+              </Link>
+              {!isHomePage && (
+                <Link
+                  to="/"
+                  onClick={onClose}
+                  className="block border-b border-white/10 py-4 text-lg font-medium text-white/60"
+                >
+                  {t("nav.home")}
+                </Link>
+              )}
             </div>
 
             <a

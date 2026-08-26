@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import CareersPage from "./pages/Careers";
+import PricesPage from "./pages/Prices";
 
 const LEGACY_LANG_PREFIX = /^\/(en|he|sr)(\/|$)/;
 
@@ -41,6 +42,7 @@ export default function FluentMindLanding() {
         <Route path="/sr/*" element={<LegacyLanguageRedirect />} />
         <Route path="/" element={<AppShell />}>
           <Route index element={<Home />} />
+          <Route path="prices" element={<PricesPage />} />
           <Route path="careers" element={<CareersPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

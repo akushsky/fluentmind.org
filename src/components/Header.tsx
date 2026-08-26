@@ -116,6 +116,12 @@ export default function Header() {
               >
                 {t("nav.courses")}
               </a>
+              <Link
+                to="/prices"
+                className={`transition-colors hover:underline ${location.pathname === "/prices" ? "font-semibold text-primary" : ""}`}
+              >
+                {t("nav.prices")}
+              </Link>
               <a
                 href="#contact"
                 onClick={(e) => handleAnchorClick(e, "#contact")}
@@ -124,6 +130,14 @@ export default function Header() {
                 {t("nav.contact")}
               </a>
             </>
+          )}
+          {!isHomePage && (
+            <Link
+              to="/prices"
+              className={`hover:underline ${location.pathname === "/prices" ? "font-semibold text-primary" : ""}`}
+            >
+              {t("nav.prices")}
+            </Link>
           )}
           <Link
             to="/careers"
