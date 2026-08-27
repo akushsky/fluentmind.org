@@ -155,12 +155,6 @@ export default function Header() {
               {t("nav.trialLesson")}
             </a>
           )}
-          <a
-            href="https://portal.fluentmind.org"
-            className="rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
-          >
-            {t("nav.login")}
-          </a>
         </nav>
       </div>
     </header>

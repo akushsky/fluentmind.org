@@ -98,13 +98,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             >
               {t("nav.trialLesson")}
             </a>
-            <a
-              href="https://portal.fluentmind.org"
-              onClick={onClose}
-              className="mt-3 block rounded-lg border border-white/40 py-3.5 text-center text-[15px] font-semibold text-white"
-            >
-              {t("nav.login")}
-            </a>
           </nav>
         </motion.div>
       )}
