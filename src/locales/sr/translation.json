@@ -108,6 +108,78 @@
           "Priprema za bagrut",
           "Priprema za psihometriju"
         ]
+      },
+      {
+        "id": "ivan",
+        "name": "Ivan",
+        "initials": "I",
+        "languages": ["Srpski", "Češki"],
+        "description": "Predavač jezika sa strukturiranim i promišljenim pristupom.",
+        "specialties": [
+          "Dosledno i jasno učenje",
+          "Časovi prilagođeni interesovanjima učenika",
+          "Strpljiv i pažljiv pristup"
+        ]
+      },
+      {
+        "id": "anat",
+        "name": "Anat",
+        "initials": "A",
+        "languages": ["Hebrejski", "Osnovna škola"],
+        "description": "Predavač i specijalista za rad sa učenicima nižih razreda.",
+        "specialties": [
+          "Hebrejski u igrovnoj i zanimljivoj formi",
+          "Pomoć sa školskim predmetima",
+          "Učenici nižih razreda"
+        ]
+      },
+      {
+        "id": "yulia",
+        "name": "Julija",
+        "initials": "J",
+        "languages": ["Engleski", "Ruski kao strani jezik"],
+        "description": "Iskusan predavač sa jakom akademskom pripremom.",
+        "specialties": [
+          "Promišljen i strpljiv pristup",
+          "Savremeni nastavni materijali",
+          "Deca, tinejdžeri i odrasli"
+        ]
+      },
+      {
+        "id": "anastasia",
+        "name": "Anastasija",
+        "initials": "A",
+        "languages": ["Arapski", "Francuski", "Engleski", "Italijanski", "Španski"],
+        "description": "Predavač stranih jezika i poliglot.",
+        "specialties": [
+          "Zanimljivi i interaktivni časovi",
+          "Živi jezik i konverzacijska praksa",
+          "Deca, tinejdžeri i odrasli"
+        ]
+      },
+      {
+        "id": "maria",
+        "name": "Marija",
+        "initials": "M",
+        "languages": ["Hebrejski", "Engleski", "Nemački", "Poljski"],
+        "description": "Predavač jezika sa velikim iskustvom rada sa odraslim učenicima.",
+        "specialties": [
+          "Odrasli i stariji učenici",
+          "Podrška pri poteškoćama u učenju",
+          "Strpljiv i pozitivan pristup"
+        ]
+      },
+      {
+        "id": "avraham",
+        "name": "Avraham",
+        "initials": "A",
+        "languages": ["Tanah", "Akademski hebrejski"],
+        "description": "Predavač sa velikim iskustvom rada sa neurodivergentnom decom.",
+        "specialties": [
+          "Tanah i akademski hebrejski",
+          "Pomoć sa školskim programom",
+          "Učenici nižih razreda"
+        ]
       }
     ]
   },

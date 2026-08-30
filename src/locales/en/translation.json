@@ -95,6 +95,78 @@
           "Bagrut preparation",
           "Psychometry preparation"
         ]
+      },
+      {
+        "id": "ivan",
+        "name": "Ivan",
+        "initials": "I",
+        "languages": ["Serbian", "Czech"],
+        "description": "Language teacher with a structured and thoughtful approach.",
+        "specialties": [
+          "Clear, sequential learning",
+          "Lessons tailored to the student's interests",
+          "Patient and attentive approach"
+        ]
+      },
+      {
+        "id": "anat",
+        "name": "Anat",
+        "initials": "A",
+        "languages": ["Hebrew", "Elementary school"],
+        "description": "Teacher and specialist in working with elementary school children.",
+        "specialties": [
+          "Hebrew in a playful and engaging format",
+          "Help with school subjects",
+          "Elementary school students"
+        ]
+      },
+      {
+        "id": "yulia",
+        "name": "Yulia",
+        "initials": "Y",
+        "languages": ["English", "Russian as a foreign language"],
+        "description": "Experienced teacher with a strong academic background.",
+        "specialties": [
+          "Thoughtful and patient approach",
+          "Modern learning materials",
+          "Children, teenagers, and adults"
+        ]
+      },
+      {
+        "id": "anastasia",
+        "name": "Anastasia",
+        "initials": "A",
+        "languages": ["Arabic", "French", "English", "Italian", "Spanish"],
+        "description": "Foreign language teacher and polyglot.",
+        "specialties": [
+          "Engaging and interactive lessons",
+          "Living language and conversational practice",
+          "Children, teenagers, and adults"
+        ]
+      },
+      {
+        "id": "maria",
+        "name": "Maria",
+        "initials": "M",
+        "languages": ["Hebrew", "English", "German", "Polish"],
+        "description": "Language teacher with extensive experience working with adult learners.",
+        "specialties": [
+          "Adults and older learners",
+          "Support with learning difficulties",
+          "Patient and positive approach"
+        ]
+      },
+      {
+        "id": "avraham",
+        "name": "Avraham",
+        "initials": "A",
+        "languages": ["Tanakh", "Academic Hebrew"],
+        "description": "Teacher with extensive experience working with neurodivergent children.",
+        "specialties": [
+          "Tanakh and academic Hebrew",
+          "Help with the school curriculum",
+          "Elementary school students"
+        ]
       }
     ]
   },
