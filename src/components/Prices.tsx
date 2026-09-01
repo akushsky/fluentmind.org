@@ -63,6 +63,7 @@ function Accordion({
 }) {
   const [open, setOpen] = useState(defaultOpen);
   const panelId = useId();
+  const titleId = useId();
 
   return (
     <div className="rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -73,7 +74,12 @@ function Accordion({
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
-        <h2 className="text-lg font-bold text-primary md:text-xl">{title}</h2>
+        <span
+          id={titleId}
+          className="text-lg font-bold text-primary md:text-xl"
+        >
+          {title}
+        </span>
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/40 text-accent transition-transform ${open ? "rotate-45" : ""}`}
           aria-hidden="true"
@@ -81,14 +87,15 @@ function Accordion({
           +
         </span>
       </button>
-      {open && (
-        <div
-          id={panelId}
-          className="space-y-6 border-t border-slate-100 px-6 pb-6 pt-5"
-        >
-          {children}
-        </div>
-      )}
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={titleId}
+        hidden={!open}
+        className="space-y-6 border-t border-slate-100 px-6 pb-6 pt-5"
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -98,18 +105,22 @@ function ComparePackageTable({
   labelHeader,
   labelFor,
   showDiscount = true,
+  discountHeader,
+  separateHeader,
 }: {
   rows: CompareRow[];
   labelHeader: string;
   labelFor: (row: CompareRow) => string;
   showDiscount?: boolean;
+  discountHeader?: string;
+  separateHeader?: string;
 }) {
   const { t } = useTranslation();
   const headers = showDiscount
     ? [
         labelHeader,
-        t("pricing.columns.regular"),
-        t("pricing.columns.discount"),
+        separateHeader ?? t("pricing.columns.regular"),
+        discountHeader ?? t("pricing.columns.discount"),
         t("pricing.columns.packagePrice"),
       ]
     : [
@@ -128,7 +139,9 @@ function ComparePackageTable({
           </td>
           {showDiscount && (
             <td className="px-4 py-3 whitespace-nowrap text-slate-500">
-              {row.discount ? formatIls(row.discount) : t("pricing.languageMath.dash")}
+              {row.discount != null && row.discount > 0
+                ? formatIls(row.discount)
+                : t("pricing.languageMath.dash")}
             </td>
           )}
           <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
@@ -397,6 +410,8 @@ export default function Prices() {
                   labelFor={(row) =>
                     t("pricing.languageNeuro.comboLabel", { n: row.labelKey })
                   }
+                  separateHeader={t("pricing.columns.separate")}
+                  discountHeader={t("pricing.columns.benefit")}
                 />
                 <p className="text-xs text-slate-500">
                   {t("pricing.languageNeuro.base45", {
@@ -416,6 +431,8 @@ export default function Prices() {
                   labelFor={(row) =>
                     t("pricing.languageNeuro.comboLabel", { n: row.labelKey })
                   }
+                  separateHeader={t("pricing.columns.separate")}
+                  discountHeader={t("pricing.columns.benefit")}
                 />
                 <p className="text-xs text-slate-500">
                   {t("pricing.languageNeuro.base60", {
