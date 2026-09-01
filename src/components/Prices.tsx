@@ -1,51 +1,46 @@
-import { useCallback, useEffect, useId, useState, type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import AnimatedSection from "./AnimatedSection";
 import { buildWhatsAppUrl } from "../utils/whatsapp";
 import {
-  CURRENCY_STORAGE_KEY,
-  formatPrice,
-  guidanceLanguageRows,
-  guidanceMathRows,
-  guidanceRates,
-  individualLessons,
-  neuroLanguageRows,
-  neuroMathRows,
-  neuroRates,
-  packageLanguageMath,
-  packageThreeLanguages,
-  packageTwoLanguages,
-  packageTwoLanguagesMath,
-  pickMoney,
-  type Currency,
-  type PackageRow,
-  type ProgramRow,
+  curatorshipRows,
+  formatIls,
+  intensiveLanguageRows,
+  languageBaseRates,
+  languageDurationRates,
+  languageMath45,
+  languageMath60,
+  languageMathNeuro45,
+  languageMathNeuro60,
+  languageNeuro45,
+  languageNeuro60,
+  mathBaseRates,
+  neuroBaseRates,
+  type CompareRow,
 } from "../data/prices";
-
-function readStoredCurrency(): Currency {
-  try {
-    const stored = localStorage.getItem(CURRENCY_STORAGE_KEY);
-    if (stored === "ils" || stored === "eur") return stored;
-  } catch {
-    /* ignore */
-  }
-  return "ils";
-}
 
 function PriceTable({
   headers,
   children,
+  minWidth = "32rem",
 }: {
   headers: string[];
   children: ReactNode;
+  minWidth?: string;
 }) {
   return (
     <div className="overflow-x-auto rounded-2xl border border-slate-200">
-      <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
+      <table
+        className="w-full border-collapse text-left text-sm"
+        style={{ minWidth }}
+      >
         <thead>
           <tr className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             {headers.map((header) => (
-              <th key={header} className="px-4 py-3 font-semibold whitespace-nowrap">
+              <th
+                key={header}
+                className="px-4 py-3 font-semibold whitespace-nowrap"
+              >
                 {header}
               </th>
             ))}
@@ -78,7 +73,7 @@ function Accordion({
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
-        <h3 className="text-lg font-bold text-primary md:text-xl">{title}</h3>
+        <h2 className="text-lg font-bold text-primary md:text-xl">{title}</h2>
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-accent/40 text-accent transition-transform ${open ? "rotate-45" : ""}`}
           aria-hidden="true"
@@ -87,7 +82,10 @@ function Accordion({
         </span>
       </button>
       {open && (
-        <div id={panelId} className="space-y-6 border-t border-slate-100 px-6 pb-6 pt-5">
+        <div
+          id={panelId}
+          className="space-y-6 border-t border-slate-100 px-6 pb-6 pt-5"
+        >
           {children}
         </div>
       )}
@@ -95,68 +93,46 @@ function Accordion({
   );
 }
 
-function ProgramTable({
+function ComparePackageTable({
   rows,
-  currency,
-  subjectOnlyHeader,
-  supportHeader,
-  programHeader,
-  formatHeader,
+  labelHeader,
+  labelFor,
+  showDiscount = true,
 }: {
-  rows: ProgramRow[];
-  currency: Currency;
-  subjectOnlyHeader: string;
-  supportHeader: string;
-  programHeader: string;
-  formatHeader: string;
+  rows: CompareRow[];
+  labelHeader: string;
+  labelFor: (row: CompareRow) => string;
+  showDiscount?: boolean;
 }) {
   const { t } = useTranslation();
+  const headers = showDiscount
+    ? [
+        labelHeader,
+        t("pricing.columns.regular"),
+        t("pricing.columns.discount"),
+        t("pricing.columns.packagePrice"),
+      ]
+    : [
+        labelHeader,
+        t("pricing.columns.regular12"),
+        t("pricing.columns.program12"),
+      ];
 
   return (
-    <PriceTable
-      headers={[formatHeader, subjectOnlyHeader, supportHeader, programHeader]}
-    >
+    <PriceTable headers={headers}>
       {rows.map((row) => (
         <tr key={row.id} className="bg-white">
-          <td className="px-4 py-3 text-slate-700">{t(row.labelKey)}</td>
+          <td className="px-4 py-3 text-slate-700">{labelFor(row)}</td>
           <td className="px-4 py-3 whitespace-nowrap text-slate-600">
-            {formatPrice(pickMoney(row.subjectOnly, currency), currency)}
+            {formatIls(row.regular)}
           </td>
-          <td className="px-4 py-3 whitespace-nowrap text-slate-600">
-            {formatPrice(pickMoney(row.regularWithSupport, currency), currency)}
-          </td>
+          {showDiscount && (
+            <td className="px-4 py-3 whitespace-nowrap text-slate-500">
+              {row.discount ? formatIls(row.discount) : t("pricing.languageMath.dash")}
+            </td>
+          )}
           <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
-            {formatPrice(pickMoney(row.program, currency), currency)}
-          </td>
-        </tr>
-      ))}
-    </PriceTable>
-  );
-}
-
-function PackageTable({
-  rows,
-  formatHeader,
-  regularHeader,
-  packageHeader,
-}: {
-  rows: PackageRow[];
-  formatHeader: string;
-  regularHeader: string;
-  packageHeader: string;
-}) {
-  const { t } = useTranslation();
-
-  return (
-    <PriceTable headers={[formatHeader, regularHeader, packageHeader]}>
-      {rows.map((row) => (
-        <tr key={row.id} className="bg-white">
-          <td className="px-4 py-3 text-slate-700">{t(row.labelKey)}</td>
-          <td className="px-4 py-3 whitespace-nowrap text-slate-600">
-            {formatPrice(row.regular, "ils")}
-          </td>
-          <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
-            {formatPrice(row.package, "ils")}
+            {formatIls(row.package)}
           </td>
         </tr>
       ))}
@@ -166,20 +142,9 @@ function PackageTable({
 
 export default function Prices() {
   const { t } = useTranslation();
-  const [currency, setCurrency] = useState<Currency>("ils");
-
-  useEffect(() => {
-    setCurrency(readStoredCurrency());
-  }, []);
-
-  const setCurrencyPersist = useCallback((next: Currency) => {
-    setCurrency(next);
-    try {
-      localStorage.setItem(CURRENCY_STORAGE_KEY, next);
-    } catch {
-      /* ignore */
-    }
-  }, []);
+  const curatorshipBullets = t("pricing.curatorship.bullets", {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <section className="border-b bg-white" aria-labelledby="prices-title">
@@ -198,326 +163,385 @@ export default function Prices() {
             <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
               {t("pricing.intro")}
             </p>
+            <p className="mt-3 text-xs text-slate-400">{t("pricing.eurSoon")}</p>
           </div>
         </AnimatedSection>
 
-        <div className="mb-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {t("pricing.currencyLabel")}
-          </span>
-          <div
-            className="inline-flex rounded-full border border-slate-200 bg-slate-50 p-1"
-            role="group"
-            aria-label={t("pricing.currencyLabel")}
-          >
-            <button
-              type="button"
-              onClick={() => setCurrencyPersist("ils")}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                currency === "ils"
-                  ? "bg-primary text-white shadow-sm"
-                  : "text-slate-600 hover:text-primary"
-              }`}
-            >
-              {t("pricing.currencyIls")}
-            </button>
-            <button
-              type="button"
-              onClick={() => setCurrencyPersist("eur")}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                currency === "eur"
-                  ? "bg-primary text-white shadow-sm"
-                  : "text-slate-600 hover:text-primary"
-              }`}
-            >
-              {t("pricing.currencyEur")}
-            </button>
-          </div>
-        </div>
-
         <div className="space-y-8">
           <AnimatedSection delay={0.05}>
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="mb-4 text-xl font-bold text-primary">
-                {t("pricing.individual.title")}
-              </h2>
-              <PriceTable
-                headers={[
-                  t("pricing.columns.subject"),
-                  t("pricing.columns.min45"),
-                  t("pricing.columns.min60"),
-                  t("pricing.columns.month45"),
-                  t("pricing.columns.month60"),
-                ]}
-              >
-                {individualLessons.map((row) => (
-                  <tr key={row.id} className="bg-white">
-                    <td className="px-4 py-3 text-slate-700">{t(row.labelKey)}</td>
-                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
-                      {formatPrice(pickMoney(row.min45, currency), currency)}
-                    </td>
-                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
-                      {formatPrice(pickMoney(row.min60, currency), currency)}
-                    </td>
-                    <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
-                      {formatPrice(pickMoney(row.month45, currency), currency)}
-                    </td>
-                    <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
-                      {formatPrice(pickMoney(row.month60, currency), currency)}
-                    </td>
-                  </tr>
-                ))}
-              </PriceTable>
-              <p className="mt-3 text-xs text-slate-500">
-                {t("pricing.individual.footnote")}
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <Accordion title={t("pricing.guidance.title")} defaultOpen>
+            <Accordion title={t("pricing.languages.title")} defaultOpen>
               <p className="text-sm leading-relaxed text-slate-600">
-                {t("pricing.guidance.description")}
+                {t("pricing.languages.intro")}
               </p>
-              <p className="rounded-2xl bg-accent/10 px-4 py-3 text-sm text-slate-700">
-                {t("pricing.guidance.rates", {
-                  outside: formatPrice(
-                    pickMoney(guidanceRates.outside, currency),
-                    currency,
-                  ),
-                  inProgram: formatPrice(
-                    pickMoney(guidanceRates.inProgram, currency),
-                    currency,
-                  ),
-                })}
-              </p>
-
-              <div className="space-y-3">
-                <h4 className="font-semibold text-primary">
-                  {t("pricing.guidance.languagesTitle")}
-                </h4>
-                <ProgramTable
-                  rows={guidanceLanguageRows}
-                  currency={currency}
-                  formatHeader={t("pricing.columns.format")}
-                  subjectOnlyHeader={t("pricing.columns.subjectOnly")}
-                  supportHeader={t("pricing.columns.regularWithGuidance")}
-                  programHeader={t("pricing.columns.program")}
-                />
-                <p className="text-xs text-slate-500">
-                  {t("pricing.guidance.languagesNote")}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  {t("pricing.languages.listLabel")}
+                </p>
+                <p className="mt-1 text-sm text-slate-700">
+                  {t("pricing.languages.list")}
                 </p>
               </div>
 
               <div className="space-y-3">
-                <h4 className="font-semibold text-primary">
-                  {t("pricing.guidance.mathTitle")}
-                </h4>
-                <ProgramTable
-                  rows={guidanceMathRows}
-                  currency={currency}
-                  formatHeader={t("pricing.columns.format")}
-                  subjectOnlyHeader={t("pricing.columns.subjectOnlyMath")}
-                  supportHeader={t("pricing.columns.regularWithGuidance")}
-                  programHeader={t("pricing.columns.program")}
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languages.standardTitle")}
+                </h3>
+                <PriceTable
+                  headers={[
+                    t("pricing.columns.format"),
+                    t("pricing.columns.one"),
+                    t("pricing.columns.four"),
+                    t("pricing.columns.eight"),
+                  ]}
+                >
+                  {languageDurationRates.map((row) => (
+                    <tr key={row.id} className="bg-white">
+                      <td className="px-4 py-3 text-slate-700">
+                        {t(row.labelKey)}
+                        {row.noteKey ? "*" : ""}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                        {formatIls(row.one)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.four)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.eight)}
+                      </td>
+                    </tr>
+                  ))}
+                </PriceTable>
+                <p className="text-xs text-slate-500">
+                  *{t("pricing.languages.note30")}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languages.intensiveTitle")}
+                </h3>
+                <p className="text-sm text-slate-600">
+                  {t("pricing.languages.intensiveIntro")}
+                </p>
+                <ComparePackageTable
+                  rows={intensiveLanguageRows}
+                  labelHeader={t("pricing.columns.format")}
+                  labelFor={(row) => t(row.labelKey)}
+                  showDiscount={false}
                 />
+                <p className="rounded-2xl bg-accent/10 px-4 py-3 text-sm text-slate-700">
+                  {t("pricing.languages.intensiveExample")}
+                </p>
               </div>
             </Accordion>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.15}>
-            <Accordion title={t("pricing.neuro.title")}>
+          <AnimatedSection delay={0.1}>
+            <Accordion title={t("pricing.languageMath.title")}>
               <p className="text-sm leading-relaxed text-slate-600">
-                {t("pricing.neuro.description")}
-              </p>
-              <p className="rounded-2xl bg-accent/10 px-4 py-3 text-sm text-slate-700">
-                {t("pricing.neuro.rates", {
-                  outside45: formatPrice(
-                    pickMoney(neuroRates.outside45, currency),
-                    currency,
-                  ),
-                  outside60: formatPrice(
-                    pickMoney(neuroRates.outside60, currency),
-                    currency,
-                  ),
-                  inProgram45: formatPrice(
-                    pickMoney(neuroRates.inProgram45, currency),
-                    currency,
-                  ),
-                  inProgram60: formatPrice(
-                    pickMoney(neuroRates.inProgram60, currency),
-                    currency,
-                  ),
-                })}
+                {t("pricing.languageMath.intro")}
               </p>
 
               <div className="space-y-3">
-                <h4 className="font-semibold text-primary">
-                  {t("pricing.neuro.languagesTitle")}
-                </h4>
-                <ProgramTable
-                  rows={neuroLanguageRows}
-                  currency={currency}
-                  formatHeader={t("pricing.columns.format")}
-                  subjectOnlyHeader={t("pricing.columns.subjectOnly")}
-                  supportHeader={t("pricing.columns.regularWithNeuro")}
-                  programHeader={t("pricing.columns.program")}
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMath.baseTitle")}
+                </h3>
+                <PriceTable
+                  headers={[
+                    t("pricing.columns.subject"),
+                    t("pricing.columns.min45"),
+                    t("pricing.columns.min60"),
+                  ]}
+                  minWidth="24rem"
+                >
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 text-slate-700">
+                      {t("pricing.languageMath.languageLesson")}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                      {formatIls(languageBaseRates.min45)}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                      {formatIls(languageBaseRates.min60)}
+                    </td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="px-4 py-3 text-slate-700">
+                      {t("pricing.languageMath.math")}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                      {formatIls(mathBaseRates.min45)}
+                    </td>
+                    <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                      {formatIls(mathBaseRates.min60)}
+                    </td>
+                  </tr>
+                </PriceTable>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMath.table45")}
+                </h3>
+                <ComparePackageTable
+                  rows={languageMath45}
+                  labelHeader={t("pricing.columns.combo")}
+                  labelFor={(row) => row.labelKey}
                 />
-                <p className="text-xs text-slate-500">
-                  {t("pricing.neuro.languagesNote")}
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMath.table60")}
+                </h3>
+                <ComparePackageTable
+                  rows={languageMath60}
+                  labelHeader={t("pricing.columns.combo")}
+                  labelFor={(row) => row.labelKey}
+                />
+              </div>
+
+              <p className="text-xs text-slate-500">
+                {t("pricing.languageMath.howToRead")}
+              </p>
+            </Accordion>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <Accordion title={t("pricing.curatorship.title")}>
+              <p className="text-sm leading-relaxed text-slate-600">
+                {t("pricing.curatorship.intro")}
+              </p>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.curatorship.howTitle")}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {t("pricing.curatorship.how")}
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.curatorship.whatTitle")}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {t("pricing.curatorship.what")}
+                </p>
+                <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                  {curatorshipBullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-accent" aria-hidden="true">
+                        •
+                      </span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="rounded-2xl bg-accent/10 px-4 py-3 text-sm text-slate-700">
+                  {t("pricing.curatorship.summary")}
                 </p>
               </div>
 
               <div className="space-y-3">
-                <h4 className="font-semibold text-primary">
-                  {t("pricing.neuro.mathTitle")}
-                </h4>
-                <ProgramTable
-                  rows={neuroMathRows}
-                  currency={currency}
-                  formatHeader={t("pricing.columns.format")}
-                  subjectOnlyHeader={t("pricing.columns.subjectOnlyMath")}
-                  supportHeader={t("pricing.columns.regularWithNeuro")}
-                  programHeader={t("pricing.columns.program")}
-                />
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.curatorship.costTitle")}
+                </h3>
+                <PriceTable
+                  headers={[
+                    t("pricing.columns.duration"),
+                    t("pricing.columns.once"),
+                    t("pricing.columns.twice"),
+                    t("pricing.columns.thrice"),
+                  ]}
+                >
+                  {curatorshipRows.map((row) => (
+                    <tr key={row.id} className="bg-white">
+                      <td className="px-4 py-3 text-slate-700">
+                        {t(row.labelKey)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.once)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.twice)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.thrice)}
+                      </td>
+                    </tr>
+                  ))}
+                </PriceTable>
+                <p className="text-xs text-slate-500">
+                  {t("pricing.curatorship.includes")}
+                </p>
               </div>
             </Accordion>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <Accordion title={t("pricing.packages.title")}>
-              {currency === "eur" ? (
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-5 py-6 text-center">
-                  <p className="text-sm text-slate-600">
-                    {t("pricing.packages.eurOnlyNote")}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setCurrencyPersist("ils")}
-                    className="mt-4 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
-                  >
-                    {t("pricing.packages.switchToIls")}
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-8">
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    {t("pricing.packages.intro")}
-                  </p>
+            <Accordion title={t("pricing.languageNeuro.title")}>
+              <p className="text-sm leading-relaxed text-slate-600">
+                {t("pricing.languageNeuro.intro")}
+              </p>
 
-                  <div className="space-y-6">
-                    <h4 className="text-base font-bold text-primary">
-                      {t("pricing.packages.twoSubjects")}
-                    </h4>
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageNeuro.table45")}
+                </h3>
+                <ComparePackageTable
+                  rows={languageNeuro45}
+                  labelHeader={t("pricing.columns.languagesWeek")}
+                  labelFor={(row) =>
+                    t("pricing.languageNeuro.comboLabel", { n: row.labelKey })
+                  }
+                />
+                <p className="text-xs text-slate-500">
+                  {t("pricing.languageNeuro.base45", {
+                    lang: formatIls(languageBaseRates.min45),
+                    neuro: formatIls(neuroBaseRates.min45),
+                  })}
+                </p>
+              </div>
 
-                    <div className="space-y-3">
-                      <h5 className="font-semibold text-slate-800">
-                        {t("pricing.packages.twoLanguages")}
-                      </h5>
-                      <p className="text-sm text-slate-600">
-                        {t("pricing.packages.twoLanguagesDesc")}
-                      </p>
-                      <PackageTable
-                        rows={packageTwoLanguages}
-                        formatHeader={t("pricing.columns.format")}
-                        regularHeader={t("pricing.columns.regular")}
-                        packageHeader={t("pricing.columns.packagePrice")}
-                      />
-                    </div>
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageNeuro.table60")}
+                </h3>
+                <ComparePackageTable
+                  rows={languageNeuro60}
+                  labelHeader={t("pricing.columns.languagesWeek")}
+                  labelFor={(row) =>
+                    t("pricing.languageNeuro.comboLabel", { n: row.labelKey })
+                  }
+                />
+                <p className="text-xs text-slate-500">
+                  {t("pricing.languageNeuro.base60", {
+                    lang: formatIls(languageBaseRates.min60),
+                    neuro: formatIls(neuroBaseRates.min60),
+                  })}
+                </p>
+              </div>
 
-                    <div className="space-y-3">
-                      <h5 className="font-semibold text-slate-800">
-                        {t("pricing.packages.languageMath")}
-                      </h5>
-                      <p className="text-sm text-slate-600">
-                        {t("pricing.packages.languageMathDesc")}
-                      </p>
-                      <PackageTable
-                        rows={packageLanguageMath}
-                        formatHeader={t("pricing.columns.format")}
-                        regularHeader={t("pricing.columns.regular")}
-                        packageHeader={t("pricing.columns.packagePrice")}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <h4 className="text-base font-bold text-primary">
-                      {t("pricing.packages.threeSubjects")}
-                    </h4>
-
-                    <div className="space-y-3">
-                      <h5 className="font-semibold text-slate-800">
-                        {t("pricing.packages.threeLanguages")}
-                      </h5>
-                      <p className="text-sm text-slate-600">
-                        {t("pricing.packages.threeLanguagesDesc")}
-                      </p>
-                      <PackageTable
-                        rows={packageThreeLanguages}
-                        formatHeader={t("pricing.columns.format")}
-                        regularHeader={t("pricing.columns.regular")}
-                        packageHeader={t("pricing.columns.packagePrice")}
-                      />
-                    </div>
-
-                    <div className="space-y-3">
-                      <h5 className="font-semibold text-slate-800">
-                        {t("pricing.packages.twoLanguagesMath")}
-                      </h5>
-                      <p className="text-sm text-slate-600">
-                        {t("pricing.packages.twoLanguagesMathDesc")}
-                      </p>
-                      <PackageTable
-                        rows={packageTwoLanguagesMath}
-                        formatHeader={t("pricing.columns.format")}
-                        regularHeader={t("pricing.columns.regular")}
-                        packageHeader={t("pricing.columns.packagePrice")}
-                      />
-                    </div>
-                  </div>
-
-                  <p className="rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
-                    {t("pricing.packages.customNote")}
-                  </p>
-
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-primary">
-                      {t("pricing.packages.howItWorksTitle")}
-                    </h4>
-                    <p className="text-sm leading-relaxed text-slate-600">
-                      {t("pricing.packages.howItWorks")}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-primary">
-                      {t("pricing.packages.cancelTitle")}
-                    </h4>
-                    <p className="text-sm leading-relaxed text-slate-600">
-                      {t("pricing.packages.cancel")}
-                    </p>
-                  </div>
-                </div>
-              )}
+              <div className="space-y-2">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageNeuro.howTitle")}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {t("pricing.languageNeuro.how")}
+                </p>
+              </div>
             </Accordion>
           </AnimatedSection>
 
           <AnimatedSection delay={0.25}>
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-              <h2 className="mb-3 text-xl font-bold text-primary">
-                {t("pricing.howToChoose.title")}
-              </h2>
+            <Accordion title={t("pricing.languageMathNeuro.title")}>
+              <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+                {t("pricing.languageMathNeuro.subtitle")}
+              </p>
               <p className="text-sm leading-relaxed text-slate-600">
-                {t("pricing.howToChoose.body")}
+                {t("pricing.languageMathNeuro.intro")}
               </p>
-              <p className="mt-4 text-xs text-slate-500">
-                {t("pricing.howToChoose.footnote")}
-              </p>
-            </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMathNeuro.table45")}
+                </h3>
+                <PriceTable
+                  headers={[
+                    t("pricing.columns.languages"),
+                    t("pricing.columns.math"),
+                    t("pricing.columns.neuro"),
+                    t("pricing.columns.separate"),
+                    t("pricing.columns.packagePrice"),
+                    t("pricing.columns.benefit"),
+                  ]}
+                  minWidth="40rem"
+                >
+                  {languageMathNeuro45.map((row) => (
+                    <tr key={row.id} className="bg-white">
+                      <td className="px-4 py-3 text-slate-700">{row.languages}</td>
+                      <td className="px-4 py-3 text-slate-700">{row.math}</td>
+                      <td className="px-4 py-3 text-slate-700">{row.neuro}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                        {formatIls(row.separate)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.package)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-slate-500">
+                        {formatIls(row.discount)}
+                      </td>
+                    </tr>
+                  ))}
+                </PriceTable>
+                <p className="text-xs text-slate-500">
+                  {t("pricing.languageMathNeuro.base45", {
+                    lang: formatIls(languageBaseRates.min45),
+                    math: formatIls(mathBaseRates.min45),
+                    neuro: formatIls(neuroBaseRates.min45),
+                  })}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMathNeuro.table60")}
+                </h3>
+                <PriceTable
+                  headers={[
+                    t("pricing.columns.languages"),
+                    t("pricing.columns.math"),
+                    t("pricing.columns.neuro"),
+                    t("pricing.columns.separate"),
+                    t("pricing.columns.packagePrice"),
+                    t("pricing.columns.benefit"),
+                  ]}
+                  minWidth="40rem"
+                >
+                  {languageMathNeuro60.map((row) => (
+                    <tr key={row.id} className="bg-white">
+                      <td className="px-4 py-3 text-slate-700">{row.languages}</td>
+                      <td className="px-4 py-3 text-slate-700">{row.math}</td>
+                      <td className="px-4 py-3 text-slate-700">{row.neuro}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-slate-600">
+                        {formatIls(row.separate)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap font-semibold text-primary">
+                        {formatIls(row.package)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-slate-500">
+                        {formatIls(row.discount)}
+                      </td>
+                    </tr>
+                  ))}
+                </PriceTable>
+                <p className="text-xs text-slate-500">
+                  {t("pricing.languageMathNeuro.base60", {
+                    lang: formatIls(languageBaseRates.min60),
+                    math: formatIls(mathBaseRates.min60),
+                    neuro: formatIls(neuroBaseRates.min60),
+                  })}
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="font-semibold text-primary">
+                  {t("pricing.languageMathNeuro.importantTitle")}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {t("pricing.languageMathNeuro.important")}
+                </p>
+              </div>
+            </Accordion>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
+            <p className="text-center text-xs text-slate-400">
+              {t("pricing.footnoteWeeks")}
+            </p>
             <div className="flex justify-center pt-2">
               <a
                 href={buildWhatsAppUrl(t("whatsapp.messages.pricing"))}

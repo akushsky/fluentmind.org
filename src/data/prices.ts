@@ -1,230 +1,171 @@
-export type Currency = "ils" | "eur";
+/** ILS price lists from Fluent Mind PDFs (Sep 2026). EUR TBD — site shows ₪ only. */
 
-export type Money = {
-  ils: number;
-  eur: number;
-};
+export function formatIls(amount: number): string {
+  return `${amount.toLocaleString("ru-RU")} ₪`;
+}
 
-export type LessonRow = {
+export type DurationRateRow = {
   id: string;
   labelKey: string;
-  min45: Money;
-  min60: Money;
-  month45: Money;
-  month60: Money;
+  noteKey?: string;
+  one: number;
+  four: number;
+  eight: number;
 };
 
-export type ProgramRow = {
-  id: string;
-  labelKey: string;
-  subjectOnly: Money;
-  regularWithSupport: Money;
-  program: Money;
-};
-
-export type PackageRow = {
+export type CompareRow = {
   id: string;
   labelKey: string;
   regular: number;
   package: number;
+  discount?: number;
 };
 
-export const CURRENCY_STORAGE_KEY = "fluentmind-prices-currency";
-
-export function formatPrice(amount: number, currency: Currency): string {
-  if (currency === "eur") {
-    return `€${amount}`;
-  }
-  return `${amount} ₪`;
-}
-
-export function pickMoney(money: Money, currency: Currency): number {
-  return money[currency];
-}
-
-/** Individual lesson rates (per lesson and monthly for 4 weeks × 1/week). */
-export const individualLessons: LessonRow[] = [
-  {
-    id: "languages",
-    labelKey: "pricing.subjects.languages",
-    min45: { ils: 115, eur: 33 },
-    min60: { ils: 150, eur: 43 },
-    month45: { ils: 460, eur: 132 },
-    month60: { ils: 600, eur: 172 },
-  },
-  {
-    id: "math",
-    labelKey: "pricing.subjects.math",
-    min45: { ils: 140, eur: 40 },
-    min60: { ils: 175, eur: 50 },
-    month45: { ils: 560, eur: 160 },
-    month60: { ils: 700, eur: 200 },
-  },
-];
-
-/** Personal guidance (Anastasia) per-lesson rates. */
-export const guidanceRates = {
-  outside: { ils: 180, eur: 52 },
-  inProgram: { ils: 120, eur: 35 },
+export type CuratorshipRow = {
+  id: string;
+  labelKey: string;
+  once: number;
+  twice: number;
+  thrice: number;
 };
 
-export const guidanceLanguageRows: ProgramRow[] = [
-  {
-    id: "g-lang-45-1",
-    labelKey: "pricing.formats.x45x1",
-    subjectOnly: { ils: 460, eur: 132 },
-    regularWithSupport: { ils: 1180, eur: 340 },
-    program: { ils: 940, eur: 272 },
-  },
-  {
-    id: "g-lang-60-1",
-    labelKey: "pricing.formats.x60x1",
-    subjectOnly: { ils: 600, eur: 172 },
-    regularWithSupport: { ils: 1320, eur: 380 },
-    program: { ils: 1080, eur: 312 },
-  },
-  {
-    id: "g-lang-45-2",
-    labelKey: "pricing.formats.x45x2",
-    subjectOnly: { ils: 920, eur: 264 },
-    regularWithSupport: { ils: 2360, eur: 680 },
-    program: { ils: 1880, eur: 544 },
-  },
-  {
-    id: "g-lang-60-2",
-    labelKey: "pricing.formats.x60x2",
-    subjectOnly: { ils: 1200, eur: 344 },
-    regularWithSupport: { ils: 2640, eur: 760 },
-    program: { ils: 2160, eur: 624 },
-  },
-];
-
-export const guidanceMathRows: ProgramRow[] = [
-  {
-    id: "g-math-45-1",
-    labelKey: "pricing.formats.x45x1",
-    subjectOnly: { ils: 560, eur: 160 },
-    regularWithSupport: { ils: 1280, eur: 368 },
-    program: { ils: 1040, eur: 300 },
-  },
-  {
-    id: "g-math-60-1",
-    labelKey: "pricing.formats.x60x1",
-    subjectOnly: { ils: 700, eur: 200 },
-    regularWithSupport: { ils: 1420, eur: 408 },
-    program: { ils: 1180, eur: 340 },
-  },
-  {
-    id: "g-math-45-2",
-    labelKey: "pricing.formats.x45x2",
-    subjectOnly: { ils: 1120, eur: 320 },
-    regularWithSupport: { ils: 2560, eur: 736 },
-    program: { ils: 2080, eur: 600 },
-  },
-  {
-    id: "g-math-60-2",
-    labelKey: "pricing.formats.x60x2",
-    subjectOnly: { ils: 1400, eur: 400 },
-    regularWithSupport: { ils: 2840, eur: 816 },
-    program: { ils: 2360, eur: 680 },
-  },
-];
-
-/** Neuropsychologist per-lesson rates. */
-export const neuroRates = {
-  outside45: { ils: 165, eur: 47 },
-  outside60: { ils: 220, eur: 63 },
-  inProgram45: { ils: 135, eur: 39 },
-  inProgram60: { ils: 180, eur: 52 },
+export type TriplePackageRow = {
+  id: string;
+  languages: number;
+  math: number;
+  neuro: number;
+  separate: number;
+  package: number;
+  discount: number;
 };
 
-export const neuroLanguageRows: ProgramRow[] = [
+/** Language lessons — Israel: 30 / 45 / 60 min. */
+export const languageDurationRates: DurationRateRow[] = [
   {
-    id: "n-lang-45-1",
-    labelKey: "pricing.formats.x45x1",
-    subjectOnly: { ils: 460, eur: 132 },
-    regularWithSupport: { ils: 1120, eur: 320 },
-    program: { ils: 1000, eur: 288 },
+    id: "lang-30",
+    labelKey: "pricing.durations.min30",
+    noteKey: "pricing.languages.note30",
+    one: 75,
+    four: 300,
+    eight: 600,
   },
   {
-    id: "n-lang-60-1",
-    labelKey: "pricing.formats.x60x1",
-    subjectOnly: { ils: 600, eur: 172 },
-    regularWithSupport: { ils: 1480, eur: 424 },
-    program: { ils: 1320, eur: 380 },
+    id: "lang-45",
+    labelKey: "pricing.durations.min45",
+    one: 115,
+    four: 460,
+    eight: 920,
   },
   {
-    id: "n-lang-45-2",
-    labelKey: "pricing.formats.x45x2",
-    subjectOnly: { ils: 920, eur: 264 },
-    regularWithSupport: { ils: 2240, eur: 640 },
-    program: { ils: 2000, eur: 576 },
-  },
-  {
-    id: "n-lang-60-2",
-    labelKey: "pricing.formats.x60x2",
-    subjectOnly: { ils: 1200, eur: 344 },
-    regularWithSupport: { ils: 2960, eur: 848 },
-    program: { ils: 2640, eur: 760 },
+    id: "lang-60",
+    labelKey: "pricing.durations.min60",
+    one: 150,
+    four: 600,
+    eight: 1200,
   },
 ];
 
-export const neuroMathRows: ProgramRow[] = [
+/** Intensive: 3 language lessons / week → 12 / month. */
+export const intensiveLanguageRows: CompareRow[] = [
   {
-    id: "n-math-45-1",
-    labelKey: "pricing.formats.x45x1",
-    subjectOnly: { ils: 560, eur: 160 },
-    regularWithSupport: { ils: 1220, eur: 348 },
-    program: { ils: 1100, eur: 316 },
+    id: "int-45",
+    labelKey: "pricing.durations.min45",
+    regular: 1380,
+    package: 1300,
   },
   {
-    id: "n-math-60-1",
-    labelKey: "pricing.formats.x60x1",
-    subjectOnly: { ils: 700, eur: 200 },
-    regularWithSupport: { ils: 1580, eur: 452 },
-    program: { ils: 1420, eur: 408 },
-  },
-  {
-    id: "n-math-45-2",
-    labelKey: "pricing.formats.x45x2",
-    subjectOnly: { ils: 1120, eur: 320 },
-    regularWithSupport: { ils: 2440, eur: 696 },
-    program: { ils: 2200, eur: 632 },
-  },
-  {
-    id: "n-math-60-2",
-    labelKey: "pricing.formats.x60x2",
-    subjectOnly: { ils: 1400, eur: 400 },
-    regularWithSupport: { ils: 3160, eur: 904 },
-    program: { ils: 2840, eur: 816 },
+    id: "int-60",
+    labelKey: "pricing.durations.min60",
+    regular: 1800,
+    package: 1700,
   },
 ];
 
-/** Multi-subject packages — ILS only. */
-export const packageTwoLanguages: PackageRow[] = [
-  { id: "p2l-45-1", labelKey: "pricing.packageFormats.x45x1", regular: 920, package: 870 },
-  { id: "p2l-60-1", labelKey: "pricing.packageFormats.x60x1", regular: 1200, package: 1150 },
-  { id: "p2l-45-2", labelKey: "pricing.packageFormats.x45x2", regular: 1840, package: 1740 },
-  { id: "p2l-60-2", labelKey: "pricing.packageFormats.x60x2", regular: 2400, package: 2300 },
+export const mathBaseRates = {
+  min45: 140,
+  min60: 175,
+};
+
+export const languageBaseRates = {
+  min45: 115,
+  min60: 150,
+};
+
+export const neuroBaseRates = {
+  min45: 150,
+  min60: 200,
+};
+
+/** Languages + math packages. Label is e.g. "1+1" via translation with params. */
+export const languageMath45: CompareRow[] = [
+  { id: "lm45-1-1", labelKey: "1+1", regular: 1020, package: 1020, discount: 0 },
+  { id: "lm45-1-2", labelKey: "1+2", regular: 1580, package: 1500, discount: 80 },
+  { id: "lm45-2-1", labelKey: "2+1", regular: 1480, package: 1400, discount: 80 },
+  { id: "lm45-1-3", labelKey: "1+3", regular: 2140, package: 2050, discount: 90 },
+  { id: "lm45-2-2", labelKey: "2+2", regular: 2040, package: 1950, discount: 90 },
+  { id: "lm45-3-1", labelKey: "3+1", regular: 1940, package: 1850, discount: 90 },
+  { id: "lm45-2-3", labelKey: "2+3", regular: 2600, package: 2500, discount: 100 },
+  { id: "lm45-3-2", labelKey: "3+2", regular: 2500, package: 2400, discount: 100 },
+  { id: "lm45-3-3", labelKey: "3+3", regular: 3060, package: 2910, discount: 150 },
 ];
 
-export const packageLanguageMath: PackageRow[] = [
-  { id: "plm-45-1", labelKey: "pricing.packageFormats.x45x1", regular: 1020, package: 970 },
-  { id: "plm-60-1", labelKey: "pricing.packageFormats.x60x1", regular: 1300, package: 1250 },
-  { id: "plm-45-2", labelKey: "pricing.packageFormats.x45x2", regular: 2040, package: 1940 },
-  { id: "plm-60-2", labelKey: "pricing.packageFormats.x60x2", regular: 2600, package: 2500 },
+export const languageMath60: CompareRow[] = [
+  { id: "lm60-1-1", labelKey: "1+1", regular: 1300, package: 1300, discount: 0 },
+  { id: "lm60-1-2", labelKey: "1+2", regular: 2000, package: 1910, discount: 90 },
+  { id: "lm60-2-1", labelKey: "2+1", regular: 1900, package: 1810, discount: 90 },
+  { id: "lm60-1-3", labelKey: "1+3", regular: 2700, package: 2600, discount: 100 },
+  { id: "lm60-2-2", labelKey: "2+2", regular: 2600, package: 2500, discount: 100 },
+  { id: "lm60-3-1", labelKey: "3+1", regular: 2500, package: 2400, discount: 100 },
+  { id: "lm60-2-3", labelKey: "2+3", regular: 3300, package: 3190, discount: 110 },
+  { id: "lm60-3-2", labelKey: "3+2", regular: 3200, package: 3090, discount: 110 },
+  { id: "lm60-3-3", labelKey: "3+3", regular: 3900, package: 3780, discount: 120 },
 ];
 
-export const packageThreeLanguages: PackageRow[] = [
-  { id: "p3l-45-1", labelKey: "pricing.packageFormats.x45x1", regular: 1380, package: 1280 },
-  { id: "p3l-60-1", labelKey: "pricing.packageFormats.x60x1", regular: 1800, package: 1700 },
-  { id: "p3l-45-2", labelKey: "pricing.packageFormats.x45x2", regular: 2760, package: 2560 },
-  { id: "p3l-60-2", labelKey: "pricing.packageFormats.x60x2", regular: 3600, package: 3400 },
+/** Individual neuro-pedagogical curatorship (program includes lessons + Anastasia). */
+export const curatorshipRows: CuratorshipRow[] = [
+  { id: "cur-30", labelKey: "pricing.durations.min30", once: 780, twice: 1560, thrice: 2340 },
+  { id: "cur-45", labelKey: "pricing.durations.min45", once: 940, twice: 1880, thrice: 2820 },
+  { id: "cur-60", labelKey: "pricing.durations.min60", once: 1080, twice: 2160, thrice: 3240 },
 ];
 
-export const packageTwoLanguagesMath: PackageRow[] = [
-  { id: "p2lm-45-1", labelKey: "pricing.packageFormats.x45x1", regular: 1480, package: 1380 },
-  { id: "p2lm-60-1", labelKey: "pricing.packageFormats.x60x1", regular: 1900, package: 1800 },
-  { id: "p2lm-45-2", labelKey: "pricing.packageFormats.x45x2", regular: 2960, package: 2760 },
-  { id: "p2lm-60-2", labelKey: "pricing.packageFormats.x60x2", regular: 3800, package: 3600 },
+/** Languages + neuropsychologist (neuro always 1×/week). */
+export const languageNeuro45: CompareRow[] = [
+  { id: "ln45-1", labelKey: "1", regular: 1060, package: 1000, discount: 60 },
+  { id: "ln45-2", labelKey: "2", regular: 1520, package: 1450, discount: 70 },
+  { id: "ln45-3", labelKey: "3", regular: 1980, package: 1900, discount: 80 },
+  { id: "ln45-4", labelKey: "4", regular: 2440, package: 2350, discount: 90 },
+  { id: "ln45-5", labelKey: "5", regular: 2900, package: 2800, discount: 100 },
+  { id: "ln45-6", labelKey: "6", regular: 3360, package: 3250, discount: 110 },
+];
+
+export const languageNeuro60: CompareRow[] = [
+  { id: "ln60-1", labelKey: "1", regular: 1400, package: 1320, discount: 80 },
+  { id: "ln60-2", labelKey: "2", regular: 2000, package: 1900, discount: 100 },
+  { id: "ln60-3", labelKey: "3", regular: 2600, package: 2480, discount: 120 },
+  { id: "ln60-4", labelKey: "4", regular: 3200, package: 3060, discount: 140 },
+  { id: "ln60-5", labelKey: "5", regular: 3800, package: 3640, discount: 160 },
+  { id: "ln60-6", labelKey: "6", regular: 4400, package: 4220, discount: 180 },
+];
+
+/** Languages + math + neuropsychologist. */
+export const languageMathNeuro45: TriplePackageRow[] = [
+  { id: "lmn45-1-1", languages: 1, math: 1, neuro: 1, separate: 1620, package: 1550, discount: 70 },
+  { id: "lmn45-1-2", languages: 1, math: 2, neuro: 1, separate: 2180, package: 2100, discount: 80 },
+  { id: "lmn45-2-1", languages: 2, math: 1, neuro: 1, separate: 2080, package: 2000, discount: 80 },
+  { id: "lmn45-2-2", languages: 2, math: 2, neuro: 1, separate: 2640, package: 2550, discount: 90 },
+  { id: "lmn45-3-1", languages: 3, math: 1, neuro: 1, separate: 2540, package: 2450, discount: 90 },
+  { id: "lmn45-3-2", languages: 3, math: 2, neuro: 1, separate: 3100, package: 3000, discount: 100 },
+  { id: "lmn45-4-1", languages: 4, math: 1, neuro: 1, separate: 3000, package: 2900, discount: 100 },
+  { id: "lmn45-4-2", languages: 4, math: 2, neuro: 1, separate: 3560, package: 3450, discount: 110 },
+];
+
+export const languageMathNeuro60: TriplePackageRow[] = [
+  { id: "lmn60-1-1", languages: 1, math: 1, neuro: 1, separate: 2100, package: 2000, discount: 100 },
+  { id: "lmn60-1-2", languages: 1, math: 2, neuro: 1, separate: 2800, package: 2700, discount: 100 },
+  { id: "lmn60-2-1", languages: 2, math: 1, neuro: 1, separate: 2700, package: 2600, discount: 100 },
+  { id: "lmn60-2-2", languages: 2, math: 2, neuro: 1, separate: 3400, package: 3250, discount: 150 },
+  { id: "lmn60-3-1", languages: 3, math: 1, neuro: 1, separate: 3300, package: 3150, discount: 150 },
+  { id: "lmn60-3-2", languages: 3, math: 2, neuro: 1, separate: 4000, package: 3850, discount: 150 },
+  { id: "lmn60-4-1", languages: 4, math: 1, neuro: 1, separate: 3900, package: 3750, discount: 150 },
+  { id: "lmn60-4-2", languages: 4, math: 2, neuro: 1, separate: 4600, package: 4400, discount: 200 },
 ];
