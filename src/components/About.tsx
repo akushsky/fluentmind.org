@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import logo from "../assets/logo_round_blue.jpg";
+import logo from "../assets/logo_round_blue.webp";
 import AnimatedSection from "./AnimatedSection";
 
 export default function About() {
@@ -18,6 +18,10 @@ export default function About() {
             <img
               src={logo}
               alt={t("brand.name")}
+              width={800}
+              height={800}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover rounded-3xl"
             />
           </div>

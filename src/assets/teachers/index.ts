@@ -1,9 +1,9 @@
-import anastasiaDulich from "./anastasia-dulich.jpg";
-import olgaBiryukova from "./olga-biryukova.jpg";
-import olgaBasova from "./olga-basova.jpg";
-import olgaPindrik from "./olga-pindrik.jpg";
-import anat from "./anat.jpg";
-import avraham from "./avraham.jpg";
+import anastasiaDulich from "./anastasia-dulich.webp";
+import olgaBiryukova from "./olga-biryukova.webp";
+import olgaBasova from "./olga-basova.webp";
+import olgaPindrik from "./olga-pindrik.webp";
+import anat from "./anat.webp";
+import avraham from "./avraham.webp";
 
 export const teacherPhotos: Record<string, string> = {
   "anastasia-dulich": anastasiaDulich,
