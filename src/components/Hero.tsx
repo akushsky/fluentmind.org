@@ -25,7 +25,13 @@ export default function Hero() {
           {t("hero.badge")}
         </motion.p>
         <motion.h1
-          {...fadeUp(0.1)}
+          {...(prefersReducedMotion
+            ? {}
+            : {
+                initial: { y: 20 },
+                animate: { y: 0 },
+                transition: { duration: 0.5, delay: 0.1 },
+              })}
           id="hero-title"
           className="text-3xl font-bold leading-tight text-primary md:text-4xl lg:text-5xl"
         >
