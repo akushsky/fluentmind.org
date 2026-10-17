@@ -12,10 +12,7 @@ export default function StickyMobileCTA() {
   const isHomePage = location.pathname === "/" || /^\/[a-z]{2}\/?$/.test(location.pathname);
 
   useEffect(() => {
-    if (!isHomePage) {
-      setVisible(false);
-      return;
-    }
+    if (!isHomePage) return;
 
     const contactSection = document.getElementById("contact");
     if (!contactSection) return;
@@ -42,12 +39,13 @@ export default function StickyMobileCTA() {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      setVisible(false);
     };
   }, [isHomePage]);
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && isHomePage && (
         <motion.div
           initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
