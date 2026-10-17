@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -35,17 +36,19 @@ function AppShell() {
 
 export function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/en/*" element={<LegacyLanguageRedirect />} />
-      <Route path="/he/*" element={<LegacyLanguageRedirect />} />
-      <Route path="/sr/*" element={<LegacyLanguageRedirect />} />
-      <Route path="/" element={<AppShell />}>
-        <Route index element={<Home />} />
-        <Route path="prices" element={<PricesPage />} />
-        <Route path="careers" element={<CareersPage />} />
-      </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+    <LazyMotion features={domAnimation} strict>
+      <Routes>
+        <Route path="/en/*" element={<LegacyLanguageRedirect />} />
+        <Route path="/he/*" element={<LegacyLanguageRedirect />} />
+        <Route path="/sr/*" element={<LegacyLanguageRedirect />} />
+        <Route path="/" element={<AppShell />}>
+          <Route index element={<Home />} />
+          <Route path="prices" element={<PricesPage />} />
+          <Route path="careers" element={<CareersPage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </LazyMotion>
   );
 }
 
