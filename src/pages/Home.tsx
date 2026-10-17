@@ -5,14 +5,10 @@ import Teachers from "../components/Teachers";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { PAGE_META } from "../seo/routes";
 
 export default function Home() {
-  usePageMeta({
-    title: "Fluent Mind - Онлайн-школа с нейроподходом",
-    description:
-      "Онлайн-школа иностранных языков с нейродружелюбным подходом. Индивидуальные занятия и мини-группы для детей, подростков и взрослых.",
-    path: "/",
-  });
+  usePageMeta(PAGE_META.home);
 
   return (
     <>

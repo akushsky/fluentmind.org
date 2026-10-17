@@ -1,12 +1,8 @@
 {
+  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     { "source": "/:lang(en|he|sr)", "destination": "/", "permanent": true },
     { "source": "/:lang(en|he|sr)/:path*", "destination": "/:path*", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/prices", "destination": "/index.html" },
-    { "source": "/careers", "destination": "/index.html" }
   ]
 }

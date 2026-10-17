@@ -1,12 +1,5 @@
 import { useEffect } from "react";
-
-const SITE_URL = "https://www.fluentmind.org";
-
-interface PageMeta {
-  title: string;
-  description: string;
-  path: string;
-}
+import { SITE_URL, type PageMeta } from "../seo/routes";
 
 function setMeta(selector: string, attr: string, key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);

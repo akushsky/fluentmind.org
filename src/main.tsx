@@ -4,9 +4,15 @@ import "./i18n";
 import FluentMindLanding from "./App.tsx";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+const root = document.getElementById("root") as HTMLElement;
+const app = (
   <React.StrictMode>
     <FluentMindLanding />
   </React.StrictMode>
 );
 
+if (root.hasChildNodes()) {
+  ReactDOM.hydrateRoot(root, app);
+} else {
+  ReactDOM.createRoot(root).render(app);
+}

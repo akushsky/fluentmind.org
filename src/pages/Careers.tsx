@@ -1,13 +1,9 @@
 import CareersSection from "../components/Careers";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { PAGE_META } from "../seo/routes";
 
 export default function CareersPage() {
-  usePageMeta({
-    title: "Карьера — Fluent Mind",
-    description:
-      "Вакансии в онлайн-школе Fluent Mind: присоединяйтесь к команде преподавателей и нейроспециалистов.",
-    path: "/careers",
-  });
+  usePageMeta(PAGE_META.careers);
 
   return <CareersSection />;
 }

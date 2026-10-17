@@ -1,13 +1,9 @@
 import PricesSection from "../components/Prices";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { PAGE_META } from "../seo/routes";
 
 export default function PricesPage() {
-  usePageMeta({
-    title: "Услуги и цены — Fluent Mind",
-    description:
-      "Стоимость индивидуальных занятий и пакетов в Fluent Mind: языки, математика, нейропсихолог. Цены в шекелях и евро.",
-    path: "/prices",
-  });
+  usePageMeta(PAGE_META.prices);
 
   return <PricesSection />;
 }

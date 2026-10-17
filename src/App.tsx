@@ -33,20 +33,26 @@ function AppShell() {
   return <Layout />;
 }
 
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/en/*" element={<LegacyLanguageRedirect />} />
+      <Route path="/he/*" element={<LegacyLanguageRedirect />} />
+      <Route path="/sr/*" element={<LegacyLanguageRedirect />} />
+      <Route path="/" element={<AppShell />}>
+        <Route index element={<Home />} />
+        <Route path="prices" element={<PricesPage />} />
+        <Route path="careers" element={<CareersPage />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
 export default function FluentMindLanding() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/en/*" element={<LegacyLanguageRedirect />} />
-        <Route path="/he/*" element={<LegacyLanguageRedirect />} />
-        <Route path="/sr/*" element={<LegacyLanguageRedirect />} />
-        <Route path="/" element={<AppShell />}>
-          <Route index element={<Home />} />
-          <Route path="prices" element={<PricesPage />} />
-          <Route path="careers" element={<CareersPage />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
